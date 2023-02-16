@@ -26,12 +26,28 @@
           <label class="text-white fw-bold" for="password">密碼：</label>
           <input
             class="form-control text-light rounded-0"
-            type="password"
+            :type="isVisible ? 'text' : 'password'"
             id="password"
             placeholder="請輸入密碼"
             required
             v-model="user.password"
           />
+          <div class="visible-icon">
+            <font-awesome-icon
+              icon="fa-solid fa-eye"
+              class="text-white"
+              style="cursor: pointer"
+              @click="changeEye"
+              v-if="!isVisible"
+            />
+            <font-awesome-icon
+              icon="fa-solid fa-eye-slash"
+              class="text-white"
+              style="cursor: pointer"
+              @click="changeEye"
+              v-else
+            />
+          </div>
         </div>
         <button class="btn btn-outline-light btn-lg fw-bold" type="submit">
           登入
@@ -54,6 +70,7 @@ export default {
         username: "",
         password: "",
       },
+      isVisible: false,
     };
   },
   methods: {
@@ -62,6 +79,9 @@ export default {
       this.axios.post(api, this.user).then((res) => {
         console.log(res);
       });
+    },
+    changeEye() {
+      this.isVisible ? (this.isVisible = false) : (this.isVisible = true);
     },
   },
 };
@@ -103,7 +123,7 @@ input::placeholder {
 }
 
 input:-webkit-autofill {
-  transition: 5000s;
+  transition: 999999s;
 }
 
 button.position-absolute {
@@ -117,5 +137,9 @@ button {
 
 button.btn-outline-light:hover {
   color: #390000;
+}
+
+.visible-icon {
+  width: 20px;
 }
 </style>
