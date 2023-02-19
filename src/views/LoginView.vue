@@ -1,17 +1,19 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center vh-100">
+  <div
+    class="home-bg cover-blur d-flex justify-content-center align-items-center vh-100"
+  >
     <div
-      class="login-box p-9 d-flex flex-column align-items-center bg-black bg-opacity-50 rounded-4 position-relative shadow"
+      class="p-9 d-flex flex-column align-items-center bg-black bg-opacity-50 rounded-4 position-relative shadow"
     >
       <img
         src="../assets/images/rebooklife-logo-white.png"
         alt="rebooklife-logo"
-        class="login-logo mb-8"
+        class="logo-s mb-8"
       />
-      <h3 class="fs-3 text-white fw-bold mb-11">登入管理系統</h3>
+      <h3 class="fs-3 text-light fw-bold mb-11">登入管理系統</h3>
       <form class="text-center" @submit.prevent="signIn">
         <div class="d-flex align-items-center border-bottom px-5 mb-7">
-          <label class="text-white fw-bold" for="email">帳號：</label>
+          <label class="text-light fw-bold" for="email">帳號：</label>
           <input
             class="form-control text-light rounded-0"
             type="email"
@@ -23,29 +25,23 @@
           />
         </div>
         <div class="d-flex align-items-center border-bottom px-5 mb-12">
-          <label class="text-white fw-bold" for="password">密碼：</label>
+          <label class="text-light fw-bold" for="password">密碼：</label>
           <input
             class="form-control text-light rounded-0"
-            :type="isVisible ? 'text' : 'password'"
+            :type="isPasswordVisible ? 'text' : 'password'"
             id="password"
             placeholder="請輸入密碼"
             required
             v-model="user.password"
           />
-          <div class="visible-icon">
+          <div class="icon-xs">
             <font-awesome-icon
-              icon="fa-solid fa-eye"
+              :icon="
+                ('fa-solid', isPasswordVisible ? 'fa-eye-slash' : 'fa-eye')
+              "
               class="text-white"
               style="cursor: pointer"
               @click="changeEye"
-              v-if="!isVisible"
-            />
-            <font-awesome-icon
-              icon="fa-solid fa-eye-slash"
-              class="text-white"
-              style="cursor: pointer"
-              @click="changeEye"
-              v-else
             />
           </div>
         </div>
@@ -55,14 +51,14 @@
       </form>
     </div>
   </div>
-  <button
-    class="btn btn-outline-light fw-light position-absolute letter-space-2"
-  >
+  <button class="btn btn-outline-light fw-light position-absolute">
     進入二搜書 →
   </button>
 </template>
 
 <script>
+import { api } from "../api/configs.js";
+
 export default {
   data() {
     return {
@@ -70,76 +66,50 @@ export default {
         username: "",
         password: "",
       },
-      isVisible: false,
+      isPasswordVisible: false,
     };
   },
   methods: {
     signIn() {
-      const api = `${import.meta.env.VITE_APP_API}admin/signin`;
-      this.axios.post(api, this.user).then((res) => {
+      const url = `${api}admin/signin`;
+      this.axios.post(url, this.user).then((res) => {
         console.log(res);
       });
     },
     changeEye() {
-      this.isVisible ? (this.isVisible = false) : (this.isVisible = true);
+      this.isPasswordVisible = !this.isPasswordVisible;
     },
   },
 };
 </script>
 
-<style>
-body::before {
-  backdrop-filter: blur(10px);
+<style lang="scss" scoped>
+.bg-black.bg-opacity-50 {
+  z-index: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 1.25rem;
+    left: 35px;
+    top: 35px;
+    clip-path: polygon(95% -1%, 101% -1%, 101% 101%, -1% 101%, -1% 96%);
+    z-index: -1;
+  }
 }
 
-#app {
-  min-height: 100vh;
-  position: relative;
+label.text-light {
+  min-width: 60px;
 }
 
-.login-box::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #ffffff;
-  border-radius: 1.25rem;
-  z-index: -1;
-  left: 35px;
-  top: 35px;
-  clip-path: polygon(94% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 95%);
-}
-
-.login-logo {
-  width: 100px;
-}
-
-label.text-white {
-  width: 100px;
-}
-
-input::placeholder {
-  letter-spacing: 0.2rem;
-}
-
-input:-webkit-autofill {
-  transition: 999999s;
+input.text-light {
+  max-width: 300px;
 }
 
 button.position-absolute {
   bottom: 50px;
   left: 60px;
-}
-
-button {
-  letter-spacing: 0.2rem;
-}
-
-button.btn-outline-light:hover {
-  color: #390000;
-}
-
-.visible-icon {
-  width: 20px;
 }
 </style>
