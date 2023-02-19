@@ -22,11 +22,19 @@ export default defineStore("User Api", {
     login(user) {
       const api = this.account("login");
       axios.post(api, user).then((res) => {
-        const { token, expired } = res.data;
-        console.log(res.data);
-        document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
-        console.log(router);
-        router.push({ name: "dashboard" });
+        if (res.data.success) {
+          const { token, expired } = res.data;
+          document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
+          router.push("/dashboard");
+        }
+      });
+    },
+    checkUser() {
+      const api = this.account("userCheck");
+      axios.post(api).then((res) => {
+        if (!res.data.success) {
+          router.push("/login");
+        }
       });
     },
   },
