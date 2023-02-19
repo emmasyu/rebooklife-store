@@ -11,7 +11,7 @@
         class="logo-s mb-8"
       />
       <h3 class="fs-3 text-light fw-bold mb-11">登入管理系統</h3>
-      <form class="text-center" @submit.prevent="signIn">
+      <form class="text-center" @submit.prevent="login(user)">
         <div class="d-flex align-items-center border-bottom px-5 mb-7">
           <label class="text-light fw-bold" for="email">帳號：</label>
           <input
@@ -57,7 +57,8 @@
 </template>
 
 <script>
-import { api } from "../api/configs.js";
+import { mapActions } from "pinia";
+import userApi from "../stores/userApi";
 
 export default {
   data() {
@@ -70,12 +71,7 @@ export default {
     };
   },
   methods: {
-    signIn() {
-      const url = `${api}admin/signin`;
-      this.axios.post(url, this.user).then((res) => {
-        console.log(res);
-      });
-    },
+    ...mapActions(userApi, ["login"]),
     changeEye() {
       this.isPasswordVisible = !this.isPasswordVisible;
     },

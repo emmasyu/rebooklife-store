@@ -14,8 +14,10 @@ import "./assets/scss/all.scss";
 library.add(faEye, faEyeSlash);
 
 const app = createApp(App);
+const pinia = createPinia();
+
 app.use(VueAxios, axios);
-app.use(createPinia());
+app.use(pinia);
 app.use(router);
 app.component("font-awesome-icon", FontAwesomeIcon);
 
