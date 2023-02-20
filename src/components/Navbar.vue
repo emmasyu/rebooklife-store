@@ -58,7 +58,14 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "pinia";
+import userApi from "../stores/userApi";
+
+export default {
+  methods: {
+    ...mapActions(userApi, ["logout"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

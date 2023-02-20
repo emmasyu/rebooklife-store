@@ -37,5 +37,13 @@ export default defineStore("User Api", {
         }
       });
     },
+    logout() {
+      const api = this.account("logout");
+      axios.post(api).then((res) => {
+        if (res.data.success) {
+          router.push("/login");
+        }
+      });
+    },
   },
 });
