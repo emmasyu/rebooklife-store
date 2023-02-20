@@ -8,7 +8,7 @@
       <img
         src="../assets/images/rebooklife-logo-white.png"
         alt="rebooklife-logo"
-        class="logo-s mb-8"
+        class="mb-8 w-8"
       />
       <h3 class="fs-3 text-light fw-bold mb-11">登入管理系統</h3>
       <form class="text-center" @submit.prevent="login(user)">
@@ -34,7 +34,7 @@
             required
             v-model="user.password"
           />
-          <div class="icon-xs">
+          <div class="w-2">
             <font-awesome-icon
               :icon="
                 ('fa-solid', isPasswordVisible ? 'fa-eye-slash' : 'fa-eye')
