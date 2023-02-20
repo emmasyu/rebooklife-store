@@ -1,10 +1,14 @@
-<template>Dashboard</template>
+<template><Navbar /></template>
 
 <script>
 import { mapActions } from "pinia";
 import userApi from "../stores/userApi";
+import Navbar from "../components/Navbar.vue";
 
 export default {
+  components: {
+    Navbar,
+  },
   methods: {
     ...mapActions(userApi, ["checkUser"]),
   },
