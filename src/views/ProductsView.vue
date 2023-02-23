@@ -17,8 +17,7 @@ export default {
     ...mapActions(adminApi, ["getProducts", "getProductsAll"]),
   },
   created() {
-    this.getProducts(2);
-    // this.getProductsAll();
+    this.getProducts();
   },
 };
 </script>

@@ -1,49 +1,46 @@
-import { api } from "../api/configs.js";
+import { userRequest, authToken } from "../api/configs.js";
 import { defineStore } from "pinia";
-import axios from "axios";
 import router from "../router";
 
 export default defineStore("User Api", {
   state: () => ({
-    account(item) {
-      if (item == "login") {
-        return `${api}admin/signin`;
-      }
-      if (item == "logout") {
-        return `${api}logout`;
-      }
-      if (item == "userCheck") {
-        return `${api}api/user/check`;
-      }
-    },
+    postUserLogin: (data) => userRequest.post("admin/signin", data),
+    postUserLogout: () => userRequest.post("logout"),
+    postUserCheck: () => userRequest.post("api/user/check"),
   }),
 
   actions: {
-    login(user) {
-      const api = this.account("login");
-      axios.post(api, user).then((res) => {
-        if (res.data.success) {
-          const { token, expired } = res.data;
+    async login(user) {
+      try {
+        const response = await this.postUserLogin(user);
+        if (response.data.success) {
+          const { token, expired } = response.data;
           document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
           router.push("/dashboard/products");
         }
-      });
+      } catch (error) {
+        console.log(error);
+      }
     },
-    checkUser() {
-      const api = this.account("userCheck");
-      axios.post(api).then((res) => {
-        if (!res.data.success) {
+    async checkUser() {
+      try {
+        const response = await this.postUserCheck();
+        if (!response.data.success) {
           router.push("/login");
         }
-      });
+      } catch (error) {
+        console.log(error);
+      }
     },
-    logout() {
-      const api = this.account("logout");
-      axios.post(api).then((res) => {
-        if (res.data.success) {
+    async logout() {
+      try {
+        const response = await this.postUserLogout();
+        if (response.data.success) {
           router.push("/login");
         }
-      });
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 });

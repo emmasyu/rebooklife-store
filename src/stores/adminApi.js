@@ -1,48 +1,35 @@
-import { api, path } from "../api/configs.js";
+import { adminRequest } from "../api/configs.js";
 import { defineStore } from "pinia";
-import axios from "axios";
 
 export default defineStore("Admin Api", {
   state: () => ({
-    product(item) {
-      if (item == "getProducts") {
-        return `${api}api/${path}/admin/products`;
-      }
-      if (item == "updateProduct") {
-        return `${api}api/${path}/admin/product`;
-      }
-    },
+    getProductsOnPage: (data) =>
+      adminRequest.get(`/admin/products?page=${data}`),
+    getProductsAll: () => adminRequest.get("/admin/products/all"),
+
     products: [],
   }),
 
   actions: {
-    getProducts(page = 1) {
-      const api = `${this.product("getProducts")}?page=${page}`;
-      axios
-        .get(api)
-        .then((res) => {
-          console.log(res.data.products);
-          if (res.data.success) {
-            this.products = res.data.products;
-          }
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    async getProducts(page = 1) {
+      try {
+        const response = await this.getProductsOnPage(page);
+        if (response.data.success) {
+          this.products = response.data.products;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
-    getProductsAll() {
-      const api = `${this.product("getProducts")}/all`;
-      axios
-        .get(api)
-        .then((res) => {
-          console.log(res.data.products);
-          if (res.data.success) {
-            this.products = res.data.products;
-          }
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    async getProductsAll() {
+      try {
+        const response = await this.getProductsAll();
+        if (response.data.success) {
+          this.products = response.data.products;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 });
