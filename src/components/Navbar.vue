@@ -14,33 +14,33 @@
     </div>
     <ul class="w-100 p-0 fs-5 mb-0">
       <li class="text-center mb-4">
-        <router-link class="d-block py-4" to="/dashboard"
+        <RouterLink class="d-block py-4" to="/dashboard/products"
           ><img
             class="mb-3 w-4"
             src="../assets/images/book-white.png"
             alt="products-list"
           />
-          <p class="text-light">產品列表</p></router-link
+          <p class="text-light">產品列表</p></RouterLink
         >
       </li>
       <li class="text-center mb-4">
-        <router-link class="d-block py-4" to="/dashboard/coupons"
+        <RouterLink class="d-block py-4" to="/dashboard/coupons"
           ><img
             class="mb-3 w-4"
             src="../assets/images/bookmark-white.png"
             alt="coupons-list"
           />
-          <p class="text-light">優惠券管理</p></router-link
+          <p class="text-light">優惠券管理</p></RouterLink
         >
       </li>
       <li class="text-center mb-4">
-        <router-link class="d-block py-4" to="/dashboard/orders"
+        <RouterLink class="d-block py-4" to="/dashboard/orders"
           ><img
             class="mb-3 w-4"
             src="../assets/images/order-white.png"
             alt="orders-list"
           />
-          <p class="text-light">訂單狀況</p></router-link
+          <p class="text-light">訂單狀況</p></RouterLink
         >
       </li>
       <li class="text-center">

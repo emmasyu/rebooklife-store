@@ -18,6 +18,20 @@ const router = createRouter({
       path: "/dashboard",
       name: "dashboard",
       component: () => import("../views/DashboardView.vue"),
+      children: [
+        {
+          path: "products",
+          component: () => import("../views/ProductsView.vue"),
+        },
+        {
+          path: "coupons",
+          component: () => import("../views/CouponsView.vue"),
+        },
+        {
+          path: "orders",
+          component: () => import("../views/OrdersView.vue"),
+        },
+      ],
     },
   ],
 });

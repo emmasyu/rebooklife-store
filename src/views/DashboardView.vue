@@ -1,4 +1,9 @@
-<template><Navbar /></template>
+<template>
+  <div class="d-flex">
+    <Navbar />
+    <RouterView />
+  </div>
+</template>
 
 <script>
 import { mapActions } from "pinia";

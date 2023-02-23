@@ -25,7 +25,7 @@ export default defineStore("User Api", {
         if (res.data.success) {
           const { token, expired } = res.data;
           document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
-          router.push("/dashboard");
+          router.push("/dashboard/products");
         }
       });
     },
