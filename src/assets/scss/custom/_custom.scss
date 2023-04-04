@@ -1,0 +1,12 @@
+// base
+@import "./custom/typography";
+// components
+@import "./custom/scrollbar";
+// layout
+@import "./custom/forms";
+// pages
+@import "./custom/home";
+
+#app {
+  position: relative;
+}

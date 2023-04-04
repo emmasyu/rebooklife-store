@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="d-flex flex-column justify-content-between align-items-center py-8 bg-primary w-10 vh-100"
+    class="d-flex flex-column justify-content-between align-items-center flex-shrink-0 py-8 bg-primary w-10 vh-100"
   >
     <div class="text-center">
       <img
@@ -58,12 +58,20 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import userApi from "../stores/userApi";
-
+import { postUserLogout } from "../api";
 export default {
   methods: {
-    ...mapActions(userApi, ["logout"]),
+    async logout() {
+      try {
+        const response = await postUserLogout();
+        console.log("postUserLogout", response);
+        if (response.data.success) {
+          this.$router.push("/login");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 </script>

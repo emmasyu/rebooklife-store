@@ -1,21 +1,30 @@
 <template>
   <div class="d-flex">
-    <Navbar />
+    <Sidebar />
     <RouterView />
   </div>
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import userApi from "../stores/userApi";
-import Navbar from "../components/Navbar.vue";
+import Sidebar from "../components/Sidebar.vue";
+import { postUserCheck } from "../api";
 
 export default {
   components: {
-    Navbar,
+    Sidebar,
   },
   methods: {
-    ...mapActions(userApi, ["checkUser"]),
+    async checkUser() {
+      try {
+        const response = await postUserCheck();
+        console.log("postUserCheck", response);
+        if (!response.data.success) {
+          this.$router.push("/login");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   created() {
     this.checkUser();

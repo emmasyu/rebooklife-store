@@ -1,21 +1,11 @@
-@import "./helpers/variables";
+@import "./custom/variables";
 
-// Configuration
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
+@import "./plugins/bootstrap/configuration";
 
-@import "./helpers/utilities";
+@import "./custom/utilities";
 
-// Layout & components
-@import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
+@import "./plugins/bootstrap/layout_components";
 
-// Utilities
-@import "bootstrap/scss/utilities/api";
+@import "./plugins/bootstrap/utilities_api";
 
-@import "./custom";
+@import "./custom/custom";

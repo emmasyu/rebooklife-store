@@ -23,7 +23,21 @@ $utilities: map-merge(
         10: 10.3rem,
         11: 12.5rem,
         12: 15.625rem,
-        13: 25rem,
+        13: 18.75rem,
+        14: 25rem,
+      ),
+    ),
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+        0: 0,
+        11: 12.5rem,
       ),
     ),
   )

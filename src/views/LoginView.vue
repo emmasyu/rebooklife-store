@@ -21,7 +21,7 @@
             placeholder="請輸入信箱"
             required
             autofocus
-            v-model="user.username"
+            v-model.trim="user.username"
           />
         </div>
         <div class="d-flex align-items-center border-bottom px-5 mb-12">
@@ -32,7 +32,7 @@
             id="password"
             placeholder="請輸入密碼"
             required
-            v-model="user.password"
+            v-model.trim="user.password"
           />
           <div class="w-2">
             <font-awesome-icon
@@ -57,8 +57,7 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import userApi from "../stores/userApi";
+import { postUserLogin } from "../api";
 
 export default {
   data() {
@@ -71,7 +70,21 @@ export default {
     };
   },
   methods: {
-    ...mapActions(userApi, ["login"]),
+    async login(user) {
+      try {
+        const response = await postUserLogin(user);
+        console.log("postUserLogin", response);
+        if (response.data.success) {
+          const { token, expired } = response.data;
+          document.cookie = `reBookToken=${token}; expires=${new Date(
+            expired
+          )}`;
+          this.$router.push("/dashboard/products");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     changeEye() {
       this.isPasswordVisible = !this.isPasswordVisible;
     },

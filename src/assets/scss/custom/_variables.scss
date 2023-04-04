@@ -72,6 +72,11 @@ $font-sizes: (
   6: 0.75rem,
 );
 
+// Tables
+$table-cell-padding-y: 1.5rem;
+$table-border-color: $primary;
+$table-cell-vertical-align: center;
+
 // Buttons + Forms
 $input-btn-padding-y: 1rem;
 $input-btn-padding-x: 2rem;
@@ -90,3 +95,34 @@ $input-border-color: transparent;
 $input-focus-border-color: transparent;
 $input-focus-box-shadow: 0;
 $input-placeholder-color: $gray;
+
+$form-select-padding-y: 0.75rem;
+$form-select-padding-x: 0.75rem;
+$form-select-font-size: 1.25rem;
+$form-select-bg-position: right 0.75rem center;
+$form-select-bg-size: 20px 20px;
+$form-select-border-color: $primary;
+$form-select-border-radius: 0;
+$form-select-focus-width: 3px;
+
+$form-select-padding-y-sm: 0.5rem;
+$form-select-border-radius-sm: 0;
+
+$modal-footer-margin-between: 0;
+$modal-header-border-color: $primary;
+$modal-footer-bg: $primary;
+$modal-sm: 280px;
+$modal-lg: 520px;
+$modal-xl: 1033px;
+
+$btn-close-color: $primary;
+$btn-close-opacity: 1;
+
+// Pagination
+$pagination-border-radius: 0;
+$pagination-border-color: $primary;
+$pagination-focus-color: white;
+$pagination-focus-bg: $primary;
+$pagination-hover-color: white;
+$pagination-hover-bg: $primary;
+$pagination-focus-box-shadow: 0;
