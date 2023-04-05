@@ -15,7 +15,9 @@
             class="modal-title fs-5 text-primary w-100 text-center fw-bold"
             id="deleteModalLabel"
           >
-            刪除商品
+            {{
+              tempProduct ? "刪除商品" : tempCoupon ? "刪除優惠券" : "刪除訂單"
+            }}
           </h5>
           <button
             type="button"
@@ -26,13 +28,14 @@
         </div>
         <div class="modal-body text-center px-8 py-7">
           <img
+            v-if="tempItem.imageUrl"
             class="rounded-2 w-9 shadow mb-4"
-            :src="tempProduct.imageUrl"
-            :alt="tempProduct.title"
+            :src="tempItem.imageUrl"
+            :alt="tempItem.title"
           />
           <p>是否刪除</p>
           <p class="py-2">
-            <strong class="text-danger">{{ tempProduct.title }} ?</strong>
+            <strong class="text-danger">{{ tempItem.title }} ?</strong>
           </p>
           <p>(刪除後將無法恢復)</p>
         </div>
@@ -54,7 +57,12 @@
 import modalMixin from "./mixins/modalMixin";
 
 export default {
-  props: ["tempProduct"],
+  props: ["tempProduct", "tempCoupon"],
   mixins: [modalMixin],
+  computed: {
+    tempItem() {
+      return this.tempProduct || this.tempCoupon || this.tempOrder;
+    },
+  },
 };
 </script>
