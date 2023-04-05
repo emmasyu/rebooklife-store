@@ -199,7 +199,7 @@
                     >
                     <input
                       class="form-control rounded-0 p-0"
-                      type="text"
+                      type="number"
                       id="ISBN"
                       placeholder="請輸入ISBN"
                       required
@@ -233,7 +233,7 @@
                     >
                     <input
                       class="form-control rounded-0 p-0"
-                      type="text"
+                      type="number"
                       id="publication_year"
                       placeholder="請輸入出版年份"
                       required
@@ -250,7 +250,7 @@
                     >
                     <input
                       class="form-control rounded-0 p-0"
-                      type="text"
+                      type="number"
                       id="qty"
                       placeholder="請輸入產品數量"
                       required
@@ -282,7 +282,7 @@
                     >
                     <input
                       class="form-control rounded-0 p-0"
-                      type="text"
+                      type="number"
                       id="origin_price"
                       placeholder="請輸入產品原價"
                       required
@@ -297,7 +297,7 @@
                     >
                     <input
                       class="form-control rounded-0 p-0"
-                      type="text"
+                      type="number"
                       id="price"
                       placeholder="請輸入產品售價"
                       required
@@ -415,7 +415,7 @@ export default {
   },
   watch: {
     tempProduct() {
-      this.productForm = this.tempProduct;
+      this.productForm = { ...this.tempProduct };
     },
     "productForm.category": function (newCategory, oldCategory) {
       if (oldCategory && newCategory !== oldCategory) {

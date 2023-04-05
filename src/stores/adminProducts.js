@@ -58,6 +58,7 @@ export default defineStore("admin product", {
           this.products = response.data.products;
           this.pagination = response.data.pagination;
         }
+        useStateStore.changeLoadingState(false);
       } catch (error) {
         console.log(error);
       }

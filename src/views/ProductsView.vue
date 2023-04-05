@@ -51,8 +51,10 @@
             <td>{{ item.category }} / {{ item.subcategory }}</td>
             <td>{{ item.title }}</td>
             <td class="text-center">{{ item.qty }}</td>
-            <td class="text-end">${{ item.origin_price }}</td>
-            <td class="text-end">${{ item.price }}</td>
+            <td class="text-end">
+              ${{ thousandSeparator(item.origin_price) }}
+            </td>
+            <td class="text-end">${{ thousandSeparator(item.price) }}</td>
             <td class="text-center">
               <font-awesome-icon
                 icon="fa-solid fa-pen-to-square"
@@ -95,7 +97,7 @@ import ProductModal from "../components/ProductModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
 import LoadingOverlay from "@/components/LoadingOverlay.vue";
-import { deleteProduct } from "../api/admin";
+import thousandSeparator from "../filters/currency.js";
 
 export default {
   components: {
@@ -165,6 +167,7 @@ export default {
       "putUpdateProduct",
       "deleteOneProduct",
     ]),
+    thousandSeparator,
     openProductModal(isNewProduct, item) {
       if (isNewProduct) {
         this.tempProduct = { unit: "本" };
