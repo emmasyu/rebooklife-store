@@ -1,5 +1,5 @@
 <template>
-  <teleport to="#app">
+  <teleport to="body">
     <div
       v-if="isLoading"
       class="bg-black text-light p-2 position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
