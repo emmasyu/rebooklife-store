@@ -35,7 +35,13 @@
           />
           <p>是否刪除</p>
           <p class="py-2">
-            <strong class="text-danger">{{ tempItem.title }} ?</strong>
+            <strong class="text-danger"
+              >{{
+                tempItem.title ||
+                `${tempItem.user ? tempItem.user.email : "全部"}訂單`
+              }}
+              ?</strong
+            >
           </p>
           <p>(刪除後將無法恢復)</p>
         </div>
@@ -57,7 +63,7 @@
 import modalMixin from "./mixins/modalMixin";
 
 export default {
-  props: ["tempProduct", "tempCoupon"],
+  props: ["tempProduct", "tempCoupon", "tempOrder"],
   mixins: [modalMixin],
   computed: {
     tempItem() {
