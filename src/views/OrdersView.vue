@@ -146,15 +146,15 @@ export default {
       this.tempOrder = { ...item };
       this.$refs.deleteModal.showModal();
     },
-    updateOrder(item) {
-      this.putUpdateOrder(item);
+    async updateOrder(item) {
+      await this.putUpdateOrder(item);
       this.$refs.orderModal.hideModal();
     },
-    deleteOrder() {
+    async deleteOrder() {
       if (this.tempOrder.user) {
-        this.deleteOneOrder(this.tempOrder);
+        await this.deleteOneOrder(this.tempOrder);
       } else {
-        this.deleteAllPayOrders();
+        await this.deleteAllPayOrders();
       }
       this.$refs.deleteModal.hideModal();
     },

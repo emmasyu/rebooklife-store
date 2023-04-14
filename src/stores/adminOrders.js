@@ -40,7 +40,7 @@ export default defineStore("admin order", {
           data: item,
         });
         console.log("updateOrder", response);
-        this.getOrders();
+        await this.getOrders();
       } catch (error) {
         console.log(error);
       }
@@ -51,7 +51,7 @@ export default defineStore("admin order", {
       try {
         const response = await deleteOrder(item.id);
         console.log("deleteOrder", response);
-        this.getOrders();
+        await this.getOrders();
       } catch (error) {
         console.log(error);
       }
@@ -62,7 +62,7 @@ export default defineStore("admin order", {
       try {
         const response = await deleteAllOrders();
         console.log("deleteAllOrders", response);
-        this.getOrders();
+        await this.getOrders();
       } catch (error) {
         console.log(error);
       }
