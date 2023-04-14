@@ -1,5 +1,4 @@
 <template>
-  <LoadingOverlay />
   <div class="w-100 p-8">
     <div class="d-flex justify-content-end align-items-center mb-7">
       <p>
@@ -107,7 +106,6 @@ import useAdminOrdersStore from "../stores/adminOrders.js";
 import OrderModal from "../components/OrderModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
-import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import { convertTimeToLocaleDate } from "../filters/date.js";
 import thousandSeparator from "../filters/currency.js";
 
@@ -116,7 +114,6 @@ export default {
     OrderModal,
     DeleteModal,
     Pagination,
-    LoadingOverlay,
   },
   data() {
     return {

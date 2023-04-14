@@ -58,10 +58,17 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "pinia";
+import useStatedStore from "../stores/states.js";
 import { postUserLogout } from "../api";
 export default {
+  computed: {
+    ...mapState(useStatedStore, ["isLoading"]),
+  },
   methods: {
+    ...mapActions(useStatedStore, ["changeLoadingState"]),
     async logout() {
+      this.changeLoadingState(true, "登出系統中");
       try {
         const response = await postUserLogout();
         console.log("postUserLogout", response);
@@ -71,6 +78,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
+      this.changeLoadingState(false);
     },
   },
 };

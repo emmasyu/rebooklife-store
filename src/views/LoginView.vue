@@ -57,6 +57,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "pinia";
+import useStatedStore from "../stores/states.js";
 import { postUserLogin } from "../api";
 
 export default {
@@ -69,8 +71,13 @@ export default {
       isPasswordVisible: false,
     };
   },
+  computed: {
+    ...mapState(useStatedStore, ["isLoading"]),
+  },
   methods: {
+    ...mapActions(useStatedStore, ["changeLoadingState"]),
     async login(user) {
+      this.changeLoadingState(true, "登錄中");
       try {
         const response = await postUserLogin(user);
         console.log("postUserLogin", response);
@@ -84,6 +91,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
+      this.changeLoadingState(false);
     },
     changeEye() {
       this.isPasswordVisible = !this.isPasswordVisible;

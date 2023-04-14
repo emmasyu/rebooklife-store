@@ -1,5 +1,4 @@
 <template>
-  <LoadingOverlay />
   <div class="w-100 p-8">
     <div class="d-flex justify-content-between align-items-center mb-7">
       <select
@@ -95,7 +94,6 @@ import useAdminProductsStore from "../stores/adminProducts.js";
 import ProductModal from "../components/ProductModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
-import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import thousandSeparator from "../filters/currency.js";
 
 export default {
@@ -103,7 +101,6 @@ export default {
     ProductModal,
     DeleteModal,
     Pagination,
-    LoadingOverlay,
   },
   data() {
     return {

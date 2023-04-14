@@ -1,5 +1,4 @@
 <template>
-  <LoadingOverlay />
   <div class="w-100 p-8">
     <div class="d-flex justify-content-end align-items-center mb-7">
       <p>
@@ -81,7 +80,6 @@ import useAdminCouponsStore from "../stores/adminCoupons.js";
 import CouponModal from "../components/CouponModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
-import LoadingOverlay from "@/components/LoadingOverlay.vue";
 import { convertTimeToLocaleDate } from "../filters/date.js";
 
 export default {
@@ -89,7 +87,6 @@ export default {
     CouponModal,
     DeleteModal,
     Pagination,
-    LoadingOverlay,
   },
   data() {
     return {

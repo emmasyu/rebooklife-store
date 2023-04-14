@@ -22,16 +22,10 @@ import { mapState } from "pinia";
 import useStateStore from "../stores/states";
 
 export default {
-  data() {
-    return {
-      bounceLetter: "資料更新中，請稍後...",
-    };
-  },
   computed: {
-    ...mapState(useStateStore, ["isLoading"]),
+    ...mapState(useStateStore, ["isLoading", "loadingBounceLetter"]),
     bounceLetterArray() {
-      let bounceLetterArray = this.bounceLetter.split("");
-      return bounceLetterArray;
+      return this.loadingBounceLetter.split("");
     },
   },
 };
