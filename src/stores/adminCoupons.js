@@ -14,13 +14,11 @@ export default defineStore("admin coupon", {
 
   getters: {
     couponsCategory() {
-      let resultCategory = [];
-      this.coupons.forEach((item) => {
-        if (!resultCategory.some((category) => category === item.category)) {
-          resultCategory.push(item.category);
-        }
-      });
-      return resultCategory;
+      return this.coupons.reduce(
+        (all, curr) =>
+          !all.includes(curr.category) ? [...all, curr.category] : all,
+        []
+      );
     },
   },
 
@@ -34,10 +32,10 @@ export default defineStore("admin coupon", {
           this.coupons = response.data.coupons;
           this.pagination = response.data.pagination;
         }
-        useStateStore.changeLoadingState(false);
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async postNewCoupon(item) {
       useStateStore.changeLoadingState(true);
@@ -45,10 +43,11 @@ export default defineStore("admin coupon", {
       try {
         const response = await postCoupon({ data: item });
         console.log("updateCoupon", response);
-        this.getCoupons();
+        await this.getCoupons();
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async putUpdateCoupon(item) {
       useStateStore.changeLoadingState(true);
@@ -57,20 +56,22 @@ export default defineStore("admin coupon", {
           data: item,
         });
         console.log("updateCoupon", response);
-        this.getCoupons();
+        await this.getCoupons();
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async deleteOneCoupon(item) {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteCoupon(item.id);
         console.log("deleteCoupon", response);
-        this.getCoupons();
+        await this.getCoupons();
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
   },
 });

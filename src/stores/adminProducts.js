@@ -15,36 +15,21 @@ const {
 export default defineStore("admin product", {
   state: () => ({
     products: [],
-    productsAll: [],
     pagination: {},
+    productsAll: [],
   }),
 
   getters: {
     productsCategory() {
-      let resultCategory = [];
-      Object.values(this.productsAll).forEach((item) => {
-        if (!resultCategory.some((category) => category === item.category)) {
-          resultCategory.push(item.category);
-        }
-      });
-      return resultCategory;
-    },
-    productsSubcategory() {
-      let resultSubcategory = {};
-      Object.values(this.productsAll).forEach((item) => {
-        if (resultSubcategory[item.category]) {
-          if (
-            !resultSubcategory[item.category].some(
-              (subcategory) => subcategory === item.subcategory
-            )
-          ) {
-            resultSubcategory[item.category].push(item.subcategory);
-          }
+      return this.productsAll.reduce((all, curr) => {
+        if (all[curr.category]) {
+          if (!all[curr.category].includes(curr.subcategory))
+            all[curr.category].push(curr.subcategory);
         } else {
-          resultSubcategory[item.category] = [item.subcategory];
+          all[curr.category] = [curr.subcategory];
         }
-      });
-      return resultSubcategory;
+        return all;
+      }, {});
     },
   },
 
@@ -58,10 +43,10 @@ export default defineStore("admin product", {
           this.products = response.data.products;
           this.pagination = response.data.pagination;
         }
-        useStateStore.changeLoadingState(false);
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async getProductsAll() {
       useStateStore.changeLoadingState(true);
@@ -71,10 +56,10 @@ export default defineStore("admin product", {
         if (response.data.success) {
           this.productsAll = Object.values(response.data.products);
         }
-        useStateStore.changeLoadingState(false);
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async postNewProduct(item) {
       useStateStore.changeLoadingState(true);
@@ -82,10 +67,11 @@ export default defineStore("admin product", {
       try {
         const response = await postProduct({ data: item });
         console.log("updateProduct", response);
-        this.getProductsAll();
+        await this.getProductsAll();
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async putUpdateProduct(item) {
       useStateStore.changeLoadingState(true);
@@ -94,20 +80,22 @@ export default defineStore("admin product", {
           data: item,
         });
         console.log("updateProduct", response);
-        this.getProductsAll();
+        await this.getProductsAll();
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
     async deleteOneProduct(item) {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteProduct(item.id);
         console.log("deleteProduct", response);
-        this.getProductsAll();
+        await this.getProductsAll();
       } catch (error) {
         console.log(error);
       }
+      useStateStore.changeLoadingState(false);
     },
   },
 });

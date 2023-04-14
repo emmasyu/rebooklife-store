@@ -128,16 +128,16 @@ export default {
       this.tempCoupon = item;
       this.$refs.deleteModal.showModal();
     },
-    updateCoupon(item) {
+    async updateCoupon(item) {
       if (this.isNewCoupon) {
-        this.postNewCoupon(item);
+        await this.postNewCoupon(item);
       } else {
-        this.putUpdateCoupon(item);
+        await this.putUpdateCoupon(item);
       }
       this.$refs.couponModal.hideModal();
     },
-    deleteCoupon() {
-      this.deleteOneCoupon(this.tempCoupon);
+    async deleteCoupon() {
+      await this.deleteOneCoupon(this.tempCoupon);
       this.$refs.deleteModal.hideModal();
     },
     switchPage(page) {

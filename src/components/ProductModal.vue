@@ -104,7 +104,7 @@
                         class="list-group position-absolute end-0 w-10"
                       >
                         <a
-                          v-for="item in category"
+                          v-for="item in Object.keys(category)"
                           href="#"
                           class="list-group-item list-group-item-action text-center"
                           :class="{ active: productForm.category === item }"
@@ -142,7 +142,7 @@
                       >
                         <a
                           v-if="productForm.category"
-                          v-for="item in subcategory[productForm.category]"
+                          v-for="item in category[productForm.category]"
                           href="#"
                           class="list-group-item list-group-item-action text-center"
                           :class="{ active: productForm.subcategory === item }"
@@ -402,7 +402,7 @@ import modalMixin from "./mixins/modalMixin";
 const { postUpload } = admin;
 
 export default {
-  props: ["tempProduct", "category", "subcategory", "isNewProduct"],
+  props: ["tempProduct", "category", "isNewProduct"],
 
   data() {
     return {

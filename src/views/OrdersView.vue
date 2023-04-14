@@ -33,7 +33,7 @@
                 class="form-check-input"
                 type="checkbox"
                 id="flexCheckDefault"
-                :checked="item.is_paid === 1"
+                :checked="item.is_paid"
                 disabled
               />
             </td>
@@ -50,7 +50,7 @@
                     'fas',
                     isOpenOrderProducts[index] ? 'caret-down' : 'caret-right',
                   ]"
-                  @click.stop="toggleOrderProducts(index)"
+                  @click="toggleOrderProducts(index)"
                 />
               </p>
               <ul
@@ -146,7 +146,7 @@ export default {
       this.$refs.orderModal.showModal();
     },
     openDeleteOrderModal(item) {
-      this.tempOrder = item;
+      this.tempOrder = { ...item };
       this.$refs.deleteModal.showModal();
     },
     updateOrder(item) {

@@ -8,7 +8,7 @@
         v-model="category"
       >
         <option selected :value="null">全部分類</option>
-        <option v-for="item in productsCategory" :value="item">
+        <option v-for="item in Object.keys(productsCategory)" :value="item">
           {{ item }}
         </option>
       </select>
@@ -38,7 +38,7 @@
           </tr>
         </thead>
         <tbody class="text-primary fs-5">
-          <tr v-for="item in filterProducts.pageProducts" :key="item.id">
+          <tr v-for="item in filterProductsOnPage" :key="item.id">
             <td class="text-center">
               <input
                 class="form-check-input"
@@ -72,14 +72,13 @@
         </tbody>
       </table>
     </div>
-    <Pagination :pages="filterProducts.pagination" @emit-pages="switchPage" />
+    <Pagination :pages="pagination" @emit-pages="switchPage" />
   </div>
 
   <ProductModal
     ref="productModal"
     :temp-product="tempProduct"
     :category="productsCategory"
-    :subcategory="productsSubcategory"
     :isNewProduct="isNewProduct"
     @update-product="updateProduct"
   />
@@ -112,50 +111,35 @@ export default {
       tempProduct: {},
       isNewProduct: false,
       filterCurrentPage: 1,
+      filterAllProducts: [],
     };
   },
   computed: {
-    ...mapState(useAdminProductsStore, [
-      "productsAll",
-      "productsCategory",
-      "productsSubcategory",
-      "pagination",
-    ]),
-    filterProducts() {
-      let products;
-      if (this.category === null) {
-        products = [...this.productsAll];
-      } else {
-        products = this.productsAll.filter(
-          (item) => item.category === this.category
-        );
-      }
-      let pageProducts = [];
-      products.reverse();
-      products.forEach((item, index) => {
-        if (
+    ...mapState(useAdminProductsStore, ["productsAll", "productsCategory"]),
+    filterProductsOnPage() {
+      this.filterAllProducts = (
+        this.category === null
+          ? [...this.productsAll]
+          : this.productsAll.filter((item) => item.category === this.category)
+      ).reverse();
+      return this.filterAllProducts.filter(
+        (item, index) =>
           index >= 10 * this.filterCurrentPage - 10 &&
           index < 10 * this.filterCurrentPage
-        ) {
-          pageProducts.push(item);
-        }
-      });
-      let pagination = {
-        total_pages: Math.ceil(products.length / 10),
+      );
+    },
+    pagination() {
+      return {
+        total_pages: Math.ceil(this.filterAllProducts.length / 10),
         current_page: this.filterCurrentPage,
         has_pre: this.filterCurrentPage > 1,
-        has_next: this.filterCurrentPage < Math.ceil(products.length / 10),
-      };
-      return {
-        pageProducts,
-        pagination,
+        has_next:
+          this.filterCurrentPage <
+          Math.ceil(this.filterAllProducts.length / 10),
       };
     },
   },
   watch: {
-    productsAll() {
-      this.filterCurrentPage = 1;
-    },
     category() {
       this.filterCurrentPage = 1;
     },
@@ -181,16 +165,18 @@ export default {
       this.tempProduct = item;
       this.$refs.deleteModal.showModal();
     },
-    updateProduct(item) {
+    async updateProduct(item) {
       if (this.isNewProduct) {
-        this.postNewProduct(item);
+        await this.postNewProduct(item);
       } else {
-        this.putUpdateProduct(item);
+        await this.putUpdateProduct(item);
       }
+      this.filterCurrentPage = 1;
       this.$refs.productModal.hideModal();
     },
-    deleteProduct() {
-      this.deleteOneProduct(this.tempProduct);
+    async deleteProduct() {
+      await this.deleteOneProduct(this.tempProduct);
+      this.filterCurrentPage = 1;
       this.$refs.deleteModal.hideModal();
     },
     switchPage(page) {
