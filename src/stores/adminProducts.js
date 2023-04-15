@@ -67,7 +67,12 @@ export default defineStore("admin product", {
       try {
         const response = await postProduct({ data: item });
         console.log("updateProduct", response);
-        await this.getProductsAll();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已新增產品");
+          await this.getProductsAll();
+        } else {
+          useStateStore.pushToastMessage("錯誤：新增產品失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -80,7 +85,12 @@ export default defineStore("admin product", {
           data: item,
         });
         console.log("updateProduct", response);
-        await this.getProductsAll();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已更新產品");
+          await this.getProductsAll();
+        } else {
+          useStateStore.pushToastMessage("錯誤：更新產品失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -91,7 +101,13 @@ export default defineStore("admin product", {
       try {
         const response = await deleteProduct(item.id);
         console.log("deleteProduct", response);
-        await this.getProductsAll();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已刪除產品");
+
+          await this.getProductsAll();
+        } else {
+          useStateStore.pushToastMessage("錯誤：刪除產品失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }

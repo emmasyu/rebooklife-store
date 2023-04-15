@@ -43,7 +43,12 @@ export default defineStore("admin coupon", {
       try {
         const response = await postCoupon({ data: item });
         console.log("updateCoupon", response);
-        await this.getCoupons();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已新增優惠券");
+          await this.getCoupons();
+        } else {
+          useStateStore.pushToastMessage("錯誤：新增優惠券失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -56,7 +61,12 @@ export default defineStore("admin coupon", {
           data: item,
         });
         console.log("updateCoupon", response);
-        await this.getCoupons();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已更新優惠券");
+          await this.getCoupons();
+        } else {
+          useStateStore.pushToastMessage("錯誤：更新優惠券失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -67,7 +77,12 @@ export default defineStore("admin coupon", {
       try {
         const response = await deleteCoupon(item.id);
         console.log("deleteCoupon", response);
-        await this.getCoupons();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已刪除優惠券");
+          await this.getCoupons();
+        } else {
+          useStateStore.pushToastMessage("錯誤：刪除優惠券失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }

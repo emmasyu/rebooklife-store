@@ -4,6 +4,7 @@ export default defineStore("states", {
   state: () => ({
     isLoading: false,
     loadingBounceLetter: "",
+    toastMessage: [],
   }),
   actions: {
     changeLoadingState(state, letter = "資料讀取中") {
@@ -15,6 +16,13 @@ export default defineStore("states", {
         this.isLoading = false;
         console.log("changeLoadingState", "false");
       }
+    },
+    pushToastMessage(title, data = { success: true }) {
+      this.toastMessage.push({
+        title,
+        style: data.success ? "success" : "danger",
+        content: data.message,
+      });
     },
   },
 });

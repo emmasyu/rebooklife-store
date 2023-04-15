@@ -40,7 +40,15 @@ export default defineStore("admin order", {
           data: item,
         });
         console.log("updateOrder", response);
-        await this.getOrders();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已更新訂單狀態");
+          await this.getOrders();
+        } else {
+          useStateStore.pushToastMessage(
+            "錯誤：更新訂單狀態失敗",
+            response.data
+          );
+        }
       } catch (error) {
         console.log(error);
       }
@@ -51,7 +59,12 @@ export default defineStore("admin order", {
       try {
         const response = await deleteOrder(item.id);
         console.log("deleteOrder", response);
-        await this.getOrders();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已刪除訂單");
+          await this.getOrders();
+        } else {
+          useStateStore.pushToastMessage("錯誤：刪除訂單失敗", response.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -62,7 +75,15 @@ export default defineStore("admin order", {
       try {
         const response = await deleteAllOrders();
         console.log("deleteAllOrders", response);
-        await this.getOrders();
+        if (response.data.success) {
+          useStateStore.pushToastMessage("成功：已刪除全部訂單");
+          await this.getOrders();
+        } else {
+          useStateStore.pushToastMessage(
+            "錯誤：刪除全部訂單失敗",
+            response.data
+          );
+        }
       } catch (error) {
         console.log(error);
       }
