@@ -1,4 +1,4 @@
-export default function thousandSeparator(num) {
+export function thousandSeparator(num) {
   const n = parseInt(num, 10);
   return `${n
     .toFixed(0)

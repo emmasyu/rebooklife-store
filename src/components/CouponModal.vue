@@ -183,7 +183,6 @@
 
 <script>
 import modalMixin from "./mixins/modalMixin";
-import { convertTimeToValue, convertTimeToISO } from "../filters/date.js";
 
 export default {
   props: ["tempCoupon", "couponsCategory", "isNewCoupon"],
@@ -197,10 +196,12 @@ export default {
   watch: {
     tempCoupon() {
       this.couponForm = { ...this.tempCoupon };
-      this.due_date = convertTimeToISO(this.tempCoupon.due_date);
+      this.due_date = this.$filters.convertTimeToISO(this.tempCoupon.due_date);
     },
     due_date() {
-      this.couponForm.due_date = convertTimeToValue(this.due_date);
+      this.couponForm.due_date = this.$filters.convertTimeToValue(
+        this.due_date
+      );
     },
   },
 

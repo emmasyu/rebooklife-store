@@ -51,9 +51,11 @@
             <td>{{ item.title }}</td>
             <td class="text-center">{{ item.qty }}</td>
             <td class="text-end">
-              ${{ thousandSeparator(item.origin_price) }}
+              ${{ $filters.thousandSeparator(item.origin_price) }}
             </td>
-            <td class="text-end">${{ thousandSeparator(item.price) }}</td>
+            <td class="text-end">
+              ${{ $filters.thousandSeparator(item.price) }}
+            </td>
             <td class="text-center">
               <font-awesome-icon
                 icon="fa-solid fa-pen-to-square"
@@ -94,7 +96,6 @@ import useAdminProductsStore from "../stores/adminProducts.js";
 import ProductModal from "../components/ProductModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
-import thousandSeparator from "../filters/currency.js";
 
 export default {
   components: {
@@ -148,7 +149,6 @@ export default {
       "putUpdateProduct",
       "deleteOneProduct",
     ]),
-    thousandSeparator,
     openProductModal(isNewProduct, item) {
       if (isNewProduct) {
         this.tempProduct = { unit: "本" };

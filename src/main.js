@@ -18,6 +18,7 @@ import {
 
 import App from "./App.vue";
 import router from "./router";
+import * as filters from "./filters";
 
 import "./assets/scss/all.scss";
 
@@ -35,6 +36,7 @@ library.add(
 
 const app = createApp(App);
 const pinia = createPinia();
+app.config.globalProperties.$filters = filters;
 
 app.use(VueAxios, axios);
 app.use(pinia);

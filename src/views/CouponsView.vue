@@ -36,7 +36,7 @@
                 disabled
               />
             </td>
-            <td>{{ convertTimeToLocaleDate(item.due_date) }}</td>
+            <td>{{ $filters.convertTimeToLocaleDate(item.due_date) }}</td>
             <td>{{ item.title }} {{ item.notes ? `/ ${item.notes}` : "" }}</td>
             <td class="text-center">{{ item.percent }}%</td>
             <td class="text-center">{{ item.code }}</td>
@@ -80,7 +80,6 @@ import useAdminCouponsStore from "../stores/adminCoupons.js";
 import CouponModal from "../components/CouponModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
-import { convertTimeToLocaleDate } from "../filters/date.js";
 
 export default {
   components: {
@@ -109,7 +108,6 @@ export default {
       "putUpdateCoupon",
       "deleteOneCoupon",
     ]),
-    convertTimeToLocaleDate,
     openCouponModal(isNewCoupon, item) {
       if (isNewCoupon) {
         this.tempCoupon = {

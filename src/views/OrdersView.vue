@@ -37,7 +37,7 @@
               />
             </td>
             <td class="text-center">
-              {{ convertTimeToLocaleDate(item.create_at) }}
+              {{ $filters.convertTimeToLocaleDate(item.create_at) }}
             </td>
             <td>
               <p>
@@ -66,7 +66,9 @@
                 </li>
               </ul>
             </td>
-            <td class="text-end">$ {{ thousandSeparator(item.total) }}</td>
+            <td class="text-end">
+              $ {{ $filters.thousandSeparator(item.total) }}
+            </td>
             <td class="text-center">{{ item.ship }}</td>
             <td class="text-center">
               <font-awesome-icon
@@ -106,8 +108,6 @@ import useAdminOrdersStore from "../stores/adminOrders.js";
 import OrderModal from "../components/OrderModal.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import Pagination from "@/components/Pagination.vue";
-import { convertTimeToLocaleDate } from "../filters/date.js";
-import thousandSeparator from "../filters/currency.js";
 
 export default {
   components: {
@@ -136,8 +136,6 @@ export default {
       "deleteOneOrder",
       "deleteAllPayOrders",
     ]),
-    convertTimeToLocaleDate,
-    thousandSeparator,
     openOrderModal(item) {
       this.tempOrder = { ...item };
       this.$refs.orderModal.showModal();

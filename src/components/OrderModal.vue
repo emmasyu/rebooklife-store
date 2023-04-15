@@ -34,7 +34,7 @@
               <tr>
                 <td class="fw-bold pe-5 pb-7">訂單日期</td>
                 <td class="pb-7">
-                  {{ convertTimeToLocaleDate(tempOrder.create_at) }}
+                  {{ $filters.convertTimeToLocaleDate(tempOrder.create_at) }}
                 </td>
               </tr>
               <tr>
@@ -44,7 +44,8 @@
               <tr>
                 <td class="fw-bold pe-5 pb-7">訂單金額</td>
                 <td class="pb-7">
-                  NT$ {{ thousandSeparator(tempOrder.total) }}
+                  NT$
+                  {{ $filters.thousandSeparator(tempOrder.total) }}
                 </td>
               </tr>
               <tr>
@@ -52,7 +53,9 @@
                 <td class="pb-7" :class="{ 'text-success': tempOrder.is_paid }">
                   {{ tempOrder.paid_by || "未付款"
                   }}<span v-if="tempOrder.paid_date"
-                    >({{ convertTimeToLocale(tempOrder.paid_date) }})</span
+                    >({{
+                      $filters.convertTimeToLocale(tempOrder.paid_date)
+                    }})</span
                   >
                 </td>
               </tr>
@@ -103,7 +106,7 @@
                 <p class="ms-auto">
                   NT$
                   <span class="text-primary">{{
-                    thousandSeparator(item.final_total)
+                    $filters.thousandSeparator(item.final_total)
                   }}</span>
                 </p>
               </div>
@@ -135,11 +138,6 @@
 
 <script>
 import modalMixin from "./mixins/modalMixin";
-import {
-  convertTimeToLocale,
-  convertTimeToLocaleDate,
-} from "../filters/date.js";
-import thousandSeparator from "../filters/currency.js";
 
 export default {
   props: ["tempOrder"],
@@ -155,9 +153,6 @@ export default {
     },
   },
   methods: {
-    convertTimeToLocale,
-    convertTimeToLocaleDate,
-    thousandSeparator,
     updateOrder() {
       this.$emit("update-order", this.orderInfo);
     },
