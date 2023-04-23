@@ -1,0 +1,46 @@
+{
+  "navigation": [
+    {
+      "name": "about",
+      "bookmark": "#about",
+      "content": "故事",
+      "src": "../assets/images/openbook-white.png",
+      "decoration": "../assets/images/about-decoration-line.png"
+    },
+    {
+      "name": "FAQ",
+      "bookmark": "#FAQ",
+      "content": "想問",
+      "src": "../assets/images/FAQ-white.png",
+      "decoration": "../assets/images/FAQ-decoration-line.png"
+    },
+    {
+      "name": "contact",
+      "bookmark": "#contact",
+      "content": "聯絡",
+      "src": "../assets/images/location-white.png",
+      "decoration": "../assets/images/contact-decoration-line.png"
+    },
+    {
+      "name": "bookstore",
+      "bookmark": "/bookstore",
+      "content": "找書",
+      "src": "../assets/images/book-white.png",
+      "decoration": "../assets/images/bookstore-decoration-line.png"
+    },
+    {
+      "name": "bookmark",
+      "bookmark": "/bookmark",
+      "content": "收藏",
+      "src": "../assets/images/bookmark-white.png",
+      "decoration": "../assets/images/bookmark-decoration-line.png"
+    },
+    {
+      "name": "shopping cart",
+      "bookmark": "/shopping-cart",
+      "content": "包包",
+      "src": "../assets/images/shopping-cart-white.png",
+      "decoration": "../assets/images/shopping-cart-decoration-line.png"
+    }
+  ]
+}

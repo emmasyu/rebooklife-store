@@ -14,6 +14,8 @@ import {
   faCaretRight,
   faBackwardFast,
   faForwardFast,
+  faBars,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 import App from "./App.vue";
@@ -31,7 +33,9 @@ library.add(
   faCaretLeft,
   faCaretRight,
   faBackwardFast,
-  faForwardFast
+  faForwardFast,
+  faBars,
+  faXmark
 );
 
 const app = createApp(App);

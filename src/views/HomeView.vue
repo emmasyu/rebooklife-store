@@ -1,11 +1,27 @@
 <template>
-  <div class="home-bg cover-blur vh-100"></div>
+  <div class="home-bg cover-blur">
+    <AdCouponCol />
+    <Navbar />
+    <HomePage />
+  </div>
 </template>
 
-<script></script>
+<script>
+import Navbar from "../components/Navbar.vue";
+import HomePage from "../components/HomePage.vue";
+import AdCouponCol from "../components/AdCouponCol.vue";
+
+export default {
+  components: {
+    Navbar,
+    HomePage,
+    AdCouponCol,
+  },
+};
+</script>
 
 <style scoped>
 .cover-blur::before {
-  backdrop-filter: inherit;
+  backdrop-filter: initial;
 }
 </style>

@@ -2,10 +2,12 @@ $utilities: map-merge(
   $utilities,
   (
     "width": (
+      responsive: true,
       property: width,
       class: w,
       values: (
         25: 25%,
+        33: 33.33%,
         50: 50%,
         75: 75%,
         100: 100%,
@@ -28,6 +30,7 @@ $utilities: map-merge(
       ),
     ),
     "height": (
+      responsive: true,
       property: height,
       class: h,
       values: (
@@ -39,6 +42,34 @@ $utilities: map-merge(
         0: 0,
         11: 12.5rem,
       ),
+    ),
+    "viewport-height": (
+      responsive: true,
+      property: height,
+      class: vh,
+      values: (
+        100: 100vh,
+      ),
+    ),
+    "object-fit": (
+      property: object-fit,
+      values: contain cover,
+    ),
+    "cursor": (
+      property: cursor,
+      values: pointer,
+    ),
+    "text-decoration": (
+      property: text-decoration,
+      state: hover,
+      values: none underline line-through,
+    ),
+    "font-size": (
+      responsive: true,
+      rfs: true,
+      property: font-size,
+      class: fs,
+      values: $font-sizes,
     ),
   )
 );
