@@ -15,21 +15,26 @@ const router = createRouter({
       component: () => import("../views/LoginView.vue"),
     },
     {
+      path: "/coupons",
+      name: "coupons",
+      component: () => import("../views/CouponsView.vue"),
+    },
+    {
       path: "/dashboard",
       name: "dashboard",
       component: () => import("../views/DashboardView.vue"),
       children: [
         {
           path: "products",
-          component: () => import("../views/ProductsView.vue"),
+          component: () => import("../views/AdminProductsView.vue"),
         },
         {
           path: "coupons",
-          component: () => import("../views/CouponsView.vue"),
+          component: () => import("../views/AdminCouponsView.vue"),
         },
         {
           path: "orders",
-          component: () => import("../views/OrdersView.vue"),
+          component: () => import("../views/AdminOrdersView.vue"),
         },
       ],
     },

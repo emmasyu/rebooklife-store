@@ -8,9 +8,7 @@
         src="../assets/images/rebooklife-logo-white.png"
         alt="rebooklife"
       />
-      <a class="btn btn-outline-light btn-sm px-3" href="/products"
-        >回到二搜書</a
-      >
+      <a class="btn btn-outline-light btn-sm px-3" href="/">回到二搜書</a>
     </div>
     <ul class="w-100 p-0 fs-5 mb-0">
       <li class="text-center mb-4">
