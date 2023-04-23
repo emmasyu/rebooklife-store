@@ -270,15 +270,16 @@ export default {
   },
   methods: {
     toggleCollapse() {
-      this.isExpandedFAQ = [];
-      Array.from(this.$refs.collapse.children).forEach((e) => {
-        Array.from(e.children).forEach((i) => {
-          console.dir(i.ariaExpanded);
-          if (i.ariaExpanded !== null) {
-            this.isExpandedFAQ.push(i.ariaExpanded);
-          }
-        });
-      });
+      this.isExpandedFAQ = Array.from(this.$refs.collapse.children).reduce(
+        (all, curr) => {
+          return [
+            ...all,
+            Array.from(curr.children).filter((i) => i.ariaExpanded !== null)[0]
+              .ariaExpanded,
+          ];
+        },
+        []
+      );
     },
   },
   mounted() {
@@ -307,17 +308,15 @@ export default {
 .v-leave-from {
   opacity: 1;
 }
-.typewriter:first-child {
+.typewriter {
   overflow: hidden;
   white-space: nowrap;
   animation: typewriter 2s steps(12, end) 1s 1 normal both,
     animated-cursor 600ms steps(12, end) 0s 5.5;
 }
 .typewriter:last-child {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typewriter 2s steps(12, end) 3s 1 normal both,
-    animated-cursor 600ms steps(12, end) 3s infinite;
+  animation-delay: 3s, 3s;
+  animation-iteration-count: 1, infinite;
 }
 
 @keyframes typewriter {
