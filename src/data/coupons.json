@@ -1,0 +1,34 @@
+{
+  "coupons": [
+    {
+      "category": "首購優惠",
+      "code": "ReBook1",
+      "id": "-NTiX6PdSHqvrXfCprPV",
+      "is_enabled": 1,
+      "notes": "憑手機號碼驗證",
+      "percent": 80,
+      "title": "首次購買 二搜書",
+      "color": "red"
+    },
+    {
+      "category": "開張優惠",
+      "code": "ReBook2023",
+      "id": "-NTiXTvQyICv1kqKRgau",
+      "is_enabled": 1,
+      "notes": "2023/01/01~2023/12/31",
+      "percent": 90,
+      "title": "二搜書 開張第一年優惠",
+      "color": "blue"
+    },
+    {
+      "category": "綠色優惠",
+      "code": "ReBookVIP",
+      "id": "-NTiXgovQGxEqE1ibz-t",
+      "is_enabled": 1,
+      "notes": "往回推算365天",
+      "percent": 80,
+      "title": "年度累積消費 二搜書達2000",
+      "color": "green"
+    }
+  ]
+}

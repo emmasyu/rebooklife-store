@@ -55,7 +55,7 @@
           </a>
           <a
             class="nav-link link-light d-lg-none fs-5 mb-5 mt-10 float-horizon text-decoration-underline"
-            href="#coupon"
+            href="/coupons"
             >前往領取優惠券</a
           >
         </div>

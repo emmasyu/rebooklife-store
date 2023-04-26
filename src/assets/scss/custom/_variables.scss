@@ -9,6 +9,9 @@ $danger: #a35858;
 $content: #3f3f3f;
 $gray: #828282;
 $light: #f8f9fa;
+$red: #780000;
+$blue: #11225d;
+$green: #00785b;
 
 $theme-colors: (
   "primary": $primary,
@@ -21,6 +24,9 @@ $theme-colors: (
   "highlight": $highlight,
   "content": $content,
   "gray": $gray,
+  "red": $red,
+  "blue": $blue,
+  "green": $green,
 );
 
 $color-contrast-dark: $primary;
