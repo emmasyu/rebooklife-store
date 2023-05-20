@@ -32,13 +32,13 @@
         <div
           class="navbar-nav flex-lg-column align-items-center justify-content-center h-lg-auto fs-4"
         >
-          <a
+          <RouterLink
             v-for="item in navigationData"
             :key="item.name"
             class="nav-link d-flex align-items-center d-lg-block text-center position-relative"
             :class="{ active: $route.href === `/${item.bookmark}` }"
             aria-current="page"
-            :href="item.bookmark"
+            :to="item.bookmark"
             @click="hideCollapse()"
           >
             <img
@@ -48,11 +48,11 @@
             />
             <img :src="newUrl(item.decoration)" class="d-lg-none mx-2" />
             <p class="toggle-text">{{ item.content }}</p>
-          </a>
-          <a
+          </RouterLink>
+          <RouterLink
             class="nav-link link-light d-lg-none fs-5 mb-5 mt-10 float-horizon text-decoration-underline"
-            href="/coupons"
-            >前往領取優惠券</a
+            to="/coupons"
+            >前往領取優惠券</RouterLink
           >
         </div>
       </div>

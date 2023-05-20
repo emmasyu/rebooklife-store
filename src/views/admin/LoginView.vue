@@ -51,7 +51,10 @@
       </form>
     </div>
   </div>
-  <button class="btn btn-outline-light fw-light position-absolute">
+  <button
+    class="btn btn-outline-light fw-light position-absolute bottom-0 mb-8 ms-9"
+    @click.prevent="$router.push('/')"
+  >
     進入二搜書 →
   </button>
 </template>
@@ -123,10 +126,5 @@ label.text-light {
 
 input.text-light {
   max-width: 300px;
-}
-
-button.position-absolute {
-  bottom: 50px;
-  left: 60px;
 }
 </style>

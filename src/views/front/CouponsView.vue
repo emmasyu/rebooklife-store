@@ -3,13 +3,13 @@
     <div
       class="position-relative text-white w-100 min-vh-100 py-8 px-3 bg-black bg-opacity-50"
     >
-      <a class="d-block text-center mb-9" href="/">
+      <RouterLink class="d-block text-center mb-9" to="/">
         <img
           src="@/assets/images/rebooklife-logo-white.png"
           alt="rebooklife"
           class="w-7"
         />
-      </a>
+      </RouterLink>
       <div class="d-flex align-items-center justify-content-center mb-4">
         <img
           src="@/assets/images/search-white.png"
@@ -31,12 +31,12 @@
         </div>
       </div>
       <div class="text-center mb-8">
-        <a
+        <RouterLink
           class="btn btn-outline-light btn-sm px-7 fs-sm-5 py-sm-4 rounded mt-8"
-          href="/bookstore"
+          to="/bookstore"
         >
           進入二搜書店 →
-        </a>
+        </RouterLink>
       </div>
     </div>
   </div>
