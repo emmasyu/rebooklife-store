@@ -33,7 +33,7 @@
           class="navbar-nav flex-lg-column align-items-center justify-content-center h-lg-auto fs-4"
         >
           <a
-            v-for="(item, index) in navigationData"
+            v-for="item in navigationData"
             :key="item.name"
             class="nav-link d-flex align-items-center d-lg-block text-center position-relative"
             :class="{ active: $route.href === `/${item.bookmark}` }"
@@ -41,16 +41,12 @@
             :href="item.bookmark"
             @click="hideCollapse()"
           >
-            <!--:class="{ active: $route.href === `/${item.bookmark}`}-->
             <img
               class="toggle-image"
-              :src="navigationPhoto(index).src"
+              :src="newUrl(item.src)"
               :alt="item.name"
             />
-            <img
-              :src="navigationPhoto(index).decoration"
-              class="d-lg-none mx-2"
-            />
+            <img :src="newUrl(item.decoration)" class="d-lg-none mx-2" />
             <p class="toggle-text">{{ item.content }}</p>
           </a>
           <a
@@ -92,15 +88,9 @@ export default {
         ).href;
       }
     },
-    navigationPhoto() {
-      return (index) => {
-        return {
-          src: new URL(this.navigationData[index].src, import.meta.url).href,
-          decoration: new URL(
-            this.navigationData[index].decoration,
-            import.meta.url
-          ).href,
-        };
+    newUrl() {
+      return (url) => {
+        return new URL(url, import.meta.url).href;
       };
     },
   },

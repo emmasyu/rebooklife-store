@@ -22,12 +22,11 @@ export default defineStore("admin product", {
   getters: {
     productsCategory() {
       return this.productsAll.reduce((all, curr) => {
-        if (all[curr.category]) {
-          if (!all[curr.category].includes(curr.subcategory))
-            all[curr.category].push(curr.subcategory);
-        } else {
+        if (!all[curr.category]) {
           all[curr.category] = [curr.subcategory];
         }
+        if (!all[curr.category].includes(curr.subcategory))
+          all[curr.category].push(curr.subcategory);
         return all;
       }, {});
     },
