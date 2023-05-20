@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
-import HomePage from "../components/HomePage.vue";
-import AdCouponCol from "../components/AdCouponCol.vue";
+import Navbar from "@/components/front/Navbar.vue";
+import HomePage from "@/components/front/HomePage.vue";
+import AdCouponCol from "@/components/front/AdCouponCol.vue";
 
 export default {
   components: {

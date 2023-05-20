@@ -6,7 +6,7 @@
       class="p-9 d-flex flex-column align-items-center bg-black bg-opacity-50 rounded-4 position-relative shadow"
     >
       <img
-        src="../assets/images/rebooklife-logo-white.png"
+        src="@/assets/images/rebooklife-logo-white.png"
         alt="rebooklife-logo"
         class="mb-8 w-8"
       />
@@ -58,8 +58,8 @@
 
 <script>
 import { mapState, mapActions } from "pinia";
-import useStatedStore from "../stores/states.js";
-import { postUserLogin } from "../api";
+import useStatedStore from "@/stores/states.js";
+import { postUserLogin } from "@/api";
 
 export default {
   data() {

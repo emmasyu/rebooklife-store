@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,34 +6,34 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("../views/front/HomeView.vue"),
     },
     {
       path: "/login",
       name: "login",
-      component: () => import("../views/LoginView.vue"),
+      component: () => import("../views/admin/LoginView.vue"),
     },
     {
       path: "/coupons",
       name: "coupons",
-      component: () => import("../views/CouponsView.vue"),
+      component: () => import("../views/front/CouponsView.vue"),
     },
     {
       path: "/dashboard",
       name: "dashboard",
-      component: () => import("../views/DashboardView.vue"),
+      component: () => import("../views/admin/DashboardView.vue"),
       children: [
         {
           path: "products",
-          component: () => import("../views/AdminProductsView.vue"),
+          component: () => import("../views/admin/AdminProductsView.vue"),
         },
         {
           path: "coupons",
-          component: () => import("../views/AdminCouponsView.vue"),
+          component: () => import("../views/admin/AdminCouponsView.vue"),
         },
         {
           path: "orders",
-          component: () => import("../views/AdminOrdersView.vue"),
+          component: () => import("../views/admin/AdminOrdersView.vue"),
         },
       ],
     },

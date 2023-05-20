@@ -76,10 +76,10 @@
 
 <script>
 import { mapState, mapActions } from "pinia";
-import useAdminCouponsStore from "../stores/adminCoupons.js";
-import CouponModal from "../components/CouponModal.vue";
-import DeleteModal from "../components/DeleteModal.vue";
-import Pagination from "@/components/Pagination.vue";
+import useAdminCouponsStore from "@/stores/adminCoupons.js";
+import CouponModal from "@/components/admin/CouponModal.vue";
+import DeleteModal from "@/components/admin/DeleteModal.vue";
+import Pagination from "@/components/global/Pagination.vue";
 
 export default {
   components: {

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Sidebar from "../components/Sidebar.vue";
-import { postUserCheck } from "../api";
+import Sidebar from "@/components/admin/Sidebar.vue";
+import { postUserCheck } from "@/api";
 
 export default {
   components: {

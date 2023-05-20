@@ -1,6 +1,6 @@
 <template>
   <div class="position-relative mx-auto">
-    <img src="../assets/images/coupon-bg.png" alt="coupon" class="w-100" />
+    <img src="@/assets/images/coupon-bg.png" alt="coupon" class="w-100" />
     <div
       class="w-8 w-lg-10 h-8 h-lg-10 clippath position-absolute top-0"
       :class="`bg-${coupon.color}`"
@@ -27,7 +27,7 @@
 
 <script>
 import { mapActions } from "pinia";
-import useStateStore from "../stores/states.js";
+import useStateStore from "@/stores/states.js";
 export default {
   props: ["coupon"],
   computed: {

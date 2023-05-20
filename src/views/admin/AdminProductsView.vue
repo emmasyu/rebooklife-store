@@ -92,10 +92,10 @@
 
 <script>
 import { mapState, mapActions } from "pinia";
-import useAdminProductsStore from "../stores/adminProducts.js";
-import ProductModal from "../components/ProductModal.vue";
-import DeleteModal from "../components/DeleteModal.vue";
-import Pagination from "@/components/Pagination.vue";
+import useAdminProductsStore from "@/stores/adminProducts.js";
+import ProductModal from "@/components/admin/ProductModal.vue";
+import DeleteModal from "@/components/admin/DeleteModal.vue";
+import Pagination from "@/components/global/Pagination.vue";
 
 export default {
   components: {

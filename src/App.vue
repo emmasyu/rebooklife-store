@@ -6,8 +6,8 @@
 
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import LoadingOverlay from "@/components/LoadingOverlay.vue";
-import Toasts from "@/components/Toasts.vue";
+import LoadingOverlay from "@/components/global/LoadingOverlay.vue";
+import Toasts from "@/components/global/Toasts.vue";
 
 export default {
   components: {

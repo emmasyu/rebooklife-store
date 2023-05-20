@@ -5,14 +5,14 @@
     >
       <a class="d-block text-center mb-9" href="/">
         <img
-          src="../assets/images/rebooklife-logo-white.png"
+          src="@/assets/images/rebooklife-logo-white.png"
           alt="rebooklife"
           class="w-7"
         />
       </a>
       <div class="d-flex align-items-center justify-content-center mb-4">
         <img
-          src="../assets/images/search-white.png"
+          src="@/assets/images/search-white.png"
           alt="coupons"
           class="w-2 me-3"
         />
@@ -42,9 +42,9 @@
   </div>
 </template>
 <script>
-import swiperMixin from "../components/mixins/swiperMixin.js";
-import CouponCard from "../components/CouponCard.vue";
-import couponsData from "../data/coupons.json";
+import swiperMixin from "@/components/mixins/swiperMixin.js";
+import CouponCard from "@/components/front/CouponCard.vue";
+import couponsData from "@/data/coupons.json";
 export default {
   components: { CouponCard },
   data() {

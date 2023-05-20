@@ -65,10 +65,10 @@
 </template>
 
 <script>
-import collapseMixin from "./mixins/collapseMixin";
+import collapseMixin from "../mixins/collapseMixin";
 import { useWindowSize } from "@vueuse/core";
 const { width } = useWindowSize();
-import navigationData from "../data/navgation.json";
+import navigationData from "@/data/navgation.json";
 
 export default {
   data() {
@@ -82,12 +82,12 @@ export default {
     logoPhoto() {
       if (this.windowInnerWidth < 992) {
         return new URL(
-          `../assets/images/rebooklife-logo-white.png`,
+          `@/assets/images/rebooklife-logo-white.png`,
           import.meta.url
         ).href;
       } else {
         return new URL(
-          `../assets/images/rebooklife-index-logo-white.png`,
+          `@/assets/images/rebooklife-index-logo-white.png`,
           import.meta.url
         ).href;
       }

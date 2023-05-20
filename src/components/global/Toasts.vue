@@ -8,15 +8,12 @@
 </template>
 
 <script>
-import ToastCard from "@/components/ToastCard.vue";
+import ToastCard from "./ToastCard.vue";
 import { mapState } from "pinia";
-import useStateStore from "../stores/states.js";
+import useStateStore from "@/stores/states.js";
 
 export default {
   components: { ToastCard },
-  data() {
-    return {};
-  },
   computed: {
     ...mapState(useStateStore, ["toastMessage"]),
   },

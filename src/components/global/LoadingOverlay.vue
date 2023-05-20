@@ -19,7 +19,7 @@
 
 <script>
 import { mapState } from "pinia";
-import useStateStore from "../stores/states";
+import useStateStore from "@/stores/states";
 
 export default {
   computed: {

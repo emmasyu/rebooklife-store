@@ -397,8 +397,8 @@
 </template>
 
 <script>
-import { admin } from "../api";
-import modalMixin from "./mixins/modalMixin";
+import { admin } from "@/api";
+import modalMixin from "../mixins/modalMixin";
 const { postUpload } = admin;
 
 export default {

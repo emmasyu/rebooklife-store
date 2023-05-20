@@ -20,19 +20,19 @@
     >
       <div class="d-flex align-items-center mb-4 mb-lg-8 align-self-start">
         <img
-          src="../assets/images/search-white.png"
+          src="@/assets/images/search-white.png"
           alt="about"
           class="w-2 mx-3"
         />
         <h2 class="fs-3 fw-bold">關於二搜書</h2>
-        <img src="../assets/images/about-decoration-line.png" class="ms-3" />
+        <img src="@/assets/images/about-decoration-line.png" class="ms-3" />
       </div>
       <div
         class="d-xl-flex flex-row-reverse justify-content-around align-items-center w-100"
       >
         <div class="pe-3 mb-8 w-xl-33">
           <img
-            src="../assets/images/book1-img-index.jpg"
+            src="@/assets/images/book1-img-index.jpg"
             alt="book"
             class="object-fit-cover w-100 h-11 h-xl-100 rounded rounded-xl-diagonal"
           />
@@ -59,19 +59,19 @@
     >
       <div class="d-flex align-items-center mb-4 mb-lg-8 align-self-start">
         <img
-          src="../assets/images/search-white.png"
+          src="@/assets/images/search-white.png"
           alt="FAG"
           class="w-2 mx-3"
         />
         <h2 class="fs-3 fw-bold">常見問題</h2>
-        <img src="../assets/images/FAQ-decoration-line.png" class="ms-3" />
+        <img src="@/assets/images/FAQ-decoration-line.png" class="ms-3" />
       </div>
       <div
         class="d-xl-flex flex-row-reverse justify-content-around align-items-center w-100"
       >
         <div class="pe-3 mb-8 w-xl-33">
           <img
-            src="../assets/images/book2-img-index.jpg"
+            src="@/assets/images/book2-img-index.jpg"
             alt="book"
             class="object-fit-cover w-100 h-11 h-xl-100 rounded rounded-xl-diagonal"
           />
@@ -207,12 +207,12 @@
     >
       <div class="d-flex align-items-center mb-4 mb-lg-8 align-self-start">
         <img
-          src="../assets/images/search-white.png"
+          src="@/assets/images/search-white.png"
           alt="contact"
           class="w-2 mx-3"
         />
         <h2 class="fs-3 fw-bold">聯絡二搜書</h2>
-        <img src="../assets/images/contact-decoration-line.png" class="ms-3" />
+        <img src="@/assets/images/contact-decoration-line.png" class="ms-3" />
       </div>
       <div class="d-xl-flex justify-content-around w-100">
         <div class="fs-6 fs-md-5 p-4 mb-9 w-xl-50 position-relative">
@@ -256,7 +256,7 @@
 </template>
 
 <script>
-import collapseMixin from "./mixins/collapseMixin.js";
+import collapseMixin from "../mixins/collapseMixin.js";
 import { useWindowScroll } from "@vueuse/core";
 const { y } = useWindowScroll();
 
@@ -384,7 +384,7 @@ export default {
 .mb-9:has(a[href="tel:"])::after {
   content: "";
   position: absolute;
-  background-image: url(../assets/images/contact-decoration-line2.png);
+  background-image: url(@/assets/images/contact-decoration-line2.png);
   background-position-x: right;
   background-size: contain;
   background-repeat: no-repeat;
