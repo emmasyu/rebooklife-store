@@ -1,17 +1,7 @@
 ::-webkit-scrollbar {
-  width: 5px;
+  display: none;
 }
-
-::-webkit-scrollbar-track {
-  background: $light;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $primary;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: $secondary;
+* {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
 }

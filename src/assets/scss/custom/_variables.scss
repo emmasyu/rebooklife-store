@@ -51,8 +51,18 @@ $spacers: (
   14: $spacer * 27.75,
 );
 
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+  4: $spacer * 1,
+  6: $spacer * 1.75,
+  7: $spacer * 2,
+  auto: auto,
+);
+
 // Body
-$body-bg: transparent;
+// $body-bg: white;
 
 // Link
 $link-decoration: none;
@@ -64,6 +74,10 @@ $paragraph-margin-bottom: 0rem;
 $border-radius: 0.625rem;
 $border-radius-lg: 1rem;
 $border-radius-xl: 1.25rem;
+
+$box-shadow: 0 0.5rem 0.75rem rgba($primary, 0.25);
+$box-shadow-sm: 0 0.3rem 0.25rem rgba($primary, 0.3);
+$box-shadow-lg: 0 1rem 3rem rgba($primary, 0.175);
 
 // Typography
 $font-family-sans-serif: "Noto Serif TC", sans-serif;
@@ -100,6 +114,7 @@ $input-btn-padding-x-lg: 6rem;
 $btn-border-radius-lg: $border-radius;
 
 // Forms
+$input-bg: transparent;
 $input-border-color: transparent;
 $input-focus-border-color: transparent;
 $input-focus-box-shadow: 0;
@@ -134,7 +149,11 @@ $modal-xl: 1033px;
 $btn-close-color: $primary;
 $btn-close-opacity: 1;
 
+// Breadcrumbs
+$breadcrumb-margin-bottom: 1.5rem;
+
 // Pagination
+$pagination-bg: transparent;
 $pagination-border-radius: 0;
 $pagination-border-color: $primary;
 $pagination-focus-color: white;
@@ -142,3 +161,9 @@ $pagination-focus-bg: $primary;
 $pagination-hover-color: white;
 $pagination-hover-bg: $primary;
 $pagination-focus-box-shadow: 0;
+$pagination-border-radius-sm: 0;
+
+$tooltip-font-size: $font-size-base;
+$tooltip-color: white;
+$tooltip-bg: $primary;
+$tooltip-padding-x: $spacer;

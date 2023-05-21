@@ -1,78 +1,306 @@
 $utilities: map-merge(
   $utilities,
   (
-    "width": (
+    "overflow-x":
+      map-merge(
+        map-get($utilities, "overflow-x"),
+        (
+          responsive: true,
+        )
+      ),
+    "display":
+      map-merge(
+        map-get($utilities, "display"),
+        (
+          values: inline inline-block block grid inline-grid table table-row
+            table-cell flex inline-flex none table-header-group table-row-group,
+        )
+      ),
+    "shadow": (
       responsive: true,
-      property: width,
-      class: w,
+      property: box-shadow,
+      class: shadow,
+      state: hover,
       values: (
-        25: 25%,
-        33: 33.33%,
-        50: 50%,
-        75: 75%,
-        100: 100%,
-        auto: auto,
-        0: 0,
-        1: 1rem,
-        2: 1.25rem,
-        3: 1.875rem,
-        4: 2.2rem,
-        5: 2.5rem,
-        6: 3.125rem,
-        7: 5.3rem,
-        8: 6.25rem,
-        9: 9.375rem,
-        10: 10.3rem,
-        11: 12.5rem,
-        12: 15.625rem,
-        13: 18.75rem,
-        14: 25rem,
+        null: $box-shadow,
+        small: $box-shadow-sm,
+        large: $box-shadow-lg,
+        none: none,
       ),
     ),
-    "height": (
+    "position":
+      map-merge(
+        map-get($utilities, "position"),
+        (
+          responsive: true,
+        )
+      ),
+    "top":
+      map-merge(
+        map-get($utilities, "top"),
+        (
+          responsive: true,
+        )
+      ),
+    "end":
+      map-merge(
+        map-get($utilities, "end"),
+        (
+          responsive: true,
+        )
+      ),
+    "border":
+      map-merge(
+        map-get($utilities, "border"),
+        (
+          responsive: true,
+        )
+      ),
+    "border-top":
+      map-merge(
+        map-get($utilities, "border-top"),
+        (
+          responsive: true,
+        )
+      ),
+    "border-bottom":
+      map-merge(
+        map-get($utilities, "border-bottom"),
+        (
+          responsive: true,
+        )
+      ),
+    "border-color":
+      map-merge(
+        map-get($utilities, "border-color"),
+        (
+          responsive: true,
+        )
+      ),
+    "border-width":
+      map-merge(
+        map-get($utilities, "border-width"),
+        (
+          responsive: true,
+        )
+      ),
+    "border-style": (
       responsive: true,
-      property: height,
-      class: h,
+      property: border-style,
+      class: border,
       values: (
-        25: 25%,
-        50: 50%,
-        75: 75%,
-        100: 100%,
-        auto: auto,
-        0: 0,
-        8: 6.25rem,
-        10: 10.3rem,
-        11: 12.5rem,
-        13: 18.75rem,
+        none,
+        dashed,
       ),
     ),
-    "viewport-height": (
+    "width":
+      map-merge(
+        map-get($utilities, "width"),
+        (
+          responsive: true,
+          state: hover,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "width"), "values"),
+              (
+                content: max-content,
+                0: 0,
+                1: 1rem,
+                2: 1.25rem,
+                3: 1.875rem,
+                4: 2.2rem,
+                5: 2.5rem,
+                6: 3.125rem,
+                7: 5.3rem,
+                8: 6.25rem,
+                9: 9.375rem,
+                10: 10.3rem,
+                11: 12.5rem,
+                12: 15.625rem,
+                13: 18.75rem,
+                14: 25rem,
+              )
+            ),
+        )
+      ),
+    "viewport-width":
+      map-merge(
+        map-get($utilities, "viewport-width"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "viewport-width"), "values"),
+              (
+                75: 75vw,
+                50: 50vw,
+              )
+            ),
+        )
+      ),
+    "min-width": (
       responsive: true,
-      property: height,
-      class: vh,
+      property: min-width,
+      class: min-w,
       values: (
-        100: 100vh,
+        content: fit-content,
       ),
     ),
-    "object-fit": (
-      property: object-fit,
-      values: contain cover,
+    "height":
+      map-merge(
+        map-get($utilities, "height"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "height"), "values"),
+              (
+                content: fit-content,
+                0: 0,
+                1: 1rem,
+                2: 1.25rem,
+                3: 1.875rem,
+                4: 2.2rem,
+                5: 2.5rem,
+                6: 3.125rem,
+                7: 5.3rem,
+                8: 6.25rem,
+                9: 9.375rem,
+                10: 10.3rem,
+                11: 12.5rem,
+                12: 15.625rem,
+                13: 18.75rem,
+                14: 25rem,
+              )
+            ),
+        )
+      ),
+    "viewport-height":
+      map-merge(
+        map-get($utilities, "viewport-height"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "viewport-height"), "values"),
+              (
+                90: 90vh,
+                75: 75vh,
+                50: 50vh,
+              )
+            ),
+        )
+      ),
+    "min-viewport-height":
+      map-merge(
+        map-get($utilities, "min-viewport-height"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "min-viewport-height"), "values"),
+              (
+                90: 90vh,
+                75: 75vh,
+                60: 60vh,
+              )
+            ),
+        )
+      ),
+    "max-viewport-height": (
+      property: max-height,
+      class: max-vh,
+      values: (
+        60: 60vh,
+      ),
     ),
+    "padding":
+      map-merge(
+        map-get($utilities, "padding"),
+        (
+          state: hover,
+        )
+      ),
+    "font-size":
+      map-merge(
+        map-get($utilities, "font-size"),
+        (
+          responsive: true,
+          state: "first-letter",
+        )
+      ),
+    "text-decoration":
+      map-merge(
+        map-get($utilities, "text-decoration"),
+        (
+          state: hover,
+        )
+      ),
+    "white-space":
+      map-merge(
+        map-get($utilities, "white-space"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "white-space"), "values"),
+              (
+                pre-line: pre-line,
+              )
+            ),
+        )
+      ),
+    "color":
+      map-merge(
+        map-get($utilities, "color"),
+        (
+          responsive: true,
+          state: hover,
+        )
+      ),
+    "background-color":
+      map-merge(
+        map-get($utilities, "background-color"),
+        (
+          responsive: true,
+          state: hover,
+        )
+      ),
+    "rounded":
+      map-merge(
+        map-get($utilities, "rounded"),
+        (
+          responsive: true,
+        )
+      ),
+    "z-index":
+      map-merge(
+        map-get($utilities, "z-index"),
+        (
+          responsive: true,
+        )
+      ),
     "cursor": (
       property: cursor,
       values: pointer,
     ),
-    "text-decoration": (
-      property: text-decoration,
-      state: hover,
-      values: none underline line-through,
+    "outline": (
+      property: outline,
+      values: none,
     ),
-    "font-size": (
-      responsive: true,
-      rfs: true,
-      property: font-size,
-      class: fs,
-      values: $font-sizes,
+    "list-style": (
+      property: list-style-type,
+      class: list,
+      values: (
+        disc,
+        none,
+      ),
+    ),
+    "resize": (
+      property: resize,
+      values: (
+        none,
+      ),
     ),
   )
 );
