@@ -1,8 +1,12 @@
 import { guest } from "../api";
 import { defineStore } from "pinia";
 import stateStore from "./states";
+import favoritesStore from "./favorites";
+import recentStore from "./recent";
 
 const useStateStore = stateStore();
+const useFavoritesStore = favoritesStore();
+const useRecentStore = recentStore();
 
 const { getProductsOnPage, getProductsAll, getProduct } = guest;
 
@@ -36,6 +40,39 @@ export default defineStore("product", {
     relatedProducts() {
       return (category) => {
         return this.productsAll.filter((item) => item.category === category);
+      };
+    },
+    randomProducts() {
+      const copyProductsAll = JSON.parse(JSON.stringify(this.productsAll));
+      return copyProductsAll.sort(() => Math.random() - 0.5);
+    },
+    favoriteProducts() {
+      return this.productsAll?.filter((book) =>
+        useFavoritesStore.favorites.map((item) => item.id).includes(book.id)
+      );
+    },
+    recentBooks() {
+      return useRecentStore.recent.reduce((all, curr) => {
+        const currentBook = this.productsAll?.filter(
+          (book) => book.id === curr
+        );
+        return [...all, ...currentBook];
+      }, []);
+    },
+    productsOfFeatured() {
+      return {
+        popular: {
+          name: "熱門書籍",
+          books: this.randomProducts.slice(0, 10),
+        },
+        recommend: {
+          name: "推薦書籍",
+          books: this.favoriteProducts,
+        },
+        recent: {
+          name: "最近瀏覽",
+          books: this.recentBooks,
+        },
       };
     },
   },

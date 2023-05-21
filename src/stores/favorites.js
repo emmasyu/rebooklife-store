@@ -9,7 +9,7 @@ export default defineStore("favorites", {
   getters: {
     isFavorite() {
       return (id) => {
-        return this.favorites?.includes(id);
+        return this.favorites?.some((item) => item.id === id);
       };
     },
   },
@@ -25,18 +25,18 @@ export default defineStore("favorites", {
       localStorage.setItem("favorites", JSON.stringify(this.favorites));
     },
     addFavorite(id) {
-      this.favorites?.push(id);
+      this.favorites?.push({ id, stars: null });
       this.setFavorite();
       useStateStore.pushToastMessage("成功：已加入最愛");
     },
     removeFavorite(id) {
-      const index = this.favorites?.indexOf(id);
+      const index = this.favorites?.findIndex((item) => item.id === id);
       this.favorites?.splice(index, 1);
       this.setFavorite();
       useStateStore.pushToastMessage("成功：從最愛移除");
     },
     checkIsFavorite(id) {
-      return this.favorites?.includes(id);
+      return this.favorites?.some((item) => item.id === id);
     },
     toggleFavorite(id) {
       if (this.checkIsFavorite(id)) {
