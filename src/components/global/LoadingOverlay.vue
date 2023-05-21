@@ -2,7 +2,7 @@
   <teleport to="body">
     <div
       v-if="isLoading"
-      class="bg-black text-light p-2 position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
+      class="bg-black text-light p-2 fixed-top w-100 h-100 d-flex justify-content-center align-items-center"
       style="--bs-bg-opacity: 0.5; z-index: 1060"
     >
       <div class="bounce">
