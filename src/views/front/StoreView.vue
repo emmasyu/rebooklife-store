@@ -1,7 +1,7 @@
 <template>
   <AdCouponCol />
   <StoreNavbar />
-  <RouterView />
+  <RouterView :key="$route.fullPath" />
   <StoreFooter />
 </template>
 <script>
