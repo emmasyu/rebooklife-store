@@ -5,6 +5,7 @@ export default defineStore("states", {
     isLoading: false,
     loadingBounceLetter: "",
     toastMessage: [],
+    isSearch: false,
   }),
   actions: {
     changeLoadingState(state, letter = "資料讀取中") {
@@ -23,6 +24,9 @@ export default defineStore("states", {
         style: data.success ? "success" : "danger",
         content: data.message,
       });
+    },
+    toggleSearchInput() {
+      this.isSearch = !this.isSearch;
     },
   },
 });

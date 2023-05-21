@@ -1,0 +1,56 @@
+<template>
+  <span
+    v-if="navLink.title === '購物車'"
+    data-bs-toggle="dropdown"
+    data-bs-auto-close="outside"
+    class="position-absolute w-100 h-100 d-none d-lg-block top-0 cursor-pointer z-n1 z-lg-1"
+  ></span>
+  <RouterLink :to="navLink.path" class="d-block p-3">
+    <img
+      :src="navLinkPhoto"
+      :alt="navLink.name"
+      class="w-3"
+      :class="[
+        { 'filter-black': isScrollTop },
+        isScrollTop ? 'w-lg-5' : 'w-lg-3',
+      ]"
+    />
+    <Budge v-if="navLink.name === 'shopping cart'" />
+    <Tooltip :title="navLink.title" />
+  </RouterLink>
+  <!-- dropdown -->
+  <CartDropdown @closeDropdown="closeDropdown" />
+</template>
+<script>
+import { mapState } from "pinia";
+import useCartsStore from "@/stores/carts.js";
+import dropdownMixin from "../mixins/dropdownMixin";
+import CartDropdown from "./CartDropdown.vue";
+import Budge from "./Badge.vue";
+import Tooltip from "./Tootip.vue";
+import { useWindowSize } from "@vueuse/core";
+const { width } = useWindowSize();
+
+export default {
+  props: ["navLink", "isScrollTop"],
+  data() {
+    return {
+      width,
+    };
+  },
+  components: { CartDropdown, Budge, Tooltip },
+  computed: {
+    ...mapState(useCartsStore, ["carts"]),
+    navLinkPhoto() {
+      return new URL(this.navLink.image, import.meta.url).href;
+    },
+  },
+  methods: {
+    closeDropdown() {
+      this.hideDropdown();
+    },
+  },
+
+  mixins: [dropdownMixin],
+};
+</script>

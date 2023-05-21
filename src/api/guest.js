@@ -5,7 +5,7 @@ const getProductsOnPage = (page = 1) =>
 const getProductsAll = () => guestRequest.get(`/products/all`);
 const getProduct = (id) => guestRequest.get(`/product/${id}`);
 
-const getCart = () => guestRequest.get(`/cart`);
+const getCarts = () => guestRequest.get(`/cart`);
 const postCart = (data) => guestRequest.post(`/cart`, data);
 const putCart = (id, data) => guestRequest.put(`/cart/${id}`, data);
 const deleteCart = (id) => guestRequest.delete(`/cart/${id}`);
@@ -22,7 +22,7 @@ export {
   getProductsOnPage,
   getProductsAll,
   getProduct,
-  getCart,
+  getCarts,
   postCart,
   putCart,
   deleteCart,

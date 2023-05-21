@@ -29,6 +29,11 @@ const router = createRouter({
       component: () => import("../views/front/CouponsView.vue"),
     },
     {
+      path: "/bookstore",
+      name: "bookstore",
+      component: () => import("../views/front/StoreView.vue"),
+    },
+    {
       path: "/dashboard",
       name: "dashboard",
       component: () => import("../views/admin/DashboardView.vue"),
