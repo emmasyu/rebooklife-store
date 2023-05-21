@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   scrollBehavior(to) {
     if (to.hash) {
       return {
@@ -32,6 +32,25 @@ const router = createRouter({
       path: "/bookstore",
       name: "bookstore",
       component: () => import("../views/front/StoreView.vue"),
+      children: [
+        {
+          path: "",
+          name: "books",
+          component: () => import("../views/front/BookStoreView.vue"),
+          children: [
+            {
+              path: ":category?",
+              name: "category",
+              component: () => import("../views/front/CategoryView.vue"),
+            },
+            {
+              path: ":category/:subcategory",
+              name: "subcategory",
+              component: () => import("../views/front/SubcategoryView.vue"),
+            },
+          ],
+        },
+      ],
     },
     {
       path: "/dashboard",
