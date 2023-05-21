@@ -1,0 +1,14 @@
+.store-bg {
+  background: #f4f4f4 no-repeat url("../images/background-img-store.jpg");
+  background-size: contain;
+}
+
+.cart-bg {
+  background: linear-gradient(
+    rgba(57, 0, 0, 0),
+    rgba(57, 0, 0, 0.15) 40%,
+    rgba(57, 0, 0, 0.2) 60%,
+    rgba(57, 0, 0, 0.05) 80%,
+    #f4f4f4
+  );
+}
