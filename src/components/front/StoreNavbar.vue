@@ -60,6 +60,7 @@
       >
         <li
           class="bg-primary bg-lg-transparent rounded-5 mb-2 mb-lg-0 position-relative"
+          @click="hideCollapse()"
           v-for="item in navLinks.navLink"
           :key="item.name"
         >
@@ -106,6 +107,9 @@ export default {
     getCollapseBtn() {
       this.isExpanded = this.$refs.collapse?.ariaExpanded;
     },
+  },
+  created() {
+    window.addEventListener("click", () => this.hideCollapse());
   },
   mixins: [collapseMixin],
 };
