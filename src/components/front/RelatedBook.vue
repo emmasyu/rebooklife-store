@@ -1,0 +1,102 @@
+<template>
+  <ul
+    class="related-book d-flex align-items-end gap-4 px-7 ms-xl-7 pt-5 text-primary overflow-x-auto gap-lg-8 text-xl-light justify-content-xl-center overflow-x-xl-hidden ms-xl-7 px-xl-0 pt-xl-10 pb-xl-9 position-relative z-0"
+  >
+    <p v-if="sliceRelatedProducts(currentId)?.length === 0">...敬請期待...</p>
+    <li
+      class="w-7 w-lg-9 w-xl-10 w-xxl-11 flex-shrink-0 cursor-pointer"
+      v-for="book in sliceRelatedProducts(currentId)"
+      :key="book.id"
+      @click="getProductPage(book.id)"
+    >
+      <img
+        :src="book.imageUrl"
+        :alt="book.title"
+        class="w-100 rounded-1 rounded-xl-4 mb-2 shadow-small shadow-hover"
+      />
+      <p>{{ trimTitle(book.title) }}</p>
+    </li>
+  </ul>
+</template>
+<script>
+import { mapState } from "pinia";
+import useProductsStore from "@/stores/products.js";
+import { useWindowSize } from "@vueuse/core";
+const { width } = useWindowSize();
+
+export default {
+  props: ["category", "currentId"],
+  data() {
+    return {
+      width,
+    };
+  },
+  computed: {
+    ...mapState(useProductsStore, ["relatedProducts"]),
+    trimTitle() {
+      return (title) => {
+        if (this.width >= 1400) {
+          return this.$filters.trim(title, 18);
+        }
+        if (this.width >= 992) {
+          return this.$filters.trim(title, 15);
+        }
+        return this.$filters.trim(title, 12);
+      };
+    },
+    sliceRelatedProducts() {
+      return (id) => {
+        const exceptRelatedProducts = this.relatedProducts(
+          this.category
+        ).filter((book) => book.id !== id);
+        if (this.width >= 1200) {
+          return exceptRelatedProducts.slice(0, 4);
+        }
+        return exceptRelatedProducts;
+      };
+    },
+  },
+  methods: {
+    getProductPage(id) {
+      this.$router.push(`/bookstore/book/${id}`);
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+.related-book {
+  @media (min-width: 1200px) {
+    border: 26px #876e32 solid;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0px;
+      right: 0px;
+      z-index: -2;
+      background-color: #4f4630;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0px;
+      right: 0px;
+      z-index: -1;
+      background-color: #3a3425;
+      clip-path: polygon(
+        0 0,
+        10% 15%,
+        90% 15%,
+        100% 0,
+        100% 100%,
+        90% 85%,
+        10% 85%,
+        0 100%
+      );
+    }
+  }
+}
+</style>

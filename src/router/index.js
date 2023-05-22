@@ -50,6 +50,10 @@ const router = createRouter({
             },
           ],
         },
+        {
+          path: "book/:bookId",
+          component: () => import("../views/front/BookView.vue"),
+        },
       ],
     },
     {

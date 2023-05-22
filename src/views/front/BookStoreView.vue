@@ -21,11 +21,9 @@
         </div>
       </div>
       <div class="pb-9 row">
-        <!-- 分類列表 -->
         <div class="col-lg-3 pe-xxl-8">
           <CategoryList />
         </div>
-        <!-- 圖書顯示 -->
         <div class="col-lg-9 ps-lg-8">
           <RouterView />
         </div>
@@ -34,18 +32,10 @@
   </div>
 </template>
 <script>
-import { mapActions } from "pinia";
 import CategoryList from "@/components/front/CategoryList.vue";
-import useRecentStore from "@/stores/recent.js";
 
 export default {
   components: { CategoryList },
-  methods: {
-    ...mapActions(useRecentStore, ["getRecent"]),
-  },
-  created() {
-    this.getRecent();
-  },
 };
 </script>
 <style lang="scss" scoped>
