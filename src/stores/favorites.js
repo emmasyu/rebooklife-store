@@ -45,5 +45,10 @@ export default defineStore("favorites", {
         this.addFavorite(id);
       }
     },
+    giveStars(id, stars) {
+      const targetIndex = this.favorites.findIndex((item) => item.id === id);
+      this.favorites[targetIndex].stars = stars;
+      this.setFavorite();
+    },
   },
 });
