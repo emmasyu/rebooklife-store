@@ -36,7 +36,7 @@
             v-for="item in navigationData"
             :key="item.name"
             class="nav-link d-flex align-items-center d-lg-block text-center position-relative"
-            :class="{ active: $route.href === `/${item.bookmark}` }"
+            :class="{ active: $route.fullPath === `/${item.bookmark}` }"
             aria-current="page"
             :to="item.bookmark"
             @click="hideCollapse()"
