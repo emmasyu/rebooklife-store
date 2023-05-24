@@ -64,6 +64,18 @@ const router = createRouter({
           name: "bookmark",
           component: () => import("../views/front/BookmarkView.vue"),
         },
+        {
+          path: "cart",
+          name: "cart",
+          component: () => import("../views/front/CartView.vue"),
+          children: [
+            {
+              path: "",
+              name: "cart",
+              component: () => import("../views/front/CartListView.vue"),
+            },
+          ],
+        },
       ],
     },
     {
