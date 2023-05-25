@@ -4,30 +4,9 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {
-  faBackwardFast,
-  faBars,
-  faBookmark as fasBookmark,
-  faCaretDown,
-  faCaretLeft,
-  faCaretUp,
-  faCaretRight,
-  faCartShopping,
-  faEnvelope,
-  faEye,
-  faEyeSlash,
-  faForwardFast,
-  faPenToSquare,
-  faTrash,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faLine,
-  faLinkedin,
-  faSquareGithub,
-  faSquareInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 
 import App from "./App.vue";
 import router from "./router";
@@ -35,28 +14,7 @@ import * as filters from "./filters";
 
 import "./assets/scss/all.scss";
 
-library.add(
-  faBackwardFast,
-  faBars,
-  fasBookmark,
-  faCaretDown,
-  faCaretLeft,
-  faCaretUp,
-  faCaretRight,
-  faCartShopping,
-  faEnvelope,
-  faEye,
-  faEyeSlash,
-  faForwardFast,
-  faPenToSquare,
-  faTrash,
-  faXmark,
-  faLine,
-  faLinkedin,
-  faSquareGithub,
-  faSquareInstagram,
-  farBookmark
-);
+library.add(fas, far, fab);
 
 const app = createApp(App);
 const pinia = createPinia();
