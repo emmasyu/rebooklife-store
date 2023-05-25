@@ -1,18 +1,13 @@
 <template>
   <span
-    v-if="cartsTotalQty > 0"
+    v-if="num > 0"
     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary-light fw-normal"
   >
-    {{ cartsTotalQty }}
+    {{ num }}
   </span>
 </template>
 <script>
-import { mapState } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-
 export default {
-  computed: {
-    ...mapState(useCartsStore, ["cartsTotalQty"]),
-  },
+  props: ["num"],
 };
 </script>

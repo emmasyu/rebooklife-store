@@ -15,10 +15,9 @@
         isScrollTop ? 'w-lg-5' : 'w-lg-3',
       ]"
     />
-    <Budge v-if="navLink.name === 'shopping cart'" />
+    <Budge v-if="navLink.name === 'shopping cart'" :num="cartsTotalQty" />
     <Tooltip :title="navLink.title" />
   </RouterLink>
-  <!-- dropdown -->
   <CartDropdown @closeDropdown="closeDropdown" />
 </template>
 <script>
@@ -40,7 +39,7 @@ export default {
   },
   components: { CartDropdown, Budge, Tooltip },
   computed: {
-    ...mapState(useCartsStore, ["carts"]),
+    ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
     navLinkPhoto() {
       return new URL(this.navLink.image, import.meta.url).href;
     },
