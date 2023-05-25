@@ -2,29 +2,18 @@
   <div
     class="sticky-bottom d-flex gap-0 gap-lg-4 pb-lg-5 justify-content-center"
   >
-    <button
-      v-if="buttonText.last"
-      href="#"
-      class="btn btn-outline-primary rounded-0 rounded-lg-2 bg-light bg-primary-hover bg-opacity-75-hover w-100 w-lg-auto py-3 py-lg-4 px-lg-11 fw-bold"
-      @click.prevent="clickLastButton()"
-    >
-      {{ buttonText.last }}
-    </button>
-    <button
-      v-if="buttonText.next"
-      href="#"
-      class="btn btn-primary rounded-0 rounded-lg-2 w-100 w-lg-auto py-3 py-lg-4 px-lg-11 fw-bold"
-      @click.prevent="clickNextButton()"
-    >
-      {{ buttonText.next }}
-    </button>
+    <ButtonOutline :text="buttonText.last" @click.prevent="clickLastButton()" />
+    <Button :text="buttonText.next" @click.prevent="clickNextButton()" />
   </div>
 </template>
 <script>
 import { mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";
+import Button from "@/components/front/Button.vue";
+import ButtonOutline from "@/components/front/ButtonOutline.vue";
 
 export default {
+  components: { Button, ButtonOutline },
   computed: {
     ...mapState(useCartsStore, ["cartsTotalQty"]),
     buttonText() {
