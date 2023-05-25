@@ -74,6 +74,31 @@ const router = createRouter({
               name: "cart",
               component: () => import("../views/front/CartListView.vue"),
             },
+            {
+              path: "order",
+              name: "order",
+              component: () => import("../views/front/OrderView.vue"),
+            },
+            {
+              path: "orderPay/:orderId",
+              name: "orderPay",
+              component: () => import("../views/front/OrderPayView.vue"),
+            },
+            {
+              path: "OrderFinish/:orderId",
+              name: "OrderFinish",
+              component: () => import("../views/front/OrderFinishView.vue"),
+            },
+          ],
+        },
+        {
+          path: "searchOrder",
+          name: "searchOrder",
+          children: [
+            {
+              path: ":orderId?",
+              component: () => import("../views/front/SearchOrderView.vue"),
+            },
           ],
         },
       ],
