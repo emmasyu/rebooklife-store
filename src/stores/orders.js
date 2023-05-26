@@ -1,5 +1,4 @@
 import { guest } from "../api";
-import router from "@/router";
 import { defineStore } from "pinia";
 import stateStore from "./states";
 
@@ -12,16 +11,13 @@ export default defineStore("order", {
     orders: [],
     pagination: {},
     order: {},
+    orderId: "",
     userForm: {},
     userFormValidate: {},
   }),
 
   getters: {
     checkFormValidate() {
-      console.log("isread", this.userForm?.read);
-      console.log("userForm", this.userForm);
-      console.log("FormValidate", this.userFormValidate);
-      console.log("iserror", Object.values(this.userFormValidate ?? {}));
       return (
         Object.values(this.userFormValidate ?? {}).length === 0 &&
         this.userForm?.read === "checked"
@@ -66,7 +62,7 @@ export default defineStore("order", {
         console.log("postOrderInfo", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已建立訂單");
-          router.push(`/bookstore/cart/orderPay/${response.data.orderId}`);
+          this.orderId = response.data.orderId;
         } else {
           useStateStore.pushToastMessage("錯誤：訂單建立失敗", response.data);
         }
@@ -80,7 +76,11 @@ export default defineStore("order", {
       try {
         const response = await postPay(id);
         console.log("postPayOrder", response);
-        if (response.data.success) {
+        if (this.order.is_paid) {
+          useStateStore.pushToastMessage("錯誤：此筆訂單已付過款", {
+            success: false,
+          });
+        } else if (response.data.success) {
           useStateStore.pushToastMessage("成功：已成功付款");
         } else {
           useStateStore.pushToastMessage("錯誤：付款失敗", response.data);

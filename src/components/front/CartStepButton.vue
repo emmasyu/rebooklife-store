@@ -17,7 +17,7 @@ export default {
   components: { Button, ButtonOutline },
   computed: {
     ...mapState(useCartsStore, ["cartsTotalQty"]),
-    ...mapState(useOrdersStore, ["userForm", "checkFormValidate"]),
+    ...mapState(useOrdersStore, ["userForm", "checkFormValidate", "orderId"]),
     buttonText() {
       if (this.cartsTotalQty === 0) return { last: "回到商店" };
       switch (this.$route.name) {
@@ -33,7 +33,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions(useOrdersStore, ["postOrderInfo"]),
+    ...mapActions(useOrdersStore, ["postOrderInfo", "postPayOrder"]),
     clickLastButton() {
       if (this.cartsTotalQty === 0) this.$router.push("/bookstore");
       switch (this.$route.name) {
@@ -47,7 +47,9 @@ export default {
           this.$router.push("/bookstore");
           break;
         case "OrderFinish":
-          this.$router.push("/bookstore/searchOrder");
+          this.$router.push(
+            `/bookstore/searchOrder/${this.$route.params.orderId}`
+          );
           break;
       }
     },
@@ -59,10 +61,14 @@ export default {
         case "order":
           if (this.checkFormValidate) {
             await this.postOrderInfo(this.userForm);
+            router.push(`/bookstore/cart/orderPay/${this.orderId}`);
           }
           break;
         case "orderPay":
-          this.$emit("payOrder");
+          await this.postPayOrder(this.$route.params.orderId.fe);
+          this.$router.push(
+            `/bookstore/cart/OrderFinish/${this.$route.params.orderId}`
+          );
           break;
         case "OrderFinish":
           this.$router.push("/bookstore");
