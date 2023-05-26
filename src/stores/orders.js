@@ -1,4 +1,5 @@
 import { guest } from "../api";
+import router from "@/router";
 import { defineStore } from "pinia";
 import stateStore from "./states";
 
@@ -7,7 +8,26 @@ const useStateStore = stateStore();
 const { getOrders, getOrder, postOrder, postPay } = guest;
 
 export default defineStore("order", {
-  state: () => ({ orders: [], pagination: {}, order: {}, userForm: {} }),
+  state: () => ({
+    orders: [],
+    pagination: {},
+    order: {},
+    userForm: {},
+    userFormValidate: {},
+  }),
+
+  getters: {
+    checkFormValidate() {
+      console.log("isread", this.userForm?.read);
+      console.log("userForm", this.userForm);
+      console.log("FormValidate", this.userFormValidate);
+      console.log("iserror", Object.values(this.userFormValidate ?? {}));
+      return (
+        Object.values(this.userFormValidate ?? {}).length === 0 &&
+        this.userForm?.read === "checked"
+      );
+    },
+  },
 
   actions: {
     async getOrders() {
@@ -46,7 +66,7 @@ export default defineStore("order", {
         console.log("postOrderInfo", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已建立訂單");
-          this.$router.push(`/bookstore/orderPay/${response.data.orderId}`);
+          router.push(`/bookstore/cart/orderPay/${response.data.orderId}`);
         } else {
           useStateStore.pushToastMessage("錯誤：訂單建立失敗", response.data);
         }
@@ -70,8 +90,9 @@ export default defineStore("order", {
       }
       useStateStore.changeLoadingState(false);
     },
-    updatedUserForm(data) {
+    getUserForm(data, error) {
       this.userForm = { ...data };
+      this.userFormValidate = { ...error };
     },
   },
 });

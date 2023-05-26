@@ -7,8 +7,9 @@
   </div>
 </template>
 <script>
-import { mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";
+import useOrdersStore from "@/stores/orders.js";
 import Button from "@/components/front/Button.vue";
 import ButtonOutline from "@/components/front/ButtonOutline.vue";
 
@@ -16,6 +17,7 @@ export default {
   components: { Button, ButtonOutline },
   computed: {
     ...mapState(useCartsStore, ["cartsTotalQty"]),
+    ...mapState(useOrdersStore, ["userForm", "checkFormValidate"]),
     buttonText() {
       if (this.cartsTotalQty === 0) return { last: "回到商店" };
       switch (this.$route.name) {
@@ -31,6 +33,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useOrdersStore, ["postOrderInfo"]),
     clickLastButton() {
       if (this.cartsTotalQty === 0) this.$router.push("/bookstore");
       switch (this.$route.name) {
@@ -48,13 +51,15 @@ export default {
           break;
       }
     },
-    clickNextButton() {
+    async clickNextButton() {
       switch (this.$route.name) {
         case "cart":
           this.$router.push("/bookstore/cart/order");
           break;
         case "order":
-          this.$emit("sendOrder");
+          if (this.checkFormValidate) {
+            await this.postOrderInfo(this.userForm);
+          }
           break;
         case "orderPay":
           this.$emit("payOrder");
