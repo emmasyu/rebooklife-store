@@ -19,9 +19,9 @@ export default {
     ...mapState(useCartsStore, ["cartsTotalQty"]),
     ...mapState(useOrdersStore, ["userForm", "checkFormValidate", "orderId"]),
     buttonText() {
-      if (this.cartsTotalQty === 0) return { last: "回到商店" };
       switch (this.$route.name) {
         case "cart":
+          if (this.cartsTotalQty === 0) return { last: "回到商店" };
           return { last: "繼續購物", next: "確認結帳" };
         case "order":
           return { last: "更改購物車", next: "送出訂單" };
@@ -61,11 +61,11 @@ export default {
         case "order":
           if (this.checkFormValidate) {
             await this.postOrderInfo(this.userForm);
-            router.push(`/bookstore/cart/orderPay/${this.orderId}`);
+            this.$router.push(`/bookstore/cart/orderPay/${this.orderId}`);
           }
           break;
         case "orderPay":
-          await this.postPayOrder(this.$route.params.orderId.fe);
+          await this.postPayOrder(this.$route.params.orderId);
           this.$router.push(
             `/bookstore/cart/OrderFinish/${this.$route.params.orderId}`
           );

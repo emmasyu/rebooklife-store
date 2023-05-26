@@ -29,7 +29,7 @@
         >
           NT$ {{ cart.total }}
         </p>
-        <p class="text-secondary w-7 w-xl-8 min-w-lg-content">
+        <p class="text-secondary w-7 w-lg-8 min-w-lg-content">
           NT$ {{ cart.final_total }}
         </p>
       </div>
