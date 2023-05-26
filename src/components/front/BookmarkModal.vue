@@ -67,6 +67,7 @@
           <button
             type="button"
             class="btn btn-primary w-100 fs-5 fs-lg-4 py-2 py-lg-4"
+            @click.prevent="addBookToCart(tempProduct.id)"
           >
             加入購物車
           </button>
@@ -79,6 +80,7 @@
 <script>
 import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
+import useCartsStore from "@/stores/carts.js";
 import modalMixin from "../mixins/modalMixin";
 import Stars from "./Stars.vue";
 
@@ -91,11 +93,17 @@ export default {
   },
   methods: {
     ...mapActions(useFavoritesStore, ["toggleFavorite"]),
+    ...mapActions(useCartsStore, ["addCart"]),
     trimTitle() {
       return this.$filters.trim(this.tempProduct?.title, 20);
     },
     getProductPage(id) {
       this.$router.push(`/bookstore/book/${id}`);
+      this.hideModal();
+    },
+    async addBookToCart(id) {
+      const data = { product_id: id, qty: 1 };
+      await this.addCart(data);
       this.hideModal();
     },
   },
