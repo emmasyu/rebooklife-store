@@ -3,7 +3,7 @@
     /　書籍分類　/
   </p>
   <ul
-    class="ps-4 text-nowrap d-flex gap-2 overflow-x-auto text-primary fw-bold mb-0 pb-7 flex-lg-column gap-lg-0 text-center ps-lg-0"
+    class="ps-4 text-nowrap d-flex gap-2 overflow-x-auto text-primary fw-bold pb-7 flex-lg-column gap-lg-0 text-center ps-lg-0"
   >
     <li class="border rounded-1 border-primary rounded-lg-0">
       <RouterLink
@@ -15,7 +15,7 @@
       </RouterLink>
       <ul
         v-if="currentCategory === '' || currentCategory === 'all'"
-        class="d-none d-lg-block p-0 border-start border-primary border-5"
+        class="d-none d-lg-block border-start border-primary border-5"
       >
         <li v-for="(item, key) in productsOfFeatured" :key="key">
           <RouterLink
@@ -42,7 +42,7 @@
       </RouterLink>
       <ul
         v-if="currentCategory === key"
-        class="d-none d-lg-block p-0 border-start border-primary border-5"
+        class="d-none d-lg-block border-start border-primary border-5"
       >
         <li v-for="subcategory in value" :key="subcategory">
           <RouterLink
