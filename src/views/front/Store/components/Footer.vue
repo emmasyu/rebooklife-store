@@ -20,7 +20,7 @@
           <div class="w-100 d-flex pb-9">
             <input
               type="text"
-              placeholder="請輸入 Emaill 接收最新活動訊息"
+              placeholder="請輸入 Email 接收最新活動訊息"
               class="w-100 text-center border-0 bg-transparent border-bottom border-secondary outline-none text-lg-start"
             />
             <a
@@ -42,7 +42,7 @@
             >
             <RouterLink
               class="text-decoration-underline-hover text-secondary mb-4"
-              to="/#FAQ"
+              to="/#faq"
               >常見問題　 | FAQ</RouterLink
             >
             <RouterLink

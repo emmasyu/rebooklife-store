@@ -19,7 +19,7 @@
     </template>
     <!-- 購物車清單 -->
     <template v-else>
-      <ul class="ps-0 max-vh-60 overflow-y-scroll">
+      <ul class="max-vh-60 overflow-y-scroll">
         <li
           v-for="item in carts.carts"
           :key="item.id"
@@ -39,7 +39,7 @@
           <div class="d-flex flex-column justify-content-center gap-7">
             <div class="d-flex gap-1">
               <button
-                class="bg-transparent border-0 text-content"
+                class="bg-transparent border-0 text-content text-primary-light-hover"
                 @click="minusOneQty(item)"
               >
                 <font-awesome-icon
@@ -49,14 +49,14 @@
               </button>
               <span>{{ item.qty }}</span>
               <button
-                class="bg-transparent border-0 text-content"
+                class="bg-transparent border-0 text-content text-primary-light-hover"
                 @click="addOneQty(item)"
               >
                 <font-awesome-icon :icon="['fas', 'caret-up']" />
               </button>
             </div>
             <button
-              class="bg-transparent border-0 text-content"
+              class="bg-transparent border-0 text-content text-primary-light-hover"
               @click="deleteBook(item.id)"
             >
               <font-awesome-icon :icon="['fas', 'trash']" />

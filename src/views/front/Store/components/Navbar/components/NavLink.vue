@@ -23,19 +23,17 @@
 <script>
 import { mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";
-import dropdownMixin from "../mixins/dropdownMixin";
+import dropdownMixin from "@/components/mixins/dropdownMixin";
 import CartDropdown from "./CartDropdown.vue";
-import Budge from "./Badge.vue";
-import Tooltip from "./Tootip.vue";
+import Budge from "@/components/front/Badge.vue";
+import Tooltip from "@/components/front/Tootip.vue";
 import { useWindowSize } from "@vueuse/core";
-const { width } = useWindowSize();
 
 export default {
   props: ["navLink", "isScrollTop"],
-  data() {
-    return {
-      width,
-    };
+  setup() {
+    const { width } = useWindowSize();
+    return { width };
   },
   components: { CartDropdown, Budge, Tooltip },
   computed: {

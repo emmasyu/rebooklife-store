@@ -5,9 +5,9 @@
   <StoreFooter />
 </template>
 <script>
-import StoreNavbar from "@/components/front/StoreNavbar.vue";
+import StoreNavbar from "./components/Navbar/Navbar.vue";
+import StoreFooter from "./components/StoreFooter.vue";
 import AdCouponCol from "@/components/front/AdCouponCol.vue";
-import StoreFooter from "@/components/front/StoreFooter.vue";
 import { mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
 import useProductsStore from "@/stores/products.js";

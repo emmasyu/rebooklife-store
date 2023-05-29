@@ -13,7 +13,6 @@
         />
       </RouterLink>
 
-      <!-- search搜尋區塊 -->
       <div
         class="order-first order-lg-0 ms-lg-auto d-flex align-items-center position-lg-relative flex-lg-row-reverse w-lg-50"
       >
@@ -37,7 +36,6 @@
           <SearchBookForm :isScrollTop="isScrollTop" :isSearch="isSearch" />
         </div>
       </div>
-      <!-- 展開 漢堡圖 -->
       <a
         class="order-1 text-light px-4 py-2 d-lg-none"
         data-bs-toggle="collapse"
@@ -53,7 +51,6 @@
           class="w-1"
         />
       </a>
-      <!-- nav list -->
       <ul
         class="collapse position-absolute end-0 top-100 mt-4 px-2 position-lg-static d-lg-flex m-lg-0 p-lg-0"
         id="collapseNavbar"
@@ -75,27 +72,30 @@
 <script>
 import { mapState, mapActions } from "pinia";
 import useStatesStore from "@/stores/states.js";
-import StoreNavLink from "./StoreNavLink.vue";
-import Tooltip from "./Tootip.vue";
-import SearchBookForm from "./SearchBookForm.vue";
-import collapseMixin from "../mixins/collapseMixin";
+import StoreNavLink from "./components/NavLink.vue";
+import Tooltip from "@/components/front/Tootip.vue";
+import SearchBookForm from "./components/SearchBookForm.vue";
+import collapseMixin from "@/components/mixins/collapseMixin";
 import navLinksData from "@/data/storeNavLinks.json";
 import { useWindowScroll } from "@vueuse/core";
-const { y } = useWindowScroll();
 
 export default {
   components: { StoreNavLink, Tooltip, SearchBookForm },
+
+  setup() {
+    const { y } = useWindowScroll();
+    return { y };
+  },
   data() {
     return {
       isExpanded: "false",
       navLinks: navLinksData,
-      scrollY: y,
     };
   },
   computed: {
     ...mapState(useStatesStore, ["isSearch"]),
     isScrollTop() {
-      return this.scrollY === 0;
+      return this.y === 0;
     },
     navLinkPhoto() {
       return new URL(this.navLinks.searchLink.image, import.meta.url).href;

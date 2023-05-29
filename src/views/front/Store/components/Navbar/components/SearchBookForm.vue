@@ -27,7 +27,7 @@ export default {
     searchBook() {
       this.$router.push({
         path: "/bookstore/search",
-        query: { searchText: this.searchText },
+        query: { searchText: this.searchText.trim() },
       });
       this.searchText = "";
       this.toggleSearchInput();
