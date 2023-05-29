@@ -41,7 +41,7 @@
               "
               class="text-white"
               style="cursor: pointer"
-              @click="changeEye"
+              @click="toggleEye"
             />
           </div>
         </div>
@@ -78,25 +78,27 @@ export default {
     ...mapState(useStatedStore, ["isLoading"]),
   },
   methods: {
-    ...mapActions(useStatedStore, ["changeLoadingState"]),
+    ...mapActions(useStatedStore, ["changeLoadingState", "pushToastMessage"]),
     async login(user) {
       this.changeLoadingState(true, "登錄中");
       try {
         const response = await postUserLogin(user);
-        console.log("postUserLogin", response);
         if (response.data.success) {
           const { token, expired } = response.data;
           document.cookie = `reBookToken=${token}; expires=${new Date(
             expired
           )}`;
+          this.pushToastMessage("成功：登入成功");
           this.$router.push("/dashboard/products");
+        } else {
+          this.pushToastMessage("錯誤：帳號或密碼錯誤");
         }
       } catch (error) {
         console.log(error);
       }
       this.changeLoadingState(false);
     },
-    changeEye() {
+    toggleEye() {
       this.isPasswordVisible = !this.isPasswordVisible;
     },
   },

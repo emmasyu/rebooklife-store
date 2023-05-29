@@ -17,7 +17,6 @@ export default {
     async checkUser() {
       try {
         const response = await postUserCheck();
-        console.log("postUserCheck", response);
         if (!response.data.success) {
           this.$router.push("/login");
         }

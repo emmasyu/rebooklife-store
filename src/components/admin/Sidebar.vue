@@ -12,8 +12,8 @@
         >回到二搜書</RouterLink
       >
     </div>
-    <ul class="w-100 p-0 fs-5 mb-0">
-      <li class="text-center mb-4">
+    <ul class="w-100 fs-5">
+      <li class="text-center">
         <RouterLink class="d-block py-4" to="/dashboard/products"
           ><img
             class="mb-3 w-4"
@@ -23,7 +23,7 @@
           <p class="text-light">產品列表</p></RouterLink
         >
       </li>
-      <li class="text-center mb-4">
+      <li class="text-center">
         <RouterLink class="d-block py-4" to="/dashboard/coupons"
           ><img
             class="mb-3 w-4"
@@ -33,7 +33,7 @@
           <p class="text-light">優惠券管理</p></RouterLink
         >
       </li>
-      <li class="text-center mb-4">
+      <li class="text-center">
         <RouterLink class="d-block py-4" to="/dashboard/orders"
           ><img
             class="mb-3 w-4"
@@ -66,13 +66,13 @@ export default {
     ...mapState(useStatedStore, ["isLoading"]),
   },
   methods: {
-    ...mapActions(useStatedStore, ["changeLoadingState"]),
+    ...mapActions(useStatedStore, ["changeLoadingState", "pushToastMessage"]),
     async logout() {
       this.changeLoadingState(true, "登出系統中");
       try {
         const response = await postUserLogout();
-        console.log("postUserLogout", response);
         if (response.data.success) {
+          this.pushToastMessage("成功：已登出系統");
           this.$router.push("/login");
         }
       } catch (error) {

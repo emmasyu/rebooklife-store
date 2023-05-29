@@ -54,7 +54,7 @@
               </p>
               <ul
                 v-show="isOpenOrderProducts[index]"
-                class="mt-2 mb-0 pt-2 ps-0 border-top border-gray"
+                class="mt-2 pt-2 border-top border-gray"
               >
                 <li
                   v-for="(productItem, key) in item.products"

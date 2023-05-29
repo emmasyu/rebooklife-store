@@ -7,7 +7,14 @@
     ref="toast"
     style="transform: rotate(180deg)"
   >
-    <div class="toast-header" :class="`text-bg-${msg.style}`">
+    <div
+      class="toast-header"
+      :class="[
+        msg.content
+          ? `text-bg-${msg.style}`
+          : `rounded-2 border border-${msg.style} bg-light text-${msg.style}`,
+      ]"
+    >
       <strong class="me-auto">{{ msg.title }}</strong>
       <button
         type="button"

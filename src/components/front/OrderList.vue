@@ -1,5 +1,5 @@
 <template>
-  <ul class="ps-0 pt-4 pt-lg-7 mb-0 border-bottom border-lg-0">
+  <ul class="pt-4 pt-lg-7 border-bottom border-lg-0">
     <li
       v-for="cart in carts"
       :key="cart.id"
@@ -14,7 +14,7 @@
         <Badge :num="cart.qty" />
       </div>
       <div>
-        <h4 class="fs-6 fs-xl-5 text-content fw-bold lh-base">
+        <h4 class="fs-6 fs-xl-5 text-content fw-bold">
           {{ cart.product.title }}
         </h4>
         <p class="d-none d-sm-block fs-6 fw-normal text-secondary">

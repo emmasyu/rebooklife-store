@@ -51,8 +51,8 @@
               <tr>
                 <td class="fw-bold pe-5 pb-7">付款方式</td>
                 <td class="pb-7" :class="{ 'text-success': tempOrder.is_paid }">
-                  {{ tempOrder.paid_by || "未付款"
-                  }}<span v-if="tempOrder.paid_date"
+                  已付款
+                  <span v-if="tempOrder.paid_date"
                     >({{
                       $filters.convertTimeToLocale(tempOrder.paid_date)
                     }})</span

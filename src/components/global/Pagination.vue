@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="Page navigation example">
+  <nav aria-label="Page navigation example" v-if="pages.total_pages">
     <ul class="pagination justify-content-center gap-4">
       <li class="page-item" :class="{ disabled: !pages.has_pre }">
         <a
