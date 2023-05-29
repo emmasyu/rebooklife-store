@@ -1,35 +1,37 @@
 <template>
-  <ul
-    class="related-book d-flex align-items-end gap-4 px-7 ms-xl-7 pt-5 text-primary overflow-x-auto gap-lg-8 text-xl-light justify-content-xl-center overflow-x-xl-hidden ms-xl-7 px-xl-0 pt-xl-10 pb-xl-9 position-relative z-0"
+  <div
+    class="related-book position-relative d-flex align-items-center justify-content-center text-primary text-xl-light z-0"
   >
     <p v-if="sliceRelatedProducts(currentId)?.length === 0">...敬請期待...</p>
-    <li
-      class="w-7 w-lg-9 w-xl-10 w-xxl-11 flex-shrink-0 cursor-pointer"
-      v-for="book in sliceRelatedProducts(currentId)"
-      :key="book.id"
-      @click="getProductPage(book.id)"
+    <ul
+      class="d-flex align-items-end gap-4 px-7 ms-xl-7 pt-5 overflow-x-auto gap-lg-8 justify-content-xl-center overflow-x-xl-hidden ms-xl-7 px-xl-0 pt-xl-10 pb-xl-9"
     >
-      <img
-        :src="book.imageUrl"
-        :alt="book.title"
-        class="w-100 rounded-1 rounded-xl-4 mb-2 shadow-small shadow-hover"
-      />
-      <p>{{ trimTitle(book.title) }}</p>
-    </li>
-  </ul>
+      <li
+        class="w-7 w-lg-9 w-xl-10 w-xxl-11 flex-shrink-0 cursor-pointer"
+        v-for="book in sliceRelatedProducts(currentId)"
+        :key="book.id"
+        @click="getProductPage(book.id)"
+      >
+        <img
+          :src="book.imageUrl"
+          :alt="book.title"
+          class="w-100 rounded-1 rounded-xl-4 mb-2 shadow-small shadow-hover"
+        />
+        <p>{{ trimTitle(book.title) }}</p>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 import { mapState } from "pinia";
 import useProductsStore from "@/stores/products.js";
 import { useWindowSize } from "@vueuse/core";
-const { width } = useWindowSize();
 
 export default {
   props: ["category", "currentId"],
-  data() {
-    return {
-      width,
-    };
+  setup() {
+    const { width } = useWindowSize();
+    return { width };
   },
   computed: {
     ...mapState(useProductsStore, ["relatedProducts"]),

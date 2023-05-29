@@ -41,28 +41,29 @@
           <div
             class="fixed-bottom d-flex gap-0 position-lg-static gap-lg-4 text-center my-lg-4"
           >
-            <a
+            <button
               href="#"
-              class="btn btn-primary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-100 py-3 w-lg-auto px-lg-11 py-lg-4 rounded-lg-2"
+              class="btn btn-primary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-100 py-3 w-lg-auto px-lg-10 px-xl-11 py-lg-4 rounded-lg-2"
               @click.prevent="addBookToCart(product.id)"
-              >加入購物車</a
             >
-
-            <a
+              加入購物車
+            </button>
+            <button
               href="#"
-              class="btn btn-secondary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-6 p-0 rounded-0 py-3 w-lg-auto px-lg-11 py-lg-4 rounded-lg-2"
+              class="btn btn-secondary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-6 py-3 w-lg-auto px-lg-11 py-lg-4 rounded-lg-2"
               @click.prevent="toggleFavorite(product.id)"
-              ><span class="d-none d-lg-inline me-2">加入收藏</span>
+            >
+              <span class="d-none d-lg-inline me-2">加入收藏</span>
               <font-awesome-icon
                 class="fs-4"
                 :icon="[isFavorite(product.id) ? 'fas' : 'far', 'bookmark']"
               />
-            </a>
+            </button>
           </div>
           <p class="d-none d-lg-block">付款方式： Web ATM、信用卡一次付清</p>
         </div>
       </div>
-      <h3 class="fs-5 fw-bold mb-4 fs-lg-4 fs-xl-3 mb-xl-5 lh-base">
+      <h3 class="fs-5 fw-bold mb-4 fs-lg-4 fs-xl-3 mb-xl-5">
         {{ product.title }}
       </h3>
       <p class="mb-2 mb-xl-4">作者：{{ product.author }}</p>
@@ -116,7 +117,7 @@ import useProductsStore from "@/stores/products.js";
 import useFavoritesStore from "@/stores/favorites.js";
 import useCartsStore from "@/stores/carts.js";
 import useRecentStore from "@/stores/recent.js";
-import RelatedBook from "@/components/front/RelatedBook.vue";
+import RelatedBook from "./components/RelatedBook.vue";
 
 export default {
   components: { RelatedBook },
