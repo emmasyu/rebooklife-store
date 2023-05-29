@@ -11,21 +11,10 @@
       :alt="book.title"
       class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow"
     />
-    <div
-      v-if="isNewerProduct(book.id)"
-      class="w-8 w-lg-10 h-8 h-lg-10 clippath position-absolute top-0 bg-secondary"
-    >
-      <p class="fs-lg-4 text-light">新上架</p>
-    </div>
-    <span
-      class="position-absolute top-0 end-4 end-xl-5 text-secondary-light text-highlight-hover cursor-pointer z-2"
-      @click="toggleFavorite(book.id)"
-      ><font-awesome-icon
-        class="align-top fs-5 fs-lg-4 fs-xl-2"
-        :icon="[isFavorite(book.id) ? 'fas' : 'far', 'bookmark']"
-    /></span>
+    <NewMark :id="book.id" />
+    <BookMark :id="book.id" />
     <div>
-      <h4 class="fs-6 fw-bold lh-base fs-lg-5 mb-lg-4 fs-xl-4">
+      <h4 class="fs-6 fw-bold fs-lg-5 mb-lg-4 fs-xl-4">
         {{ trimTitle }}
       </h4>
       <p class="fs-5 mb-4 d-none">作者：菲莉帕.派瑞(Philippa Perry)著</p>
@@ -51,23 +40,20 @@
   </p>
 </template>
 <script>
-import { mapState, mapActions } from "pinia";
+import { mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
-import useFavoritesStore from "@/stores/favorites.js";
-import useProductsStore from "@/stores/products.js";
+import BookMark from "@/components/front/BookMark.vue";
+import NewMark from "@/components/front/NewMark.vue";
 import { useWindowSize } from "@vueuse/core";
-const { width } = useWindowSize();
 
 export default {
-  data() {
-    return {
-      width,
-    };
+  setup() {
+    const { width } = useWindowSize();
+    return { width };
   },
   props: ["book"],
+  components: { BookMark, NewMark },
   computed: {
-    ...mapState(useFavoritesStore, ["isFavorite"]),
-    ...mapState(useProductsStore, ["isNewerProduct"]),
     bookPhoto() {
       return new URL(this.book.imageUrl, import.meta.url).href;
     },
@@ -89,7 +75,6 @@ export default {
   },
   methods: {
     ...mapActions(useCartsStore, ["addCart"]),
-    ...mapActions(useFavoritesStore, ["toggleFavorite"]),
     async addBookToCart(id) {
       const data = { product_id: id, qty: 1 };
       await this.addCart(data);
@@ -101,20 +86,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.clippath {
-  clip-path: polygon(1px 25px, 1px 60px, 60px 1px, 25px 1px);
-  p {
-    transform-origin: 38px 17px;
-    transform: rotate(-45deg);
-  }
-  @media (min-width: 992px) {
-    clip-path: polygon(1px 60px, 1px 120px, 120px 1px, 60px 1px);
-    p {
-      transform-origin: 75px 15px;
-      transform: rotate(-45deg);
-    }
-  }
-}
 .animation-shake {
   transition: 0.3s;
   &:hover {
