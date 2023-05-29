@@ -61,8 +61,8 @@ export default {
   methods: {
     ...mapActions(useOrdersStore, ["getOrder"]),
     getOrderPage() {
-      this.$router.push(`/bookstore/searchOrder/${this.searchInput}`);
-      this.getOrder(this.searchInput);
+      this.$router.push(`/bookstore/searchOrder/${this.searchInput.trim()}`);
+      this.getOrder(this.searchInput.trim());
     },
   },
 };
