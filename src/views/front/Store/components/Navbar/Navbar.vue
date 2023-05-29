@@ -22,7 +22,7 @@
           @click.prevent="toggleSearchInput"
         >
           <img
-            :src="navLinkPhoto"
+            src="@/assets/images/search-white.png"
             :alt="navLinks.searchLink.name"
             class="w-2"
             :class="[isScrollTop ? 'w-lg-5 filter-black' : 'w-lg-3']"
@@ -96,9 +96,6 @@ export default {
     ...mapState(useStatesStore, ["isSearch"]),
     isScrollTop() {
       return this.y === 0;
-    },
-    navLinkPhoto() {
-      return new URL(this.navLinks.searchLink.image, import.meta.url).href;
     },
   },
   methods: {

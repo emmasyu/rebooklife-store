@@ -7,7 +7,7 @@
   ></span>
   <RouterLink :to="navLink.path" class="d-block p-3">
     <img
-      :src="navLinkPhoto"
+      :src="navLinkPhoto(navLink.name)"
       :alt="navLink.name"
       class="w-3"
       :class="[
@@ -39,7 +39,28 @@ export default {
   computed: {
     ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
     navLinkPhoto() {
-      return new URL(this.navLink.image, import.meta.url).href;
+      return (name) => {
+        switch (name) {
+          case "bookstore":
+            return new URL(
+              `@/assets/images/openbook-white.png`,
+              import.meta.url
+            ).href;
+          case "bookmark":
+            return new URL(
+              `@/assets/images/bookmark-white.png`,
+              import.meta.url
+            ).href;
+          case "shopping cart":
+            return new URL(
+              `@/assets/images/shopping-cart-white.png`,
+              import.meta.url
+            ).href;
+          case "order":
+            return new URL(`@/assets/images/order-white.png`, import.meta.url)
+              .href;
+        }
+      };
     },
   },
   methods: {

@@ -43,10 +43,10 @@
           >
             <img
               class="toggle-image"
-              :src="newUrl(item.src)"
+              :src="newUrl(item.name).image"
               :alt="item.name"
             />
-            <img :src="newUrl(item.decoration)" class="d-lg-none mx-2" />
+            <img :src="newUrl(item.name).decoration" class="d-lg-none mx-2" />
             <p class="toggle-text">{{ item.content }}</p>
           </RouterLink>
           <RouterLink
@@ -96,8 +96,71 @@ export default {
       }
     },
     newUrl() {
-      return (url) => {
-        return new URL(url, import.meta.url).href;
+      return (name) => {
+        switch (name) {
+          case "about":
+            return {
+              image: new URL(
+                `@/assets/images/openbook-white.png`,
+                import.meta.url
+              ).href,
+              decoration: new URL(
+                `@/assets/images/about-decoration-line.png`,
+                import.meta.url
+              ).href,
+            };
+          case "faq":
+            return {
+              image: new URL(`@/assets/images/FAQ-white.png`, import.meta.url)
+                .href,
+              decoration: new URL(
+                `@/assets/images/FAQ-decoration-line.png`,
+                import.meta.url
+              ).href,
+            };
+          case "contact":
+            return {
+              image: new URL(
+                `@/assets/images/location-white.png`,
+                import.meta.url
+              ).href,
+              decoration: new URL(
+                `@/assets/images/contact-decoration-line.png`,
+                import.meta.url
+              ).href,
+            };
+          case "bookstore":
+            return {
+              image: new URL(`@/assets/images/book-white.png`, import.meta.url)
+                .href,
+              decoration: new URL(
+                `@/assets/images/bookstore-decoration-line.png`,
+                import.meta.url
+              ).href,
+            };
+          case "bookmark":
+            return {
+              image: new URL(
+                `@/assets/images/bookmark-white.png`,
+                import.meta.url
+              ).href,
+              decoration: new URL(
+                `@/assets/images/bookmark-decoration-line.png`,
+                import.meta.url
+              ).href,
+            };
+          case "shopping cart":
+            return {
+              image: new URL(
+                `@/assets/images/shopping-cart-white.png`,
+                import.meta.url
+              ).href,
+              decoration: new URL(
+                `@/assets/images/shopping-cart-decoration-line.png`,
+                import.meta.url
+              ).href,
+            };
+        }
       };
     },
     isActive() {
