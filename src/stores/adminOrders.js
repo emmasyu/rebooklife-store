@@ -17,7 +17,6 @@ export default defineStore("admin order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getOrdersOnPage(page);
-        console.log("getOrders", response);
         if (response.data.success) {
           this.pagination = response.data.pagination;
           this.orders = response.data.orders.map((order) => {
@@ -39,7 +38,6 @@ export default defineStore("admin order", {
         const response = await putOrder(item.id, {
           data: item,
         });
-        console.log("updateOrder", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已更新訂單狀態");
           await this.getOrders();
@@ -58,7 +56,6 @@ export default defineStore("admin order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteOrder(item.id);
-        console.log("deleteOrder", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已刪除訂單");
           await this.getOrders();
@@ -74,7 +71,6 @@ export default defineStore("admin order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteAllOrders();
-        console.log("deleteAllOrders", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已刪除全部訂單");
           await this.getOrders();

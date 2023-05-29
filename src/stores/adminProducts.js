@@ -37,7 +37,6 @@ export default defineStore("admin product", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getProductsOnPage(page);
-        console.log("getProducts", response);
         if (response.data.success) {
           this.products = response.data.products;
           this.pagination = response.data.pagination;
@@ -51,7 +50,6 @@ export default defineStore("admin product", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getProductsAllObj();
-        console.log("getProductsAll", response);
         if (response.data.success) {
           this.productsAll = Object.values(response.data.products);
         }
@@ -65,7 +63,6 @@ export default defineStore("admin product", {
       item.createTime = new Date().getTime();
       try {
         const response = await postProduct({ data: item });
-        console.log("updateProduct", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已新增產品");
           await this.getProductsAll();
@@ -83,7 +80,6 @@ export default defineStore("admin product", {
         const response = await putProduct(item.id, {
           data: item,
         });
-        console.log("updateProduct", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已更新產品");
           await this.getProductsAll();
@@ -99,7 +95,6 @@ export default defineStore("admin product", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteProduct(item.id);
-        console.log("deleteProduct", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已刪除產品");
 

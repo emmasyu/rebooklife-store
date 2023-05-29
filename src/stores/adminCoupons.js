@@ -27,7 +27,6 @@ export default defineStore("admin coupon", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getCouponsOnPage(page);
-        console.log("getCoupons", response);
         if (response.data.success) {
           this.coupons = response.data.coupons;
           this.pagination = response.data.pagination;
@@ -42,7 +41,6 @@ export default defineStore("admin coupon", {
       item.createTime = new Date().getTime();
       try {
         const response = await postCoupon({ data: item });
-        console.log("updateCoupon", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已新增優惠券");
           await this.getCoupons();
@@ -60,7 +58,6 @@ export default defineStore("admin coupon", {
         const response = await putCoupon(item.id, {
           data: item,
         });
-        console.log("updateCoupon", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已更新優惠券");
           await this.getCoupons();
@@ -76,7 +73,6 @@ export default defineStore("admin coupon", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteCoupon(item.id);
-        console.log("deleteCoupon", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已刪除優惠券");
           await this.getCoupons();

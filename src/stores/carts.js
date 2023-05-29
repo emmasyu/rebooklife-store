@@ -21,7 +21,6 @@ export default defineStore("cart", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getCarts();
-        console.log("getCarts", response);
         if (response.data.success) {
           this.carts = response.data.data;
         }
@@ -34,7 +33,6 @@ export default defineStore("cart", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await postCart({ data: data });
-        console.log("addCart", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已新增產品到購物車");
           await this.getCarts();
@@ -52,7 +50,6 @@ export default defineStore("cart", {
         const response = await putCart(id, {
           data: data,
         });
-        console.log("updateCart", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已更新購物車產品");
           await this.getCarts();
@@ -68,7 +65,6 @@ export default defineStore("cart", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteCart(id);
-        console.log("deleteCart", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已刪除購物車產品");
           await this.getCarts();
@@ -84,7 +80,6 @@ export default defineStore("cart", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await deleteAllCarts();
-        console.log("deleteAllCarts", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已清空購物車");
           await this.getCarts();
@@ -100,7 +95,6 @@ export default defineStore("cart", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await postCoupon({ data: data });
-        console.log("postUseCoupon", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已套用優惠券");
           await this.getCarts();

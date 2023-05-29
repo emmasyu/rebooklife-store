@@ -4,31 +4,31 @@
       "name": "bookstore",
       "path": "/bookstore",
       "title": "進入書店",
-      "image": "../../assets/images/openbook-white.png"
+      "image": "../../../../../../assets/images/openbook-white.png"
     },
     {
       "name": "bookmark",
       "path": "/bookstore/bookmark",
       "title": "收藏清單",
-      "image": "../../assets/images/bookmark-white.png"
+      "image": "../../../../../../assets/images/bookmark-white.png"
     },
     {
       "name": "shopping cart",
       "path": "/bookstore/cart",
       "title": "購物車",
-      "image": "../../assets/images/shopping-cart-white.png"
+      "image": "../../../../../../assets/images/shopping-cart-white.png"
     },
     {
       "name": "order",
       "path": "/bookstore/searchOrder",
       "title": "查詢訂單",
-      "image": "../../assets/images/order-white.png"
+      "image": "../../../../../../assets/images/order-white.png"
     }
   ],
   "searchLink": {
     "name": "search",
     "path": "#",
     "title": "搜尋書籍",
-    "image": "../../assets/images/search-white.png"
+    "image": "../../../../../assets/images/search-white.png"
   }
 }

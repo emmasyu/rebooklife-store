@@ -82,7 +82,6 @@ export default defineStore("product", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getProductsOnPage(page);
-        console.log("getProducts", response);
         if (response.data.success) {
           this.products = response.data.products;
           this.pagination = response.data.pagination;
@@ -96,7 +95,6 @@ export default defineStore("product", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getProductsAll();
-        console.log("getProductsAll", response);
         if (response.data.success) {
           this.productsAll = response.data.products;
         }
@@ -109,7 +107,6 @@ export default defineStore("product", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getProduct(id);
-        console.log("getProduct", response);
         if (response.data.success) {
           this.product = response.data.product;
         }

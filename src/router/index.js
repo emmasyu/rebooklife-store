@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => import("../views/front/HomeView.vue"),
+      component: () => import("../views/front/Home/HomeView.vue"),
     },
     {
       path: "/login",
@@ -26,68 +26,84 @@ const router = createRouter({
     {
       path: "/coupons",
       name: "coupons",
-      component: () => import("../views/front/CouponsView.vue"),
+      component: () => import("../views/front/Coupons/CouponsView.vue"),
     },
     {
       path: "/bookstore",
       name: "bookstore",
-      component: () => import("../views/front/StoreView.vue"),
+      component: () => import("../views/front/Store/StoreView.vue"),
       children: [
         {
           path: "",
           name: "books",
-          component: () => import("../views/front/BookStoreView.vue"),
+          component: () =>
+            import("../views/front/Store/BookStore/BookStoreView.vue"),
           children: [
             {
               path: ":category?",
               name: "category",
-              component: () => import("../views/front/CategoryView.vue"),
+              component: () =>
+                import(
+                  "../views/front/Store/BookStore/Category/CategoryView.vue"
+                ),
             },
             {
               path: ":category/:subcategory",
               name: "subcategory",
-              component: () => import("../views/front/SubcategoryView.vue"),
+              component: () =>
+                import(
+                  "../views/front/Store/BookStore/Subcategory/SubcategoryView.vue"
+                ),
             },
           ],
         },
         {
           path: "book/:bookId",
-          component: () => import("../views/front/BookView.vue"),
+          component: () =>
+            import("../views/front/Store/BookDetail/BookView.vue"),
         },
         {
           path: "search",
           name: "search",
-          component: () => import("../views/front/SearchBooksView.vue"),
+          component: () =>
+            import("../views/front/Store/SearchBooks/SearchBooksView.vue"),
         },
         {
           path: "bookmark",
           name: "bookmark",
-          component: () => import("../views/front/BookmarkView.vue"),
+          component: () =>
+            import("../views/front/Store/Bookmark/BookmarkView.vue"),
         },
         {
           path: "cart",
           name: "cart",
-          component: () => import("../views/front/CartView.vue"),
+          component: () => import("../views/front/Store/Cart/CartView.vue"),
           children: [
             {
               path: "",
               name: "cart",
-              component: () => import("../views/front/CartListView.vue"),
+              component: () =>
+                import("../views/front/Store/Cart/CartList/CartListView.vue"),
             },
             {
               path: "order",
               name: "order",
-              component: () => import("../views/front/OrderView.vue"),
+              component: () =>
+                import("../views/front/Store/Cart/Order/OrderView.vue"),
             },
             {
               path: "orderPay/:orderId",
               name: "orderPay",
-              component: () => import("../views/front/OrderPayView.vue"),
+              component: () =>
+                import("../views/front/Store/Cart/OrderPay/OrderPayView.vue"),
             },
             {
               path: "OrderFinish/:orderId",
               name: "OrderFinish",
-              component: () => import("../views/front/OrderFinishView.vue"),
+              component: () =>
+                import(
+                  "../views/front/Store/Cart/OrderFinish/OrderFinishView.vue"
+                ),
             },
           ],
         },
@@ -97,7 +113,8 @@ const router = createRouter({
           children: [
             {
               path: ":orderId?",
-              component: () => import("../views/front/SearchOrderView.vue"),
+              component: () =>
+                import("../views/front/Store/SearchOrder/SearchOrderView.vue"),
             },
           ],
         },

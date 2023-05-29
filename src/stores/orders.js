@@ -30,7 +30,6 @@ export default defineStore("order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getOrders((page = 1));
-        console.log("getOrders", response);
         if (response.data.success) {
           this.orders = response.data.orders;
           this.pagination = response.data.pagination;
@@ -44,7 +43,6 @@ export default defineStore("order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await getOrder(id);
-        console.log("getOrder", response);
         if (response.data.success) {
           this.order = response.data.order;
         }
@@ -59,7 +57,6 @@ export default defineStore("order", {
         const response = await postOrder({
           data: data,
         });
-        console.log("postOrderInfo", response);
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已建立訂單");
           this.orderId = response.data.orderId;
@@ -75,7 +72,6 @@ export default defineStore("order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await postPay(id);
-        console.log("postPayOrder", response);
         if (this.order.is_paid) {
           useStateStore.pushToastMessage("錯誤：此筆訂單已付過款", {
             success: false,
