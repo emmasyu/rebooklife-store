@@ -43,7 +43,7 @@
 </template>
 <script>
 import swiperMixin from "@/components/mixins/swiperMixin.js";
-import CouponCard from "@/components/front/CouponCard.vue";
+import CouponCard from "./components/CouponCard.vue";
 import couponsData from "@/data/coupons.json";
 export default {
   components: { CouponCard },

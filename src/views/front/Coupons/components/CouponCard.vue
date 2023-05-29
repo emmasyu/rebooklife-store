@@ -13,14 +13,13 @@
       <h4 class="fs-5 fs-lg-4 fw-bold" v-for="item in splitTitles">
         {{ item }}
       </h4>
-      <h6>
+      <h6 class="lh-sm">
         　<span class="text-primary fw-bold">{{ coupon.percent / 10 }}</span> 折
       </h6>
       <p class="fs-6 mb-2">({{ coupon.notes }})</p>
-      <p class="py-4 fs-lg-4 fw-bold cursor-pointer" @click="copyText">
+      <p class="py-5 fs-lg-4 fw-bold cursor-pointer" @click="copyText">
         {{ coupon.code }}
       </p>
-      <input class="d-none" type="text" :value="coupon.code" ref="inputValue" />
     </div>
   </div>
 </template>
@@ -37,14 +36,10 @@ export default {
   },
   methods: {
     ...mapActions(useStateStore, ["pushToastMessage"]),
-    async copyText() {
+    async copyText(event) {
       try {
-        this.$refs.inputValue.select();
-        this.$refs.inputValue.setSelectionRange(0, 99999);
-        await navigator.clipboard.writeText(this.$refs.inputValue.value);
-        this.pushToastMessage(
-          `已成功複製 ${this.$refs.inputValue.value} 到剪貼簿`
-        );
+        await navigator.clipboard.writeText(event.target.innerText);
+        this.pushToastMessage(`已成功複製 ${event.target.innerText} 到剪貼簿`);
       } catch (err) {
         console.log(err);
       }
