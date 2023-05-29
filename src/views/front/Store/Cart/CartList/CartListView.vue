@@ -12,7 +12,6 @@
           前往商店繼續看看吧！
         </p>
       </div>
-      <!-- 如果購物車有商品 -->
       <table v-else class="mx-auto fw-bold">
         <thead
           class="d-none d-lg-table-header-group text-primary text-center fs-lg-4"
@@ -42,7 +41,7 @@
             <td
               class="d-block d-lg-table-cell pt-7 pt-lg-0 mb-1 vw-sm-75 vw-md-50 w-lg-auto"
             >
-              <h4 class="fs-6 fs-lg-5 fw-bold lh-base mb-0">
+              <h4 class="fs-6 fs-lg-5 fw-bold">
                 {{ cart.product.title }}
               </h4>
               <p class="d-none d-sm-block fs-6 fw-normal text-secondary">
@@ -51,17 +50,17 @@
             </td>
             <td class="d-block d-lg-table-cell mb-1 px-lg-5 px-xl-8">
               <div
-                class="d-flex align-items-center justify-content-center border border-primary w-8 w-lg-9 gap-1 gap-lg-5"
+                class="d-flex align-items-center justify-content-between border border-primary w-8 w-lg-9"
               >
                 <button
-                  class="border-0 bg-transparent py-2 px-3"
+                  class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
                   @click.prevent="minusOneQty(cart)"
                 >
                   －
                 </button>
                 <p>{{ cart.qty }}</p>
                 <button
-                  class="border-0 bg-transparent py-2 px-3"
+                  class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
                   @click.prevent="addOneQty(cart)"
                 >
                   ＋
@@ -77,9 +76,13 @@
               </p>
             </td>
             <td class="d-block d-lg-table-cell text-end py-2 px-lg-5 px-xl-8">
-              <a href="#" class="p-2" @click.prevent="deleteBook(cart.id)"
-                ><font-awesome-icon class="fs-5" :icon="['fas', 'trash']"
-              /></a>
+              <button
+                href="#"
+                class="btn p-2 text-primary-light-hover"
+                @click.prevent="deleteBook(cart.id)"
+              >
+                <font-awesome-icon class="fs-5" :icon="['fas', 'trash']" />
+              </button>
             </td>
           </tr>
         </tbody>

@@ -81,17 +81,19 @@
 import { mapState, mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
 import OrderList from "@/components/front/OrderList.vue";
-import OrderForm from "@/components/front/OrderForm.vue";
+import OrderForm from "./components/OrderForm.vue";
 import { useWindowSize } from "@vueuse/core";
-const { width } = useWindowSize();
 
 export default {
   components: { OrderList, OrderForm },
+  setup() {
+    const { width } = useWindowSize();
+    return { width };
+  },
   data() {
     return {
       isOpenList: false,
       couponCode: "",
-      width,
     };
   },
   computed: {

@@ -3,7 +3,7 @@
     class="border-0 border-lg-1 border-dashed border-secondary rounded-5 p-lg-7 min-w-lg-content h-lg-content col"
   >
     <h4
-      class="mt-7 mt-lg-0 fs-6 fs-lg-5 fs-xl-4 fw-bold mb-0 pb-4 text-lg-center border-bottom-0 border-bottom-lg border-lg-gray lh-base"
+      class="mt-7 mt-lg-0 fs-6 fs-lg-5 fs-xl-4 fw-bold pb-4 text-lg-center border-bottom-0 border-bottom-lg border-lg-gray"
     >
       收件人資訊
     </h4>
