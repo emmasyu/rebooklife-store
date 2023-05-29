@@ -2,19 +2,19 @@
   <div class="home-bg cover-blur">
     <AdCouponCol />
     <Navbar />
-    <HomePage />
+    <Content />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/front/Navbar.vue";
-import HomePage from "@/components/front/HomePage.vue";
+import Navbar from "./components/Navbar.vue";
+import Content from "./components/Content.vue";
 import AdCouponCol from "@/components/front/AdCouponCol.vue";
 
 export default {
   components: {
     Navbar,
-    HomePage,
+    Content,
     AdCouponCol,
   },
 };

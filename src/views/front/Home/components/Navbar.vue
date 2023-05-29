@@ -33,10 +33,10 @@
           class="navbar-nav flex-lg-column align-items-center justify-content-center h-lg-auto fs-4"
         >
           <RouterLink
-            v-for="item in navigationData"
+            v-for="(item, i) in navigationData"
             :key="item.name"
             class="nav-link d-flex align-items-center d-lg-block text-center position-relative"
-            :class="{ active: $route.fullPath === `/${item.bookmark}` }"
+            :class="{ active: isActive(item, i) }"
             aria-current="page"
             :to="item.bookmark"
             @click="hideCollapse()"
@@ -61,22 +61,29 @@
 </template>
 
 <script>
-import collapseMixin from "../mixins/collapseMixin";
-import { useWindowSize } from "@vueuse/core";
-const { width } = useWindowSize();
+import collapseMixin from "@/components/mixins/collapseMixin";
 import navigationData from "@/data/navgation.json";
+import { mapState } from "pinia";
+import useScrollStateStore from "@/stores/scrollState.js";
+import { useWindowSize } from "@vueuse/core";
+import { useWindowScroll } from "@vueuse/core";
 
 export default {
+  setup() {
+    const { width } = useWindowSize();
+    const { y } = useWindowScroll();
+    return { width, y };
+  },
   data() {
     return {
-      windowInnerWidth: width,
       isExpanded: "false",
       navigationData: navigationData.navigation,
     };
   },
   computed: {
+    ...mapState(useScrollStateStore, ["blockTopY"]),
     logoPhoto() {
-      if (this.windowInnerWidth < 992) {
+      if (this.width < 992) {
         return new URL(
           `@/assets/images/rebooklife-logo-white.png`,
           import.meta.url
@@ -93,7 +100,19 @@ export default {
         return new URL(url, import.meta.url).href;
       };
     },
+    isActive() {
+      return (item, i) => {
+        return (
+          this.y <
+            (this.blockTopY?.[this.navigationData[i + 1]?.name] -
+              this.blockTopY?.about * 0.7 ||
+              this.blockTopY?.[item.name] + this.blockTopY?.about) &&
+          this.y > this.blockTopY?.[item.name] - this.blockTopY?.about * 0.7
+        );
+      };
+    },
   },
+
   methods: {
     getCollapseBtn() {
       this.isExpanded = this.$refs.collapseBtn.ariaExpanded;
