@@ -6,7 +6,6 @@
     aria-labelledby="bookmarkModalLabel"
     aria-hidden="true"
     ref="modal"
-    @click=""
   >
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -36,17 +35,7 @@
                 class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow cursor-pointer mb-4 mb-xl-5"
                 @click.self="getProductPage(tempProduct?.id)"
               />
-              <span
-                class="position-absolute top-0 end-4 end-xl-5 text-secondary-light text-highlight-hover cursor-pointer"
-                @click="toggleFavorite(tempProduct?.id)"
-                ><font-awesome-icon
-                  class="align-top fs-5 fs-lg-4 fs-xl-2"
-                  :icon="[
-                    isFavorite(tempProduct?.id) ? 'fas' : 'far',
-                    'bookmark',
-                  ]"
-              /></span>
-
+              <BookMark :id="tempProduct?.id" />
               <h4 class="fs-6 fs-lg-5 fs-xl-4 fw-bold">
                 {{ trimTitle() }}
               </h4>
@@ -78,21 +67,18 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useFavoritesStore from "@/stores/favorites.js";
+import { mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
-import modalMixin from "../mixins/modalMixin";
-import Stars from "./Stars.vue";
+import modalMixin from "@/components/mixins/modalMixin";
+import BookMark from "@/components/front/BookMark.vue";
+import Stars from "@/components/front/Stars.vue";
 
 export default {
-  components: { Stars },
+  components: { Stars, BookMark },
   props: ["tempProduct"],
   mixins: [modalMixin],
-  computed: {
-    ...mapState(useFavoritesStore, ["isFavorite"]),
-  },
+
   methods: {
-    ...mapActions(useFavoritesStore, ["toggleFavorite"]),
     ...mapActions(useCartsStore, ["addCart"]),
     trimTitle() {
       return this.$filters.trim(this.tempProduct?.title, 20);

@@ -29,7 +29,7 @@
           </div>
 
           <div
-            class="min-vh-75 min-vh-lg-60 d-flex gap-7 gap-lg-8 flex-wrap justify-content-center justify-content-sm-start py-5 py-lg-8 px-5 px-sm-8 px-md-10 px-lg-9 px-xl-8 px-xxl-12"
+            class="min-vh-75 min-vh-lg-60 d-flex gap-7 gap-lg-8 flex-wrap align-items-end justify-content-center justify-content-sm-start py-5 py-lg-8 px-5 px-sm-8 px-md-10 px-lg-9 px-xl-8 px-xxl-12"
           >
             <template v-for="item in favorites" :key="item.id">
               <BookmarkCard
@@ -47,8 +47,8 @@
 <script>
 import { mapState } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
-import BookmarkModal from "@/components/front/BookmarkModal.vue";
-import BookmarkCard from "@/components/front/BookmarkCard.vue";
+import BookmarkModal from "./components/BookModal.vue";
+import BookmarkCard from "./components/BookCard.vue";
 export default {
   components: { BookmarkModal, BookmarkCard },
   data() {

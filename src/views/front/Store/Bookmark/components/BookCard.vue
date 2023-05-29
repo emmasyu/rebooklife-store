@@ -21,17 +21,15 @@
 import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
 import useProductsStore from "@/stores/products.js";
-import Stars from "./Stars.vue";
+import Stars from "@/components/front/Stars.vue";
 import { useWindowSize } from "@vueuse/core";
-const { width } = useWindowSize();
 
 export default {
   components: { Stars },
   props: ["item"],
-  data() {
-    return {
-      width,
-    };
+  setup() {
+    const { width } = useWindowSize();
+    return { width };
   },
   computed: {
     ...mapState(useFavoritesStore, ["isFavorite"]),
