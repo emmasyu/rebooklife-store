@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="progress-bar ps-0 d-flex justify-content-center text-primary fw-bold fs-6 fs-lg-5 pb-8 rounded-bottom-4 shadow-small shadow-lg-none fixed-top pt-11 position-lg-static bg-lg-transparent mb-0"
+    class="progress-bar d-flex justify-content-center text-primary fw-bold fs-6 fs-lg-5 pb-8 rounded-bottom-4 shadow-small shadow-lg-none fixed-top pt-11 position-lg-static bg-lg-transparent"
   >
     <li
       v-for="item in cartProgress"
