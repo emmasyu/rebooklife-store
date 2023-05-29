@@ -2,10 +2,6 @@ import axios from "axios";
 
 const api = import.meta.env.VITE_APP_API;
 const path = import.meta.env.VITE_APP_PATH;
-let authToken = document.cookie.replace(
-  /(?:(?:^|.*;\s*)reBookToken\s*=\s*([^;]*).*$)|^.*$/,
-  "$1"
-);
 
 const userRequest = axios.create({
   baseURL: api,
@@ -22,6 +18,10 @@ const guestRequest = axios.create({
 userRequest.interceptors.request.use(
   (config) => {
     if (config.url !== "admin/signin") {
+      const authToken = document.cookie.replace(
+        /(?:(?:^|.*;\s*)reBookToken\s*=\s*([^;]*).*$)|^.*$/,
+        "$1"
+      );
       config.headers.Authorization = authToken;
     }
     return config;
@@ -32,6 +32,10 @@ userRequest.interceptors.request.use(
 );
 adminRequest.interceptors.request.use(
   (config) => {
+    const authToken = document.cookie.replace(
+      /(?:(?:^|.*;\s*)reBookToken\s*=\s*([^;]*).*$)|^.*$/,
+      "$1"
+    );
     config.headers.Authorization = authToken;
     return config;
   },
