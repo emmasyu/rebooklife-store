@@ -28,7 +28,7 @@
       </div>
       <div v-else class="min-vh-90 min-vh-lg-75">
         <ul
-          class="ps-0 d-flex flex-wrap gap-8 gap-xl-9 justify-content-center justify-content-xl-start align-items-end py-8 px-lg-7 mb-0"
+          class="d-flex flex-wrap gap-8 gap-xl-9 justify-content-center justify-content-xl-start align-items-end py-8 px-lg-7"
         >
           <li class="list" v-for="book in searchBookResult" :key="book.id">
             <BookCard :book="book" />
