@@ -142,7 +142,6 @@ export default {
   },
   methods: {
     ...mapActions(useOrdersStore, ["postOrderInfo"]),
-
     isRead(value) {
       if (!value || !value?.length) return "請閱讀須知與條款";
       return true;
@@ -151,11 +150,6 @@ export default {
       await this.postOrderInfo(this.form);
       this.$router.push(`/bookstore/cart/order_pay/${this.orderId}`);
     },
-    // getForm() {
-    //   this.getUserForm(this.form, { ...this.$refs.userForm?.getErrors() });
-    //   this.$refs.userForm?.resetField();
-    //   console.dir(this.$refs.userForm);
-    // },
   },
 };
 </script>
