@@ -7,7 +7,7 @@
     >
       收件人資訊
     </h4>
-    <VForm class="pt-lg-4" v-slot="{ errors }" ref="userForm" @change="getForm">
+    <VForm class="pt-lg-4" v-slot="{ errors }" @submit="sendOrder">
       <div class="mb-2">
         <label for="name" class="px-4 py-2">姓　　名<sup>*</sup>：</label>
         <VField
@@ -116,34 +116,52 @@
           class="invalid-feedback ps-6"
         ></ErrorMessage>
       </div>
+      <div class="btn-submit mt-8 text-center sticky-bottom pb-lg-5">
+        <Button :text="'送出訂單'">submit</Button>
+      </div>
     </VForm>
   </div>
 </template>
 <script>
-import { mapActions, mapState } from "pinia";
-import useOrdersState from "@/stores/orders.js";
+import { mapState, mapActions } from "pinia";
+import useOrdersStore from "@/stores/orders.js";
+import Button from "@/components/front/Button.vue";
+
 export default {
+  components: { Button },
   data() {
     return {
       form: {
         user: {},
         message: "",
-        read: "",
       },
     };
   },
   computed: {
-    ...mapState(useOrdersState, []),
+    ...mapState(useOrdersStore, ["orderId"]),
   },
   methods: {
-    ...mapActions(useOrdersState, ["getUserForm"]),
+    ...mapActions(useOrdersStore, ["postOrderInfo"]),
+
     isRead(value) {
       if (!value || !value?.length) return "請閱讀須知與條款";
       return true;
     },
-    getForm() {
-      this.getUserForm(this.form, { ...this.$refs.userForm?.getErrors() });
+    async sendOrder() {
+      await this.postOrderInfo(this.form);
+      this.$router.push(`/bookstore/cart/order_pay/${this.orderId}`);
     },
+    // getForm() {
+    //   this.getUserForm(this.form, { ...this.$refs.userForm?.getErrors() });
+    //   this.$refs.userForm?.resetField();
+    //   console.dir(this.$refs.userForm);
+    // },
   },
 };
 </script>
+<style lang="scss" scoped>
+.btn-submit {
+  margin-left: -32px;
+  margin-right: -32px;
+}
+</style>

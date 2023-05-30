@@ -12,18 +12,7 @@ export default defineStore("order", {
     pagination: {},
     order: {},
     orderId: "",
-    userForm: {},
-    userFormValidate: {},
   }),
-
-  getters: {
-    checkFormValidate() {
-      return (
-        Object.values(this.userFormValidate ?? {}).length === 0 &&
-        this.userForm?.read === "checked"
-      );
-    },
-  },
 
   actions: {
     async getOrders() {
@@ -85,10 +74,6 @@ export default defineStore("order", {
         console.log(error);
       }
       useStateStore.changeLoadingState(false);
-    },
-    getUserForm(data, error) {
-      this.userForm = { ...data };
-      this.userFormValidate = { ...error };
     },
   },
 });
