@@ -3,32 +3,27 @@
     {
       "name": "bookstore",
       "path": "/bookstore",
-      "title": "進入書店",
-      "image": "../../../../../../assets/images/openbook-white.png"
+      "title": "進入書店"
     },
     {
       "name": "bookmark",
       "path": "/bookstore/bookmark",
-      "title": "收藏清單",
-      "image": "../../../../../../assets/images/bookmark-white.png"
+      "title": "收藏清單"
     },
     {
       "name": "shopping cart",
       "path": "/bookstore/cart",
-      "title": "購物車",
-      "image": "../../../../../../assets/images/shopping-cart-white.png"
+      "title": "購物車"
     },
     {
       "name": "order",
-      "path": "/bookstore/searchOrder",
-      "title": "查詢訂單",
-      "image": "../../../../../../assets/images/order-white.png"
+      "path": "/bookstore/search_order",
+      "title": "查詢訂單"
     }
   ],
   "searchLink": {
     "name": "search",
     "path": "#",
-    "title": "搜尋書籍",
-    "image": "../../../../../assets/images/search-white.png"
+    "title": "搜尋書籍"
   }
 }
