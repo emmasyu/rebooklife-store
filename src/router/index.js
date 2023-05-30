@@ -92,14 +92,14 @@ const router = createRouter({
                 import("../views/front/Store/Cart/Order/OrderView.vue"),
             },
             {
-              path: "orderPay/:orderId",
+              path: "order_pay/:orderId",
               name: "orderPay",
               component: () =>
                 import("../views/front/Store/Cart/OrderPay/OrderPayView.vue"),
             },
             {
-              path: "OrderFinish/:orderId",
-              name: "OrderFinish",
+              path: "order_finish/:orderId",
+              name: "orderFinish",
               component: () =>
                 import(
                   "../views/front/Store/Cart/OrderFinish/OrderFinishView.vue"
@@ -108,7 +108,7 @@ const router = createRouter({
           ],
         },
         {
-          path: "searchOrder",
+          path: "search_order",
           name: "searchOrder",
           children: [
             {

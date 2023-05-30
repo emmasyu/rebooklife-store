@@ -48,7 +48,7 @@ export default {
           break;
         case "OrderFinish":
           this.$router.push(
-            `/bookstore/searchOrder/${this.$route.params.orderId}`
+            `/bookstore/search_order/${this.$route.params.orderId}`
           );
           break;
       }
@@ -61,16 +61,16 @@ export default {
         case "order":
           if (this.checkFormValidate) {
             await this.postOrderInfo(this.userForm);
-            this.$router.push(`/bookstore/cart/orderPay/${this.orderId}`);
+            this.$router.push(`/bookstore/cart/order_pay/${this.orderId}`);
           }
           break;
         case "orderPay":
           await this.postPayOrder(this.$route.params.orderId);
           this.$router.push(
-            `/bookstore/cart/OrderFinish/${this.$route.params.orderId}`
+            `/bookstore/cart/order_finish/${this.$route.params.orderId}`
           );
           break;
-        case "OrderFinish":
+        case "orderFinish":
           this.$router.push("/bookstore");
           break;
       }
