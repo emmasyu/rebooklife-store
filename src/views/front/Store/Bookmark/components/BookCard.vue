@@ -3,7 +3,7 @@
     <img
       :src="product?.imageUrl"
       :alt="product?.title"
-      class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow cursor-pointer"
+      class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow cursor-pointer shadow-small-hover"
       @click="$emit('open-bookmark-modal', product)"
     />
     <span

@@ -32,7 +32,7 @@
               <img
                 :src="tempProduct.imageUrl"
                 :alt="tempProduct.title"
-                class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow cursor-pointer mb-4 mb-xl-5"
+                class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow shadow-small-hover cursor-pointer mb-4 mb-xl-5"
                 @click.self="getProductPage(tempProduct?.id)"
               />
               <BookMark :id="tempProduct?.id" />
