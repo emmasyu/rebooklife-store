@@ -152,10 +152,15 @@ export default {
     toggleExpandChapter() {
       this.isExpandChapter = !this.isExpandChapter;
     },
+    setPageTitle() {
+      const defaultTitle = "二搜書 | 二手書籍電商平台，書本的傳承與知識的傳遞";
+      document.title = `${this.product.title} - ${defaultTitle}`;
+    },
   },
-  created() {
-    this.getProduct(this.$route.params.bookId);
-    this.addRecent(this.$route.params.bookId);
+  async created() {
+    await this.getProduct(this.$route.params.bookId);
+    await this.addRecent(this.$route.params.bookId);
+    this.setPageTitle();
   },
 };
 </script>
