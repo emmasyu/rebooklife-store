@@ -34,7 +34,7 @@ export default {
           text: "確認訂單",
         },
         {
-          name: "OrderFinish",
+          name: "orderFinish",
           text: "訂單完成",
         },
       ],
