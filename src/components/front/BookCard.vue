@@ -1,43 +1,47 @@
 <template>
-  <div
-    class="w-8 w-lg-10 w-xl-11 w-xxl-12 position-relative linear-hover cursor-pointer text-primary"
-  >
+  <div class="h-100 vstack justify-content-between">
     <div
-      class="position-absolute w-100 h-100 top-0 start-0 z-1"
-      @click.self="getProductPage(book.id)"
-    ></div>
-    <img
-      :src="bookPhoto"
-      :alt="book.title"
-      class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow"
-    />
-    <NewMark :id="book.id" />
-    <BookMark :id="book.id" />
+      class="w-8 w-lg-10 w-xl-11 w-xxl-12 position-relative linear-hover cursor-pointer text-primary"
+    >
+      <div
+        class="position-absolute w-100 h-100 top-0 start-0 z-1"
+        @click.self="getProductPage(book.id)"
+      ></div>
+      <img
+        :src="bookPhoto"
+        :alt="book.title"
+        class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow"
+      />
+      <NewMark :id="book.id" />
+      <BookMark :id="book.id" />
+      <div>
+        <h4 class="fs-6 fw-bold fs-lg-5 mb-lg-4 fs-xl-4">
+          {{ trimTitle }}
+        </h4>
+        <p class="fs-5 mb-4 d-none">作者：菲莉帕.派瑞(Philippa Perry)著</p>
+        <p class="fs-5 d-none">
+          {{ trimIntro }}
+        </p>
+      </div>
+    </div>
     <div>
-      <h4 class="fs-6 fw-bold fs-lg-5 mb-lg-4 fs-xl-4">
-        {{ trimTitle }}
-      </h4>
-      <p class="fs-5 mb-4 d-none">作者：菲莉帕.派瑞(Philippa Perry)著</p>
-      <p class="fs-5 d-none">
-        {{ trimIntro }}
+      <div class="d-flex align-items-center justify-content-between">
+        <a
+          href="#"
+          class="animation-shake p-1 text-primary-light-hover"
+          @click.prevent="addBookToCart(book.id)"
+          ><font-awesome-icon :icon="['fas', 'cart-shopping']"
+        /></a>
+        <p>
+          NT$<span class="text-secondary p-lg-1 fs-lg-4">{{ book.price }}</span
+          >元
+        </p>
+      </div>
+      <p class="text-gray text-end text-decoration-line-through fs-lg-5">
+        NT${{ book.origin_price }}元
       </p>
     </div>
   </div>
-  <div class="d-flex align-items-center justify-content-between">
-    <a
-      href="#"
-      class="animation-shake p-1 text-primary-light-hover"
-      @click.prevent="addBookToCart(book.id)"
-      ><font-awesome-icon :icon="['fas', 'cart-shopping']"
-    /></a>
-    <p>
-      NT$<span class="text-secondary p-lg-1 fs-lg-4">{{ book.price }}</span
-      >元
-    </p>
-  </div>
-  <p class="text-gray text-end text-decoration-line-through fs-lg-5">
-    NT${{ book.origin_price }}元
-  </p>
 </template>
 <script>
 import { mapActions } from "pinia";
