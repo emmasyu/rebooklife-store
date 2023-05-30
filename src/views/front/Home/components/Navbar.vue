@@ -65,8 +65,7 @@ import collapseMixin from "@/components/mixins/collapseMixin";
 import navigationData from "@/data/navgation.json";
 import { mapState } from "pinia";
 import useScrollStateStore from "@/stores/scrollState.js";
-import { useWindowSize } from "@vueuse/core";
-import { useWindowScroll } from "@vueuse/core";
+import { useWindowSize, useWindowScroll } from "@vueuse/core";
 
 export default {
   setup() {
