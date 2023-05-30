@@ -42,7 +42,7 @@
               class="d-block d-lg-table-cell pt-7 pt-lg-0 mb-1 vw-sm-75 vw-md-50 w-lg-auto"
             >
               <h4 class="fs-6 fs-lg-5 fw-bold">
-                {{ cart.product.title }}
+                {{ $filters.trim(cart.product.title, 30) }}
               </h4>
               <p class="d-none d-sm-block fs-6 fw-normal text-secondary">
                 作者：{{ cart.product.author }}

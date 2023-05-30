@@ -32,7 +32,7 @@
           />
           <div class="d-flex flex-column justify-content-center gap-3 w-11">
             <h4 class="fs-5 fw-bold">
-              {{ item.product.title }}
+              {{ $filters.trim(item.product.title, 30) }}
             </h4>
             <p class="text-secondary">NT ${{ item.total }}</p>
           </div>

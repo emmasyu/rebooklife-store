@@ -62,7 +62,7 @@
                   class="d-flex justify-content-between py-2"
                 >
                   <p>{{ productItem.product.title }}</p>
-                  <p>× {{ productItem.qty }}</p>
+                  <p class="text-nowrap">×{{ productItem.qty }}</p>
                 </li>
               </ul>
             </td>

@@ -49,9 +49,9 @@
                 </td>
               </tr>
               <tr>
-                <td class="fw-bold pe-5 pb-7">付款方式</td>
+                <td class="fw-bold pe-5 pb-7">付款狀態</td>
                 <td class="pb-7" :class="{ 'text-success': tempOrder.is_paid }">
-                  已付款
+                  {{ tempOrder.paid_date ? "已付款" : "未付款" }}
                   <span v-if="tempOrder.paid_date"
                     >({{
                       $filters.convertTimeToLocale(tempOrder.paid_date)
@@ -100,7 +100,7 @@
                   class="w-6"
                 />
                 <p class="w-11">
-                  {{ item.product.title }}
+                  {{ $filters.trim(item.product.title, 30) }}
                 </p>
                 <p class="text-end">{{ item.qty }}</p>
                 <p class="ms-auto">

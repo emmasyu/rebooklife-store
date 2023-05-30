@@ -38,12 +38,12 @@ export default {
     trimTitle() {
       return (title) => {
         if (this.width >= 1400) {
-          return this.$filters.trim(title, 18);
+          return this.$filters.trim(title, 16);
         }
         if (this.width >= 992) {
-          return this.$filters.trim(title, 15);
+          return this.$filters.trim(title, 14);
         }
-        return this.$filters.trim(title, 12);
+        return this.$filters.trim(title, 10);
       };
     },
     sliceRelatedProducts() {
