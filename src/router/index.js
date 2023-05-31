@@ -39,7 +39,7 @@ const router = createRouter({
           path: "",
           name: "bookstore",
           component: () =>
-            import("@/views/front/Store/BookStore/BookStoreView.vue"),
+            import("@/views/front/Store/Bookstore/BookStoreView.vue"),
 
           children: [
             {
@@ -47,7 +47,7 @@ const router = createRouter({
               name: "category",
               component: () =>
                 import(
-                  "@/views/front/Store/BookStore/Category/CategoryView.vue"
+                  "@/views/front/Store/Bookstore/Category/CategoryView.vue"
                 ),
             },
             {
@@ -55,7 +55,7 @@ const router = createRouter({
               name: "subcategory",
               component: () =>
                 import(
-                  "@/views/front/Store/BookStore/Subcategory/SubcategoryView.vue"
+                  "@/views/front/Store/Bookstore/Subcategory/SubcategoryView.vue"
                 ),
             },
           ],
