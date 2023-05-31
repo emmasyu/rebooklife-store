@@ -11,13 +11,11 @@
         @click.prevent="$emit('closeDropdown')"
       ></button>
     </header>
-    <!-- 如果購物車是空的 -->
     <template v-if="cartsTotalQty === 0">
       <p class="w-14 px-4 py-8 text-center">
         您的購物車內還沒有任何商品，<br />去添加商品吧！
       </p>
     </template>
-    <!-- 購物車清單 -->
     <template v-else>
       <ul class="max-vh-60 overflow-y-scroll">
         <li
