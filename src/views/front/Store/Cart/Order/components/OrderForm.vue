@@ -117,11 +117,12 @@
         ></ErrorMessage>
       </div>
       <div class="btn-submit mt-8 text-center sticky-bottom pb-lg-5">
-        <Button :text="'送出訂單'">submit</Button>
+        <Button :text="'送出訂單'" :type="'submit'" />
       </div>
     </VForm>
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useOrdersStore from "@/stores/orders.js";
@@ -153,6 +154,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .btn-submit {
   margin-left: -32px;
