@@ -6,6 +6,7 @@
     {{ num }}
   </span>
 </template>
+
 <script>
 export default {
   props: ["num"],

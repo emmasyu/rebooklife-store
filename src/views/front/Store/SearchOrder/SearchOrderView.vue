@@ -73,5 +73,8 @@ export default {
 <style lang="scss" scoped>
 .filter-black {
   filter: brightness(20%);
+  &:hover {
+    filter: brightness(50%);
+  }
 }
 </style>

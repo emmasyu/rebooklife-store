@@ -8,7 +8,7 @@
         type="button"
         class="btn-close fs-6 p-2"
         aria-label="Close"
-        @click="$emit('closeDropdown')"
+        @click.prevent="$emit('closeDropdown')"
       ></button>
     </header>
     <!-- 如果購物車是空的 -->
@@ -39,8 +39,9 @@
           <div class="d-flex flex-column justify-content-center gap-7">
             <div class="d-flex gap-1">
               <button
+                type="button"
                 class="bg-transparent border-0 text-content text-primary-light-hover"
-                @click="minusOneQty(item)"
+                @click.prevent="minusOneQty(item)"
               >
                 <font-awesome-icon
                   :icon="['fas', 'caret-down']"
@@ -49,15 +50,17 @@
               </button>
               <span>{{ item.qty }}</span>
               <button
+                type="button"
                 class="bg-transparent border-0 text-content text-primary-light-hover"
-                @click="addOneQty(item)"
+                @click.prevent="addOneQty(item)"
               >
                 <font-awesome-icon :icon="['fas', 'caret-up']" />
               </button>
             </div>
             <button
+              type="button"
               class="bg-transparent border-0 text-content text-primary-light-hover"
-              @click="deleteBook(item.id)"
+              @click.prevent="deleteBook(item.id)"
             >
               <font-awesome-icon :icon="['fas', 'trash']" />
             </button>
@@ -73,16 +76,17 @@
       <RouterLink
         :to="btnData.url"
         class="btn btn-primary w-100"
-        @click="$emit('closeDropdown')"
+        @click.prevent="$emit('closeDropdown')"
         >{{ btnData.text }}
       </RouterLink>
     </footer>
   </div>
 </template>
+
 <script>
-// import { RouterLink } from "vue-router";
 import { mapState, mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
+
 export default {
   computed: {
     ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),

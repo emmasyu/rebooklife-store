@@ -25,6 +25,7 @@
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .skew {
   transform: skew(-30deg, -15deg);
@@ -45,6 +46,7 @@
     }
   }
 }
+
 @keyframes move {
   0%,
   100% {

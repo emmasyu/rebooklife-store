@@ -3,7 +3,7 @@
     class="home-bg cover-blur d-flex justify-content-center align-items-center vh-100"
   >
     <div
-      class="p-9 d-flex flex-column align-items-center bg-black bg-opacity-50 rounded-4 position-relative shadow"
+      class="p-9 d-flex flex-column align-items-center bg-black bg-opacity-50 rounded-4 position-relative shadow z-0"
     >
       <img
         src="@/assets/images/rebooklife-logo-white.png"
@@ -39,8 +39,7 @@
               :icon="
                 ('fa-solid', isPasswordVisible ? 'fa-eye-slash' : 'fa-eye')
               "
-              class="text-white"
-              style="cursor: pointer"
+              class="text-white cursor-pointer"
               @click="toggleEye"
             />
           </div>
@@ -52,10 +51,11 @@
     </div>
   </div>
   <button
+    type="button"
     class="btn btn-outline-light fw-light position-absolute bottom-0 mb-8 ms-9"
     @click.prevent="$router.push('/')"
   >
-    進入二搜書 →
+    回到二搜書 →
   </button>
 </template>
 
@@ -107,7 +107,6 @@ export default {
 
 <style lang="scss" scoped>
 .bg-black.bg-opacity-50 {
-  z-index: 0;
   &::after {
     content: "";
     position: absolute;

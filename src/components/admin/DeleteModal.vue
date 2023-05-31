@@ -49,7 +49,7 @@
           <button
             type="button"
             class="btn btn-primary w-100 fs-4"
-            @click="$emit('del-item')"
+            @click.prevent="$emit('del-item')"
           >
             確認刪除
           </button>

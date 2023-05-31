@@ -7,6 +7,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useOrdersStore from "@/stores/orders.js";

@@ -18,7 +18,6 @@
         />
         <h2 class="fs-3 fw-bold me-6">優惠券專區</h2>
       </div>
-
       <div class="swiper mx-md-7 w-lg-75 mx-lg-auto">
         <div class="swiper-wrapper">
           <div
@@ -41,10 +40,12 @@
     </div>
   </div>
 </template>
+
 <script>
 import swiperMixin from "@/components/mixins/swiperMixin.js";
 import CouponCard from "./components/CouponCard.vue";
 import couponsData from "@/data/coupons.json";
+
 export default {
   components: { CouponCard },
   data() {

@@ -26,6 +26,7 @@
             <a
               href="#"
               class="w-3 px-2 w-lg-6 px-lg-4 h-3 h-lg-6 d-flex justify-content-center align-items-center bg-secondary bg-secondary-light-hover text-light fs-5 fs-lg-3"
+              @click.prevent
             >
               <font-awesome-icon :icon="['fas', 'envelope']" />
             </a>
@@ -55,16 +56,28 @@
           <div
             class="row pb-4 text-center fs-3 align-self-lg-end fs-lg-2 pe-xl-8 pe-xxl-11"
           >
-            <a href="#" class="col text-secondary text-secondary-light-hover"
+            <a
+              href="#"
+              class="col text-secondary text-secondary-light-hover"
+              @click.prevent
               ><font-awesome-icon :icon="['fab', 'square-github']"
             /></a>
-            <a href="#" class="col text-secondary text-secondary-light-hover"
+            <a
+              href="#"
+              class="col text-secondary text-secondary-light-hover"
+              @click.prevent
               ><font-awesome-icon :icon="['fab', 'linkedin']"
             /></a>
-            <a href="#" class="col text-secondary text-secondary-light-hover"
+            <a
+              href="#"
+              class="col text-secondary text-secondary-light-hover"
+              @click.prevent
               ><font-awesome-icon :icon="['fab', 'square-instagram']"
             /></a>
-            <a href="#" class="col text-secondary text-secondary-light-hover"
+            <a
+              href="#"
+              class="col text-secondary text-secondary-light-hover"
+              @click.prevent
               ><font-awesome-icon :icon="['fab', 'line']"
             /></a>
           </div>
@@ -77,6 +90,7 @@
     </div>
   </footer>
 </template>
+
 <style scoped>
 footer {
   background-color: #f4f4f4;

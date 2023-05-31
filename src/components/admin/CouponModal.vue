@@ -44,14 +44,13 @@
                 />
                 <div class="position-relative">
                   <font-awesome-icon
-                    class="text-primary position-relative"
-                    style="cursor: pointer"
+                    class="text-primary position-relative cursor-pointer"
                     :icon="['fas', 'caret-down']"
                     @click.stop="toggleCategory"
                   />
                   <div
                     v-show="isOpenCategory"
-                    class="list-group position-absolute end-0 w-10"
+                    class="list-group position-absolute end-0 w-10 z-1"
                   >
                     <a
                       v-for="item in couponsCategory"
@@ -150,18 +149,16 @@
             </div>
             <div class="d-flex justify-content-center">
               <input
-                class="form-check-input"
+                class="form-check-input cursor-pointer"
                 type="checkbox"
                 id="is_enabled"
-                style="cursor: pointer"
                 v-model="couponForm.is_enabled"
                 :true-value="1"
                 :false-value="0"
               />
               <label
                 for="is_enabled"
-                class="text-primary fw-bold ms-4"
-                style="cursor: pointer"
+                class="text-primary fw-bold ms-4 cursor-pointer"
                 >是否啟用<sup>*</sup></label
               >
             </div>
@@ -171,7 +168,7 @@
           <button
             type="button"
             class="btn btn-primary w-100 fs-4"
-            @click="updateCoupon"
+            @click.prevent="updateCoupon"
           >
             {{ isNewCoupon ? "確認新增" : "確認修改" }}
           </button>
@@ -204,7 +201,6 @@ export default {
       );
     },
   },
-
   methods: {
     toggleCategory() {
       this.isOpenCategory = !this.isOpenCategory;

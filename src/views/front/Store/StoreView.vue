@@ -5,6 +5,7 @@
   <StoreFooter />
   <Top />
 </template>
+
 <script>
 import StoreNavbar from "./components/Navbar/Navbar.vue";
 import StoreFooter from "./components/Footer.vue";

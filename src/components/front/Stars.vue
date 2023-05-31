@@ -11,6 +11,7 @@
     />
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
@@ -29,6 +30,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 input[type="radio"] {
   -moz-appearance: none;

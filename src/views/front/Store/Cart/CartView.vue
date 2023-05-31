@@ -5,6 +5,7 @@
     <CartStepButton />
   </div>
 </template>
+
 <script>
 import CartProgressBar from "./components/ProgressBar.vue";
 import CartStepButton from "./components/StepButton.vue";

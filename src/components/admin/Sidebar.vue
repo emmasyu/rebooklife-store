@@ -13,7 +13,7 @@
       >
     </div>
     <ul class="w-100 fs-5">
-      <li class="text-center">
+      <li class="text-center bg-secondary-hover">
         <RouterLink class="d-block py-4" to="/dashboard/products"
           ><img
             class="mb-3 w-4"
@@ -23,7 +23,7 @@
           <p class="text-light">產品列表</p></RouterLink
         >
       </li>
-      <li class="text-center">
+      <li class="text-center bg-secondary-hover">
         <RouterLink class="d-block py-4" to="/dashboard/coupons"
           ><img
             class="mb-3 w-4"
@@ -33,7 +33,7 @@
           <p class="text-light">優惠券管理</p></RouterLink
         >
       </li>
-      <li class="text-center">
+      <li class="text-center bg-secondary-hover">
         <RouterLink class="d-block py-4" to="/dashboard/orders"
           ><img
             class="mb-3 w-4"
@@ -43,7 +43,7 @@
           <p class="text-light">訂單狀況</p></RouterLink
         >
       </li>
-      <li class="text-center">
+      <li class="text-center bg-secondary-hover">
         <a class="d-block py-4" href="#" @click.prevent="logout"
           ><img
             class="mb-3 w-4"
@@ -61,6 +61,7 @@
 import { mapState, mapActions } from "pinia";
 import useStatedStore from "@/stores/states.js";
 import { postUserLogout } from "@/api";
+
 export default {
   computed: {
     ...mapState(useStatedStore, ["isLoading"]),
@@ -85,9 +86,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-li:hover {
-  background-color: #876e32;
-}
 .router-link-active {
   background-color: #876e32;
 }

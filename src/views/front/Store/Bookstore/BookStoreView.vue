@@ -31,6 +31,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import CategoryList from "./components/CategoryList.vue";
 
@@ -38,6 +39,7 @@ export default {
   components: { CategoryList },
 };
 </script>
+
 <style lang="scss" scoped>
 .float-vertical {
   animation: float-vertical 0.5s ease-in-out infinite alternate;

@@ -36,7 +36,7 @@
             <button
               type="button"
               class="btn btn-sm btn-outline-primary text-nowrap fs-xl-5 rounded-xl-2 py-xl-4"
-              @click.prevent="applyCoupon()"
+              @click.prevent="applyCoupon"
             >
               套用優惠券代碼
             </button>
@@ -77,6 +77,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
@@ -115,11 +116,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-input {
-  &:focus-visible {
-    border: none;
-  }
-}
-</style>

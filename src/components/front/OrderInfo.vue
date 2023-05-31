@@ -16,6 +16,7 @@
         <p class="min-w-content">訂單編號</p>
         <p class="fw-normal">{{ $route.params.orderId }}</p>
         <button
+          type="button"
           class="btn btn-outline-primary btn-sm py-1"
           @click.prevent="copyId"
         >
@@ -54,9 +55,10 @@
           }}
         </p>
         <button
+          type="button"
           class="btn btn-outline-primary btn-sm py-1"
           v-if="!order.paid_date && $route.name !== 'orderPay'"
-          @click.prevent="pushToPay()"
+          @click.prevent="pushToPay"
         >
           前往付款
         </button>
@@ -78,6 +80,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import OrderList from "@/components/front/OrderList.vue";
 import { mapActions } from "pinia";

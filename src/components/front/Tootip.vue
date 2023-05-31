@@ -8,11 +8,13 @@
     </div>
   </span>
 </template>
+
 <script>
 export default {
   props: ["title"],
 };
 </script>
+
 <style lang="scss" scoped>
 .tooltip-hover {
   display: none;

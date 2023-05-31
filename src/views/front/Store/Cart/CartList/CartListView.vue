@@ -53,6 +53,7 @@
                 class="d-flex align-items-center justify-content-between border border-primary w-8 w-lg-9"
               >
                 <button
+                  type="button"
                   class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
                   @click.prevent="minusOneQty(cart)"
                 >
@@ -60,6 +61,7 @@
                 </button>
                 <p>{{ cart.qty }}</p>
                 <button
+                  type="button"
                   class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
                   @click.prevent="addOneQty(cart)"
                 >
@@ -77,7 +79,7 @@
             </td>
             <td class="d-block d-lg-table-cell text-end py-2 px-lg-5 px-xl-8">
               <button
-                href="#"
+                type="button"
                 class="btn p-2 text-primary-light-hover"
                 @click.prevent="deleteBook(cart.id)"
               >
@@ -105,7 +107,7 @@
                   </div>
                 </div>
                 <button
-                  href="#"
+                  type="button"
                   class="btn btn-outline-primary btn-sm fs-lg-5 py-lg-4 px-lg-8 rounded-lg-2"
                   @click.prevent="deleteAllBooks"
                 >
@@ -119,6 +121,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";

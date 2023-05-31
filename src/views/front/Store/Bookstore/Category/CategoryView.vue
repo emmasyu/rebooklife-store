@@ -29,7 +29,6 @@
       >
     </div>
   </div>
-
   <div class="pb-8 pb-lg-10" v-for="subcategory in category" :key="subcategory">
     <p
       class="bg-primary py-1 ps-7 mb-4 text-light fw-bold rounded-5 rounded-bottom-0 bg-lg-transparent text-lg-primary border-start border-primary border-5 rounded-lg-0 mb-xl-6"
@@ -59,6 +58,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapState } from "pinia";
 import useProductsStore from "@/stores/products.js";
@@ -94,4 +94,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>

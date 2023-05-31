@@ -23,7 +23,7 @@
             class="btn-close ms-0"
             data-bs-dismiss="modal"
             aria-label="Close"
-            @click="defaultModal"
+            @click.prevent="defaultModal"
           ></button>
         </div>
         <div class="modal-body d-flex px-8 pt-7 gap-8">
@@ -94,8 +94,7 @@
                     />
                     <div class="position-relative">
                       <font-awesome-icon
-                        class="text-primary position-relative"
-                        style="cursor: pointer"
+                        class="text-primary position-relative cursor-pointer"
                         :icon="['fas', 'caret-down']"
                         @click.stop="toggleCategory"
                       />
@@ -131,8 +130,7 @@
                     />
                     <div class="position-relative">
                       <font-awesome-icon
-                        class="text-primary position-relative"
-                        style="cursor: pointer"
+                        class="text-primary position-relative cursor-pointer"
                         :icon="['fas', 'caret-down']"
                         @click.stop="toggleSubcategory"
                       />
@@ -307,18 +305,16 @@
                 </div>
               </div>
               <input
-                class="form-check-input"
+                class="form-check-input cursor-pointer"
                 type="checkbox"
                 id="is_enabled"
-                style="cursor: pointer"
                 v-model="productForm.is_enabled"
                 :true-value="1"
                 :false-value="0"
               />
               <label
                 for="is_enabled"
-                class="text-primary fw-bold ms-4"
-                style="cursor: pointer"
+                class="text-primary fw-bold ms-4 cursor-pointer"
                 >是否上架</label
               >
             </div>
@@ -352,12 +348,13 @@
             </div>
             <div class="d-flex justify-content-end my-8">
               <button
+                type="button"
                 class="btn rounded-0 fw-bold px-11 me-5"
                 :class="{
                   'btn-primary': editContent === 'baseIntro',
                   'btn-outline-primary': editContent === 'detail',
                 }"
-                @click="
+                @click.prevent="
                   () => {
                     editContent = 'baseIntro';
                   }
@@ -366,12 +363,13 @@
                 基本資訊
               </button>
               <button
+                type="button"
                 class="btn rounded-0 fw-bold px-11"
                 :class="{
                   'btn-primary': editContent === 'detail',
                   'btn-outline-primary': editContent === 'baseIntro',
                 }"
-                @click="
+                @click.prevent="
                   () => {
                     editContent = 'detail';
                   }
@@ -386,7 +384,7 @@
           <button
             type="button"
             class="btn btn-primary w-100 fs-4"
-            @click="updateProduct"
+            @click.prevent="updateProduct"
           >
             {{ isNewProduct ? "確認新增" : "確認修改" }}
           </button>

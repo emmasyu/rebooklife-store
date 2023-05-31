@@ -27,6 +27,7 @@
 <script>
 import { mapActions } from "pinia";
 import useStateStore from "@/stores/states.js";
+
 export default {
   props: ["coupon"],
   computed: {

@@ -130,7 +130,6 @@
         <div class="image pe-3 col-xl-4">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465742.30048184056!2d120.62622884892619!3d24.220374621118435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917dff97922ef%3A0x87523ee47ea6447f!2z5Y-w5Lit5biC!5e0!3m2!1szh-TW!2stw!4v1682191399186!5m2!1szh-TW!2stw"
-            style="border: 0"
             width="480"
             height="600"
             allowfullscreen=""
@@ -197,7 +196,6 @@ export default {
       });
     },
   },
-
   mounted() {
     this.$nextTick(() => {
       this.totalContentHight =

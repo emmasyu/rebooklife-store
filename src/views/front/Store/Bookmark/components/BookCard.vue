@@ -17,6 +17,7 @@
     <Stars :product="product" />
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
@@ -38,7 +39,6 @@ export default {
       return this.productsAll?.find((book) => book.id === this.item.id);
     },
   },
-
   methods: {
     ...mapActions(useFavoritesStore, ["toggleFavorite"]),
     trimTitle() {

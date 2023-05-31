@@ -16,6 +16,7 @@
     </li>
   </ul>
 </template>
+
 <script>
 export default {
   data() {
@@ -42,6 +43,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .progress-bar {
   z-index: 1029;
@@ -74,7 +76,6 @@ export default {
     }
   }
 }
-
 .progress-bar .active {
   .progress-text {
     display: block;

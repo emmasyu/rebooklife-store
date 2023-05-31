@@ -77,7 +77,6 @@ export default {
   components: { Stars, BookMark },
   props: ["tempProduct"],
   mixins: [modalMixin],
-
   methods: {
     ...mapActions(useCartsStore, ["addCart"]),
     trimTitle() {

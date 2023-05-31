@@ -11,7 +11,7 @@
       </p>
     </div>
     <div
-      class="px-7 py-2 mb-8 overflow-auto border-dashed"
+      class="px-7 py-2 mb-8 overflow-auto border border-primary border-dashed rounded-5"
       style="height: 640px"
     >
       <table class="table table-hover">
@@ -43,8 +43,7 @@
               <p>
                 共計 {{ item.totalQty }} 本
                 <font-awesome-icon
-                  class="text-primary position-relative"
-                  style="cursor: pointer"
+                  class="text-primary position-relative cursor-pointer"
                   :icon="[
                     'fas',
                     isOpenOrderProducts[index] ? 'caret-down' : 'caret-right',
@@ -73,14 +72,13 @@
             <td class="text-center">
               <font-awesome-icon
                 icon="fa-solid fa-eye"
-                class="me-3"
-                style="cursor: pointer"
-                @click.prevent="openOrderModal(item)"
+                class="me-3 cursor-pointer"
+                @click="openOrderModal(item)"
               />
               <font-awesome-icon
                 icon="fa-solid fa-trash"
-                style="cursor: pointer"
-                @click.prevent="openDeleteOrderModal(item)"
+                class="cursor-pointer"
+                @click="openDeleteOrderModal(item)"
               />
             </td>
           </tr>
@@ -168,11 +166,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.border-dashed {
-  border: 1px;
-  border-style: dashed;
-  border-radius: 30px;
-}
-</style>

@@ -22,11 +22,13 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   props: ["faq"],
 };
 </script>
+
 <style lang="scss" scoped>
 .faq:has(.show) {
   background-color: rgba($color: #000, $alpha: 0.5);

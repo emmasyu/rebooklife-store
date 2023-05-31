@@ -42,14 +42,14 @@
             class="fixed-bottom d-flex gap-0 position-lg-static gap-lg-4 text-center my-lg-4"
           >
             <button
-              href="#"
+              type="button"
               class="btn btn-primary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-100 py-3 w-lg-auto px-lg-10 px-xl-11 py-lg-4 rounded-lg-2"
               @click.prevent="addBookToCart(product.id)"
             >
               加入購物車
             </button>
             <button
-              href="#"
+              type="button"
               class="btn btn-secondary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-6 py-3 w-lg-auto px-lg-11 py-lg-4 rounded-lg-2"
               @click.prevent="toggleFavorite(product.id)"
             >
@@ -111,6 +111,7 @@
     </main>
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useProductsStore from "@/stores/products.js";
@@ -164,9 +165,9 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
-header,
-.overflow-x-auto {
+header {
   margin-left: -32px;
   margin-right: -32px;
   @media (min-width: 1200px) {

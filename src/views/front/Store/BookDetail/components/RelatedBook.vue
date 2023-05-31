@@ -22,6 +22,7 @@
     </ul>
   </div>
 </template>
+
 <script>
 import { mapState } from "pinia";
 import useProductsStore from "@/stores/products.js";
@@ -65,6 +66,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .related-book {
   @media (min-width: 1200px) {

@@ -126,7 +126,7 @@
           <button
             type="button"
             class="btn btn-primary w-100 fs-4"
-            @click="updateOrder"
+            @click.prevent="updateOrder"
           >
             確認
           </button>

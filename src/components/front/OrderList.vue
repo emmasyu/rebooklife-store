@@ -36,6 +36,7 @@
     </li>
   </ul>
 </template>
+
 <script>
 import Badge from "@/components/front/Badge.vue";
 

@@ -7,6 +7,7 @@
       :icon="[isFavorite(id) ? 'fas' : 'far', 'bookmark']"
   /></span>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";

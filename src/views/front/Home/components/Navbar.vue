@@ -17,7 +17,7 @@
         aria-controls="navbarNavAltMarkup"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        @click="getCollapseBtn()"
+        @click.prevent="getCollapseBtn"
         ref="collapseBtn"
       >
         <font-awesome-icon
@@ -39,7 +39,7 @@
             :class="{ active: isActive(item, i) }"
             aria-current="page"
             :to="item.bookmark"
-            @click="hideCollapse()"
+            @click.prevent="hideCollapse"
           >
             <img
               class="toggle-image"
@@ -174,13 +174,11 @@ export default {
       };
     },
   },
-
   methods: {
     getCollapseBtn() {
       this.isExpanded = this.$refs.collapseBtn.ariaExpanded;
     },
   },
-
   mixins: [collapseMixin],
 };
 </script>
@@ -189,7 +187,6 @@ export default {
 .cover-blur::before {
   backdrop-filter: blur(10px);
 }
-
 .navbar {
   &::after {
     content: "";

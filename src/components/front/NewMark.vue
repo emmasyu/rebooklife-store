@@ -18,6 +18,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .clippath {
   clip-path: polygon(1px 25px, 1px 60px, 60px 1px, 25px 1px);

@@ -11,7 +11,7 @@
       </p>
     </div>
     <div
-      class="px-7 py-2 mb-8 overflow-auto border-dashed"
+      class="px-7 py-2 mb-8 overflow-auto border border-primary border-dashed rounded-5"
       style="height: 640px"
     >
       <table class="table table-hover">
@@ -42,14 +42,13 @@
             <td class="text-center">{{ item.code }}</td>
             <td class="text-center">
               <font-awesome-icon
-                icon="fa-solid fa-pen-to-square"
+                icon="fa-solid fa-pen-to-square cursor-pointer"
                 class="me-3"
-                style="cursor: pointer"
                 @click.prevent="openCouponModal(false, item)"
               />
               <font-awesome-icon
                 icon="fa-solid fa-trash"
-                style="cursor: pointer"
+                class="cursor-pointer"
                 @click.prevent="openDeleteCouponModal(item)"
               />
             </td>
@@ -144,11 +143,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.border-dashed {
-  border: 1px;
-  border-style: dashed;
-  border-radius: 30px;
-}
-</style>

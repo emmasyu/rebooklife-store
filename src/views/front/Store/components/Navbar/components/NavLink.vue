@@ -20,6 +20,7 @@
   </RouterLink>
   <CartDropdown @closeDropdown="closeDropdown" />
 </template>
+
 <script>
 import { mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";
@@ -68,7 +69,6 @@ export default {
       this.hideDropdown();
     },
   },
-
   mixins: [dropdownMixin],
 };
 </script>

@@ -2,13 +2,11 @@
   <div
     class="sticky-bottom d-flex gap-0 gap-lg-4 pb-lg-5 justify-content-center"
   >
-    <ButtonOutline
-      :text="buttonText?.last"
-      @click.prevent="clickLastButton()"
-    />
-    <Button :text="buttonText?.next" @click.prevent="clickNextButton()" />
+    <ButtonOutline :text="buttonText?.last" @click.prevent="clickLastButton" />
+    <Button :text="buttonText?.next" @click.prevent="clickNextButton" />
   </div>
 </template>
+
 <script>
 import { mapActions, mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";

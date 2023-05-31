@@ -43,6 +43,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
@@ -89,6 +90,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .animation-shake {
   transition: 0.3s;
@@ -115,7 +117,6 @@ export default {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1));
   }
   &:hover {
-    // transition: all 0.5s ease-in;
     @media (min-width: 1200px) {
       &::before {
         transition: all 0.5s ease-in-out;

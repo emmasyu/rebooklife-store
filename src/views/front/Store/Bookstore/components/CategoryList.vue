@@ -56,6 +56,7 @@
     </li>
   </ul>
 </template>
+
 <script>
 import { mapState } from "pinia";
 import useProductsStore from "@/stores/products.js";
@@ -72,6 +73,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .active {
   background-color: #390000;
