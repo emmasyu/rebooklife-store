@@ -10,6 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "vue-router": "vue-router/dist/vue-router.esm-bundler.js",
     },
   },
 });
