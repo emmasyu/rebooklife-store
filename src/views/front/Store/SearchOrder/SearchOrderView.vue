@@ -7,12 +7,12 @@
           class="w-100 w-lg-50 py-1 py-lg-2 px-2 fs-6 fs-lg-5 border-primary outline-none rounded-5 text-center bg-transparent"
           placeholder="請輸入訂單編號"
           v-model="searchInput"
-          @keyup.enter="getOrderPage()"
+          @keyup.enter="getOrderPage"
         />
         <a
           class="d-none d-lg-inline-block ms-4"
           href="#"
-          @click.prevent="getOrderPage()"
+          @click.prevent="getOrderPage"
           ><img
             src="@/assets/images/search-white.png"
             alt="search"
@@ -43,6 +43,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapState, mapActions } from "pinia";
 import useOrdersStore from "@/stores/orders.js";
@@ -61,12 +62,14 @@ export default {
   methods: {
     ...mapActions(useOrdersStore, ["getOrder"]),
     getOrderPage() {
+      if (!this.searchInput) return;
       this.$router.push(`/bookstore/search_order/${this.searchInput.trim()}`);
       this.getOrder(this.searchInput.trim());
     },
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .filter-black {
   filter: brightness(20%);

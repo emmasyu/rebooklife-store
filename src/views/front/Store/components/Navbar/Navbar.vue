@@ -19,7 +19,7 @@
         <a
           :href="navLinks.searchLink.path"
           class="position-relative px-3 py-2 p-lg-3"
-          @click.prevent="toggleSearchInput"
+          @click.prevent="searchBook"
         >
           <img
             src="@/assets/images/search-white.png"
@@ -33,7 +33,7 @@
           class="search position-absolute bg-primary bg-lg-transparent py-2"
           :class="{ 'w-0 start-100': !isSearch }"
         >
-          <SearchBookForm :isScrollTop="isScrollTop" :isSearch="isSearch" />
+          <SearchBookForm :isScrollTop="isScrollTop" />
         </div>
       </div>
       <a
@@ -44,7 +44,7 @@
         aria-expanded="false"
         aria-controls="collapseNavbar"
         ref="collapse"
-        @click="getCollapseBtn"
+        @click.prevent="getCollapseBtn"
       >
         <font-awesome-icon
           :icon="['fas', isExpanded === 'true' ? 'xmark' : 'bars']"
@@ -57,7 +57,7 @@
       >
         <li
           class="bg-primary bg-lg-transparent rounded-5 mb-2 mb-lg-0 position-relative"
-          @click="hideCollapse()"
+          @click="hideCollapse"
           v-for="item in navLinks.navLink"
           :key="item.name"
         >
@@ -81,7 +81,6 @@ import { useWindowScroll } from "@vueuse/core";
 
 export default {
   components: { StoreNavLink, Tooltip, SearchBookForm },
-
   setup() {
     const { y } = useWindowScroll();
     return { y };
@@ -93,16 +92,26 @@ export default {
     };
   },
   computed: {
-    ...mapState(useStatesStore, ["isSearch"]),
+    ...mapState(useStatesStore, ["isSearch", "searchText"]),
     isScrollTop() {
       return this.y === 0;
     },
   },
   methods: {
-    ...mapActions(useStatesStore, ["toggleSearchInput"]),
-
+    ...mapActions(useStatesStore, ["toggleSearchInput", "inputSearchText"]),
     getCollapseBtn() {
       this.isExpanded = this.$refs.collapse?.ariaExpanded;
+    },
+    searchBook() {
+      if (this.isSearch && this.searchText) {
+        this.$router.push({
+          path: "/bookstore/search",
+          query: { searchText: this.searchText.trim() },
+        });
+        this.toggleSearchInput();
+      } else {
+        this.toggleSearchInput();
+      }
     },
   },
   created() {
@@ -123,12 +132,10 @@ export default {
     filter: brightness(20%);
   }
 }
-
 nav div,
 :deep img {
   transition: all 0.5s ease;
 }
-
 :is(li, a):hover:deep .tooltip-hover {
   @media (min-width: 992px) {
     display: flex;
