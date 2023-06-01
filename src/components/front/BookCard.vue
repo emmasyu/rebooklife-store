@@ -1,7 +1,8 @@
 <template>
   <div class="h-100 vstack justify-content-between">
     <div
-      class="w-8 w-lg-10 w-xl-11 w-xxl-12 position-relative linear-hover cursor-pointer text-primary"
+      class="w-lg-10 w-xl-11 w-xxl-12 position-relative linear-hover cursor-pointer text-primary vstack"
+      style="width: 120px"
     >
       <div
         class="position-absolute w-100 h-100 top-0 start-0 z-1"
@@ -14,7 +15,7 @@
       />
       <NewMark :id="book.id" />
       <BookMark :id="book.id" />
-      <div>
+      <div class="mt-auto">
         <h4 class="fs-6 fw-bold fs-lg-5 mb-lg-4 fs-xl-4">
           {{ trimTitle }}
         </h4>
@@ -64,16 +65,16 @@ export default {
     },
     trimTitle() {
       if (this.width >= 1400) {
-        return this.$filters.trim(this.book.title, 22);
+        return this.$filters.trim(this.book.title, 20);
       }
       if (this.width >= 992) {
-        return this.$filters.trim(this.book.title, 18);
+        return this.$filters.trim(this.book.title, 17);
       }
-      return this.$filters.trim(this.book.title, 14);
+      return this.$filters.trim(this.book.title, 12);
     },
     trimIntro() {
       if (this.width >= 1400) {
-        return this.$filters.trim(this.book.book_intro, 39);
+        return this.$filters.trim(this.book.book_intro, 37);
       }
       return this.$filters.trim(this.book.book_intro, 22);
     },

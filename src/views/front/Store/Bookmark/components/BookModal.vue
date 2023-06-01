@@ -72,15 +72,23 @@ import useCartsStore from "@/stores/carts.js";
 import modalMixin from "@/components/mixins/modalMixin";
 import BookMark from "@/components/front/BookMark.vue";
 import Stars from "@/components/front/Stars.vue";
+import { useWindowSize } from "@vueuse/core";
 
 export default {
   components: { Stars, BookMark },
   props: ["tempProduct"],
   mixins: [modalMixin],
+  setup() {
+    const { width } = useWindowSize();
+    return { width };
+  },
   methods: {
     ...mapActions(useCartsStore, ["addCart"]),
     trimTitle() {
-      return this.$filters.trim(this.tempProduct?.title, 20);
+      if (this.width >= 992) {
+        return this.$filters.trim(this.tempProduct?.title, 20);
+      }
+      return this.$filters.trim(this.tempProduct?.title, 16);
     },
     getProductPage(id) {
       this.$router.push(`/bookstore/book/${id}`);

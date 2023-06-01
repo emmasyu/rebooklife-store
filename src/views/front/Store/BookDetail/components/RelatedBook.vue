@@ -4,7 +4,7 @@
   >
     <p v-if="sliceRelatedProducts(currentId)?.length === 0">...敬請期待...</p>
     <ul
-      class="d-flex align-items-end gap-4 px-7 ms-xl-7 pt-5 overflow-x-auto gap-lg-8 justify-content-xl-center overflow-x-xl-hidden ms-xl-7 px-xl-0 pt-xl-10 pb-xl-9"
+      class="d-flex align-items-end gap-4 ms-xl-7 pt-5 overflow-x-auto gap-lg-8 justify-content-xl-center overflow-x-xl-hidden ms-xl-7 pt-xl-10 pb-xl-9"
     >
       <li
         class="w-7 w-lg-9 w-xl-10 w-xxl-11 flex-shrink-0 cursor-pointer"
@@ -44,7 +44,7 @@ export default {
         if (this.width >= 992) {
           return this.$filters.trim(title, 14);
         }
-        return this.$filters.trim(title, 10);
+        return this.$filters.trim(title, 8);
       };
     },
     sliceRelatedProducts() {
