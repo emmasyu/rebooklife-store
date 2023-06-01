@@ -2,11 +2,20 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHashHistory(),
-  scrollBehavior(to) {
+  scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return {
         el: to.hash,
       };
+    }
+    if (
+      (from.name === "category" || from.name === "subcategory") &&
+      (to.name === "category" || to.name === "subcategory")
+    ) {
+      return;
+    }
+    if (savedPosition) {
+      return savedPosition;
     }
     return {
       top: 0,
