@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap");
+
 // Color system
 $primary: #390000;
 $secondary: #876e32;
@@ -83,7 +85,7 @@ $box-shadow-lg: 0 1rem 3rem rgba($primary, 0.175);
 $font-family-sans-serif: "Noto Serif TC", sans-serif;
 $font-size-base: 1rem;
 
-$font-size-sm: $font-size-base * 0.75;
+$font-size-sm: $font-size-base * 0.875;
 $font-size-lg: $font-size-base * 1.5;
 
 $font-sizes: (
@@ -92,7 +94,7 @@ $font-sizes: (
   3: 1.5rem,
   4: 1.25rem,
   5: 1rem,
-  6: 0.75rem,
+  6: 0.875rem,
 );
 
 // Tables
