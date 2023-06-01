@@ -114,7 +114,7 @@
                 <button
                   type="button"
                   class="btn btn-outline-primary btn-sm fs-lg-5 py-lg-4 px-lg-8 rounded-lg-2"
-                  @click.prevent="deleteAllBooks"
+                  @click.prevent="openDeleteCheckModal"
                 >
                   清空購物車
                 </button>
@@ -125,13 +125,16 @@
       </table>
     </div>
   </div>
+  <DeleteModal ref="deleteCheckModal" />
 </template>
 
 <script>
 import { mapState, mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
+import DeleteModal from "./components/DeleteModal.vue";
 
 export default {
+  components: { DeleteModal },
   computed: {
     ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
     originTotal() {
@@ -161,8 +164,8 @@ export default {
     async deleteBook(id) {
       await this.deleteCart(id);
     },
-    async deleteAllBooks() {
-      await this.deleteAllCarts();
+    openDeleteCheckModal() {
+      this.$refs.deleteCheckModal.showModal();
     },
   },
 };
