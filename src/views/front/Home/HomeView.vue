@@ -1,27 +1,22 @@
 <template>
-  <div class="home-bg cover-blur">
-    <AdCouponCol />
-    <Navbar />
-    <Content />
-  </div>
+  <Background />
+  <AdCouponCol />
+  <Navbar />
+  <Content />
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
 import Content from "./components/Content.vue";
+import Background from "./components/Background.vue";
 import AdCouponCol from "@/components/front/AdCouponCol.vue";
 
 export default {
   components: {
     Navbar,
     Content,
+    Background,
     AdCouponCol,
   },
 };
 </script>
-
-<style scoped>
-.cover-blur::before {
-  backdrop-filter: initial;
-}
-</style>

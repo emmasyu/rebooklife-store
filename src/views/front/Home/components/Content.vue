@@ -14,7 +14,7 @@
     >
       <div class="ps-6 w-13 me-8">
         <p class="typewriter mb-4">在一個不起眼的角落裡...</p>
-        <p class="typewriter mb-8 ms-8">翻出了當初對這本書的熱情</p>
+        <p class="typewriter mb-11 ms-8">翻出了當初對這本書的熱情</p>
       </div>
     </div>
     <div

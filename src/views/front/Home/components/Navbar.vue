@@ -5,7 +5,7 @@
     <div class="container-fluid flex-lg-column h-75 px-2">
       <a class="navbar-brand mx-auto" href="#"
         ><img
-          class="navbar-brand-logo align-baseline d-lg-block w-xxl-100 w-7 mb-lg-5"
+          class="navbar-brand-logo d-block w-xxl-100 w-7"
           :src="logoPhoto"
           alt="rebooklife"
       /></a>
@@ -194,7 +194,7 @@ export default {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
     z-index: -1;
   }
