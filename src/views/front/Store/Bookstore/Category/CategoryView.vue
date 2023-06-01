@@ -12,7 +12,7 @@
       {{ value.name }}
     </p>
     <ul
-      class="d-flex gap-4 ps-4 overflow-x-auto gap-lg-8 overflow-x-xl-hidden gap-xl-9 ps-xl-5"
+      class="d-flex gap-5 ps-4 overflow-x-auto gap-lg-8 overflow-x-xl-hidden gap-xl-9 ps-xl-5"
     >
       <li class="text-primary" v-for="book in value.books" :key="book.id">
         <BookCard :book="book" />
@@ -20,7 +20,7 @@
     </ul>
     <div
       v-if="value.books.length > 3"
-      class="d-none d-xl-block text-end pt-6 fs-5"
+      class="d-none d-xl-block text-end pt-6 fs-5 fw-bold"
     >
       <RouterLink
         :to="`/bookstore/all/${value.name}`"
@@ -36,7 +36,7 @@
       {{ subcategory }}
     </p>
     <ul
-      class="d-flex gap-4 ps-4 overflow-x-auto gap-lg-8 overflow-x-xl-hidden gap-xl-9 ps-xl-5"
+      class="d-flex gap-5 ps-4 overflow-x-auto gap-lg-8 overflow-x-xl-hidden gap-xl-9 ps-xl-5"
     >
       <li
         class="text-primary"
@@ -48,7 +48,7 @@
     </ul>
     <div
       v-if="productsOfSubcategory(subcategory).length > 3"
-      class="d-none d-xl-block text-end pt-6 fs-5"
+      class="d-none d-xl-block text-end pt-6 fs-5 fw-bold"
     >
       <RouterLink
         :to="`/bookstore/${currentCategory}/${subcategory}`"
@@ -91,6 +91,11 @@ export default {
         );
       };
     },
+  },
+  mounted() {
+    if (!this.category) {
+      this.$router.push("/bookstore");
+    }
   },
 };
 </script>

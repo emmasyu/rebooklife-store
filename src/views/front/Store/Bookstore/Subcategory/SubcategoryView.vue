@@ -25,12 +25,17 @@ export default {
       if (this.currentCategory === "all") {
         return Object.values(this.productsOfFeatured).find(
           (item) => item.name === this.currentSubcategory
-        ).books;
+        )?.books;
       }
       return this.productsAll?.filter(
         (book) => book.subcategory === this.currentSubcategory
       );
     },
+  },
+  mounted() {
+    if (!this.productsOfSubcategory) {
+      this.$router.push("/bookstore");
+    }
   },
 };
 </script>
