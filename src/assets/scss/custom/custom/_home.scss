@@ -1,5 +1,5 @@
 .home-bg {
-  background: url("../images/background-img-index.jpg") center center fixed;
+  background: url("../images/background-img-index.jpg") center top;
   animation: scale-shrink 10s linear alternate infinite;
 }
 
@@ -16,9 +16,9 @@
 
 @keyframes scale-shrink {
   0% {
-    background-size: auto 100%;
+    background-size: auto 100vh;
   }
   100% {
-    background-size: auto 120%;
+    background-size: auto 120vh;
   }
 }
