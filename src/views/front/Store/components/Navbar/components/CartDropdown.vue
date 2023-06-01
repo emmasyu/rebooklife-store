@@ -39,6 +39,7 @@
               <button
                 type="button"
                 class="bg-transparent border-0 text-content text-primary-light-hover"
+                :disabled="item.qty === 1"
                 @click.prevent="minusOneQty(item)"
               >
                 <font-awesome-icon
@@ -50,6 +51,7 @@
               <button
                 type="button"
                 class="bg-transparent border-0 text-content text-primary-light-hover"
+                :disabled="item.qty === item.product.qty"
                 @click.prevent="addOneQty(item)"
               >
                 <font-awesome-icon :icon="['fas', 'caret-up']" />
@@ -114,3 +116,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+button:disabled {
+  color: rgb(209, 209, 209) !important;
+}
+</style>

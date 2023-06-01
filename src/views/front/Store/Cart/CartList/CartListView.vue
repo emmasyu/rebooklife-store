@@ -49,24 +49,29 @@
               </p>
             </td>
             <td class="d-block d-lg-table-cell mb-1 px-lg-5 px-xl-8">
-              <div
-                class="d-flex align-items-center justify-content-between border border-primary w-8 w-lg-9"
-              >
-                <button
-                  type="button"
-                  class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
-                  @click.prevent="minusOneQty(cart)"
+              <div class="d-flex gap-2 align-items-center flex-lg-column">
+                <div
+                  class="d-flex align-items-center justify-content-between border border-primary w-8 w-lg-9"
                 >
-                  －
-                </button>
-                <p>{{ cart.qty }}</p>
-                <button
-                  type="button"
-                  class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
-                  @click.prevent="addOneQty(cart)"
-                >
-                  ＋
-                </button>
+                  <button
+                    type="button"
+                    class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
+                    :disabled="cart.qty === 1"
+                    @click.prevent="minusOneQty(cart)"
+                  >
+                    －
+                  </button>
+                  <p>{{ cart.qty }}</p>
+                  <button
+                    type="button"
+                    class="border-0 bg-transparent py-2 px-3 bg-primary-hover text-light-hover"
+                    :disabled="cart.qty === cart.product.qty"
+                    @click.prevent="addOneQty(cart)"
+                  >
+                    ＋
+                  </button>
+                </div>
+                <p class="fs-6 text-secondary">庫存：{{ cart.product.qty }}</p>
               </div>
             </td>
             <td class="d-block d-lg-table-cell text-lg-end pe-lg-3">
@@ -162,3 +167,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+button:disabled {
+  color: rgb(209, 209, 209) !important;
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+</style>
