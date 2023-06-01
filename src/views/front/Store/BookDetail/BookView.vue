@@ -53,7 +53,9 @@
               class="btn btn-secondary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-6 py-3 w-lg-auto px-lg-11 py-lg-4 rounded-lg-2"
               @click.prevent="toggleFavorite(product.id)"
             >
-              <span class="d-none d-lg-inline me-2">加入收藏</span>
+              <span class="d-none d-lg-inline me-2">{{
+                isFavorite(product.id) ? "取消收藏" : "加入收藏"
+              }}</span>
               <font-awesome-icon
                 class="fs-4"
                 :icon="[isFavorite(product.id) ? 'fas' : 'far', 'bookmark']"
@@ -78,7 +80,7 @@
       <p class="d-block pt-7 pt-xl-8 px-xl-7 text-pre-line">
         {{ isExpandIntro ? product?.book_intro : trimIntro }}
       </p>
-      <div class="text-end mb-11">
+      <div class="text-end mb-11 mt-4">
         <a
           v-if="product.book_intro?.length > 130"
           href="#"
@@ -95,7 +97,7 @@
       <p class="pt-7 ps-4 pt-xl-8 px-xl-8 text-pre-line">
         {{ isExpandChapter ? product?.book_chapter : trimChapter }}
       </p>
-      <div class="text-end mb-11">
+      <div class="text-end mb-11 mt-4">
         <a
           v-if="product.book_chapter?.length > 130"
           href="#"

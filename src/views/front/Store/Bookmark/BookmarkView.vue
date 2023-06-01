@@ -7,13 +7,12 @@
             <p class="mb-7">收藏書籍</p>
           </div>
         </div>
-
         <div
           class="border border-secondary rounded-2 border-dashed border-1 mx-4 mx-lg-6"
         >
           <div
             v-if="favorites?.length === 0"
-            class="min-vh-75 d-flex justify-content-center align-items-center min-vh-lg-60"
+            class="min-vh-60 d-flex justify-content-center align-items-center"
           >
             <div class="text-center">
               <p class="fw-bold mb-3">你還沒有任何收藏哦！</p>
@@ -27,16 +26,20 @@
               </div>
             </div>
           </div>
-
           <div
-            class="min-vh-75 min-vh-lg-60 d-flex gap-7 gap-lg-8 flex-wrap align-items-end justify-content-center justify-content-sm-start py-5 py-lg-8 px-5 px-sm-8 px-md-10 px-lg-9 px-xl-8 px-xxl-12"
+            v-else
+            class="min-vh-75 min-vh-lg-60 py-5 py-lg-8 px-5 px-sm-8 px-md-10 px-lg-9 px-xl-8 px-xxl-12"
           >
-            <template v-for="item in favorites" :key="item.id">
-              <BookmarkCard
-                @open-bookmark-modal="openBookmarkModal"
-                :item="item"
-              />
-            </template>
+            <div
+              class="d-flex gap-7 gap-lg-8 flex-wrap align-items-end justify-content-center justify-content-sm-start"
+            >
+              <template v-for="item in favorites" :key="item.id">
+                <BookmarkCard
+                  @open-bookmark-modal="openBookmarkModal"
+                  :item="item"
+                />
+              </template>
+            </div>
           </div>
         </div>
       </div>
