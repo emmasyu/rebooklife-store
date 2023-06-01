@@ -9,7 +9,7 @@
     >
       <div class="ripple bg-primary rounded-2 position-relative"></div>
       <p
-        class="progress-text position-absolute start-0 end-0 top-6 top-lg-7 text-center"
+        class="progress-text position-absolute start-0 end-0 top-6 top-lg-7 text-center text-nowrap"
       >
         {{ item.text }}
       </p>

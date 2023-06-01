@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mt-9 mb-12 mb-lg-8 px-7 min-vh-75 min-vh-lg-60 text-primary fw-bold fs-6 fs-xl-5 pt-7 pt-lg-0"
+    class="container mt-9 mb-lg-8 px-7 min-vh-75 min-vh-lg-60 text-primary fw-bold fs-6 fs-xl-5 pt-7 pt-lg-0"
   >
     <div class="vstack flex-lg-row gap-lg-5 justify-content-center">
       <div
@@ -28,14 +28,14 @@
           >
             <input
               type="text"
-              class="border-0 border-bottom border-secondary bg-transparent py-2 px-4 outline-none py-xl-4"
+              class="form-control rounded-5 rounded-xl-0 fs-6 fs-xl-5 text-center border-0 bg-primary-light bg-opacity-25 py-2 px-4 outline-none py-xl-4"
               placeholder="請輸入優惠券代碼"
               size="12"
               v-model="couponCode"
             />
             <button
               type="button"
-              class="btn btn-sm btn-outline-primary text-nowrap fs-xl-5 rounded-xl-2 py-xl-4"
+              class="btn btn-sm btn-outline-primary text-nowrap fs-xl-5 rounded-5 rounded-xl-2 py-xl-4"
               @click.prevent="applyCoupon"
             >
               套用優惠券代碼

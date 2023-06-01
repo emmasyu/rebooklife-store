@@ -21,7 +21,7 @@
             <input
               type="text"
               placeholder="請輸入 Email 接收最新活動訊息"
-              class="w-100 text-center border-0 bg-transparent border-bottom border-secondary outline-none text-lg-start"
+              class="w-100 text-center border-0 rounded-0 bg-transparent border-bottom border-secondary outline-none text-lg-start"
             />
             <a
               href="#"
