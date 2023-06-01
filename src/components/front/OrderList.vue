@@ -27,10 +27,10 @@
           v-if="cart.coupon"
           class="text-gray text-decoration-line-through fs-xl-6"
         >
-          NT$ {{ cart.total }}
+          NT$ {{ $filters.thousandSeparator(cart.total) }}
         </p>
         <p class="text-secondary w-7 w-lg-8 min-w-lg-content">
-          NT$ {{ cart.final_total }}
+          NT$ {{ $filters.thousandSeparator(cart.final_total) }}
         </p>
       </div>
     </li>

@@ -18,7 +18,9 @@
               />
             </span>
           </p>
-          <p class="d-lg-none">總額 NT$ {{ carts.final_total }}</p>
+          <p class="d-lg-none">
+            總額 NT$ {{ $filters.thousandSeparator(carts.final_total) }}
+          </p>
         </div>
         <template v-if="width >= 992 || isOpenList">
           <OrderList :carts="carts.carts" />
@@ -62,12 +64,12 @@
               class="hstack justify-content-between text-gray fw-normal mb-2 text-decoration-line-through"
             >
               <p>總計</p>
-              <p>NT$ {{ carts.total }}</p>
+              <p>NT$ {{ $filters.thousandSeparator(carts.total) }}</p>
             </div>
             <div class="hstack justify-content-between">
               <p><span v-if="carts.carts?.[0].coupon">折扣後</span>總計</p>
               <p class="fs-5 fs-xl-4 text-secondary">
-                NT$ {{ carts.final_total }}
+                NT$ {{ $filters.thousandSeparator(carts.final_total) }}
               </p>
             </div>
           </div>

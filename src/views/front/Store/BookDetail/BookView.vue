@@ -27,11 +27,13 @@
         </div>
         <div class="align-self-end ps-4 ps-lg-8 text-primary">
           <p class="d-none d-lg-block text-decoration-line-through text-gray">
-            NT$ {{ product.origin_price }}元
+            NT$ {{ $filters.thousandSeparator(product.origin_price) }}元
           </p>
           <p>
             NT$
-            <span class="fs-5 fw-bold fs-lg-3">{{ product.price }}</span
+            <span class="fs-5 fw-bold fs-lg-3">{{
+              $filters.thousandSeparator(product.price)
+            }}</span
             >元　<span
               ><br class="d-lg-none" />| 庫存：{{ product.qty }}
               {{ product.unit }}</span

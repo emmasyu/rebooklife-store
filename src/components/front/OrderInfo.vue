@@ -70,7 +70,7 @@
       <div class="d-flex gap-4">
         <p class="min-w-content">訂單金額</p>
         <p class="fw-normal">
-          NT${{ order.total }}
+          NT${{ $filters.thousandSeparator(order.total) }}
           <span @click="toggleList"
             ><font-awesome-icon
               :icon="['fas', isOpenList ? 'caret-down' : 'caret-right']"

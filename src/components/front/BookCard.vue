@@ -34,12 +34,14 @@
           ><font-awesome-icon :icon="['fas', 'cart-shopping']"
         /></a>
         <p>
-          NT$<span class="text-secondary p-lg-1 fs-lg-4">{{ book.price }}</span
+          NT$<span class="text-secondary p-lg-1 fs-lg-4">{{
+            $filters.thousandSeparator(book.price)
+          }}</span
           >元
         </p>
       </div>
       <p class="text-gray text-end text-decoration-line-through fs-lg-5">
-        NT${{ book.origin_price }}元
+        NT${{ $filters.thousandSeparator(book.origin_price) }}元
       </p>
     </div>
   </div>

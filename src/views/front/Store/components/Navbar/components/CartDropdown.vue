@@ -32,7 +32,9 @@
             <h4 class="fs-5 fw-bold">
               {{ $filters.trim(item.product.title, 30) }}
             </h4>
-            <p class="text-secondary">NT ${{ item.total }}</p>
+            <p class="text-secondary">
+              NT ${{ $filters.thousandSeparator(item.total) }}
+            </p>
           </div>
           <div class="d-flex flex-column justify-content-center gap-7">
             <div class="d-flex gap-1">
@@ -67,7 +69,7 @@
           </div>
         </li>
         <p class="text-center text-secondary py-6">
-          總額 NT${{ carts.final_total }}
+          總額 NT${{ $filters.thousandSeparator(carts.final_total) }}
         </p>
       </ul>
     </template>

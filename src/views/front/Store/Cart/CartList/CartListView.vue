@@ -76,10 +76,18 @@
             </td>
             <td class="d-block d-lg-table-cell text-lg-end pe-lg-3">
               <p>
-                NT$ <span class="text-primary">{{ cart.total }}</span>
+                NT$
+                <span class="text-primary">{{
+                  $filters.thousandSeparator(cart.total)
+                }}</span>
               </p>
               <p class="text-decoration-line-through text-gray fs-6">
-                NT$ {{ cart.product.origin_price * cart.qty }}
+                NT$
+                {{
+                  $filters.thousandSeparator(
+                    cart.product.origin_price * cart.qty
+                  )
+                }}
               </p>
             </td>
             <td class="d-block d-lg-table-cell text-end py-2 px-lg-5 px-xl-8">
@@ -104,11 +112,13 @@
                     class="d-flex text-gray text-decoration-line-through mb-2 fs-6"
                   >
                     <p class="me-auto">小計</p>
-                    <p>NT${{ originTotal }}</p>
+                    <p>NT${{ $filters.thousandSeparator(originTotal) }}</p>
                   </div>
                   <div class="d-flex text-primary">
                     <p class="me-auto">總計</p>
-                    <p class="text-secondary">NT${{ carts.total }}</p>
+                    <p class="text-secondary">
+                      NT${{ $filters.thousandSeparator(carts.total) }}
+                    </p>
                   </div>
                 </div>
                 <button
