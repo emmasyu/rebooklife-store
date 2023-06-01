@@ -50,7 +50,7 @@
             <p class="toggle-text">{{ item.content }}</p>
           </RouterLink>
           <RouterLink
-            class="nav-link link-light d-lg-none fs-5 mb-5 mt-10 float-horizon text-decoration-underline"
+            class="nav-link link-light d-lg-none fs-5 my-5 float-horizon text-decoration-underline"
             to="/coupons"
             >前往領取優惠券</RouterLink
           >
@@ -199,7 +199,7 @@ export default {
     z-index: -1;
   }
   .navbar-nav {
-    height: calc(100vh - 73.7px);
+    height: calc(100vh - 65px);
   }
   .nav-link {
     padding: 16px;
