@@ -1,6 +1,13 @@
 $utilities: map-merge(
   $utilities,
   (
+    "opacity":
+      map-merge(
+        map-get($utilities, "opacity"),
+        (
+          state: hover,
+        )
+      ),
     "overflow-x":
       map-merge(
         map-get($utilities, "overflow-x"),
@@ -286,7 +293,33 @@ $utilities: map-merge(
     ),
     "outline": (
       property: outline,
-      values: none,
+      values: (
+        none: none,
+        null: var(--#{$prefix}border-width) var(--#{$prefix}border-style)
+          var(--#{$prefix}border-color),
+      ),
+    ),
+    "outline-width": (
+      responsive: true,
+      property: outline-width,
+      class: outline,
+      values: $border-widths,
+    ),
+    "outline-color": (
+      responsive: true,
+      property: outline-color,
+      class: outline,
+      local-vars: (
+        "outline-opacity": 1,
+      ),
+      values: $utilities-border-colors,
+    ),
+    "outline-offset": (
+      property: outline-offset,
+      class: outline-offset,
+      values: (
+        -1: -1px,
+      ),
     ),
     "list-style": (
       property: list-style-type,
@@ -300,6 +333,22 @@ $utilities: map-merge(
       property: resize,
       values: (
         none,
+      ),
+    ),
+    "max-inline-size": (
+      responsive: true,
+      property: max-inline-size,
+      class: max-inline,
+      values: (
+        900: 900px,
+        700: 700px,
+      ),
+    ),
+    "letter-spacing": (
+      property: letter-spacing,
+      class: letter-spacing,
+      values: (
+        0: 0,
       ),
     ),
   )
