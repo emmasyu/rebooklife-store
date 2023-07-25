@@ -26,7 +26,22 @@
           v-if="!$route.params.orderId"
           class="vstack justify-content-center align-items-center min-vh-75 min-vh-lg-60"
         >
-          <p>請輸入訂單邊號查詢</p>
+          <div v-if="localOrders.length > 0">
+            <p class="mb-2 text-center">
+              輸入訂單邊號進行查詢
+              <br />
+              或是點選下列歷史訂單紀錄查看內容
+            </p>
+            <ul class="fw-normal">
+              <li
+                v-for="order in localOrders"
+                @click="getOrderPage(order)"
+                class="border border-primary py-2 px-5 my-2 bg-primary-hover text-white-hover cursor-pointer text-break text-center"
+              >
+                {{ order }}
+              </li>
+            </ul>
+          </div>
         </div>
         <div
           v-else-if="!order"
@@ -57,15 +72,23 @@ export default {
     };
   },
   computed: {
-    ...mapState(useOrdersStore, ["order"]),
+    ...mapState(useOrdersStore, ["order", "localOrders"]),
   },
   methods: {
-    ...mapActions(useOrdersStore, ["getOrder"]),
-    getOrderPage() {
-      if (!this.searchInput) return;
-      this.$router.push(`/bookstore/search_order/${this.searchInput.trim()}`);
-      this.getOrder(this.searchInput.trim());
+    ...mapActions(useOrdersStore, ["getOrder", "getLocalOrders"]),
+    getOrderPage(id) {
+      if (typeof id === "string") {
+        this.$router.push(`/bookstore/search_order/${id}`);
+        this.getOrder(id);
+      }
+      if (this.searchInput) {
+        this.$router.push(`/bookstore/search_order/${this.searchInput.trim()}`);
+        this.getOrder(this.searchInput.trim());
+      }
     },
+  },
+  created() {
+    this.getLocalOrders();
   },
 };
 </script>

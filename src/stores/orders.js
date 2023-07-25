@@ -12,6 +12,7 @@ export default defineStore("order", {
     pagination: {},
     order: {},
     orderId: "",
+    localOrders: [],
   }),
 
   actions: {
@@ -48,7 +49,8 @@ export default defineStore("order", {
         });
         if (response.data.success) {
           useStateStore.pushToastMessage("成功：已建立訂單");
-          this.orderId = response.data.orderId;
+          this.orderId = await response.data.orderId;
+          this.addLocalOrders(this.orderId);
         } else {
           useStateStore.pushToastMessage("錯誤：訂單建立失敗", response.data);
         }
@@ -74,6 +76,20 @@ export default defineStore("order", {
         console.log(error);
       }
       useStateStore.changeLoadingState(false);
+    },
+    setLocalOrders() {
+      localStorage.setItem("orders", JSON.stringify(this.localOrders));
+    },
+    getLocalOrders() {
+      const ordersJson = localStorage.getItem("orders");
+      if (ordersJson) {
+        this.localOrders = JSON.parse(ordersJson);
+      }
+    },
+    addLocalOrders(orderId) {
+      this.getLocalOrders();
+      this.localOrders.push(orderId);
+      this.setLocalOrders();
     },
   },
 });
