@@ -63,7 +63,7 @@
             <RouterLink
               class="text-decoration-underline-hover text-secondary"
               to="/#contact"
-              >聯絡我們 | Contct Us</RouterLink
+              >聯絡我們 | Contact Us</RouterLink
             >
           </div>
 

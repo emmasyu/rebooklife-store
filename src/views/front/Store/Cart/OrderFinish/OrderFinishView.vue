@@ -8,7 +8,10 @@
       >
         付款成功
       </p>
-      <p class="mb-5 mb-lg-0">感謝您的購買~ :)</p>
+      <p class="mb-5 mb-lg-0">
+        感謝您的購買~
+        <FontAwesomeIcon :icon="['far', 'face-smile-beam']" />
+      </p>
       <p>訂單完成付款後 3 天內商品即可送到</p>
       <p>請留意宅配貨運電話</p>
     </div>

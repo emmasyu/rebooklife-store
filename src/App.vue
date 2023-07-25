@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from "vue-router";
 import LoadingOverlay from "@/components/global/LoadingOverlay.vue";
 import Toasts from "@/components/global/Toasts.vue";
 import AOS from "aos";

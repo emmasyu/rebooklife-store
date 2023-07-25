@@ -17,3 +17,10 @@
 .transition {
   transition: all ease-in 0.5s;
 }
+
+.required::after {
+  content: "*";
+  vertical-align: super;
+  color: #a80000;
+  font-size: 0.5rem;
+}

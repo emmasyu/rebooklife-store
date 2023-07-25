@@ -9,7 +9,7 @@
     </h4>
     <VForm class="pt-lg-4" v-slot="{ errors }" @submit="sendOrder">
       <div class="mb-2">
-        <label for="name" class="px-4 py-2">姓　　名<sup>*</sup>：</label>
+        <label for="name" class="px-4 py-2 required">姓 名</label>
         <VField
           id="name"
           type="text"
@@ -27,7 +27,7 @@
         <ErrorMessage name="姓名" class="invalid-feedback ps-4"></ErrorMessage>
       </div>
       <div class="mb-2">
-        <label for="tel" class="px-4 py-2">連絡電話<sup>*</sup>：</label>
+        <label for="tel" class="px-4 py-2 required">連絡電話</label>
         <VField
           id="tel"
           type="tel"
@@ -48,7 +48,7 @@
         ></ErrorMessage>
       </div>
       <div class="mb-2">
-        <label for="email" class="px-4 py-2">電子郵件<sup>*</sup>：</label>
+        <label for="email" class="px-4 py-2 required">電子郵件</label>
         <VField
           id="email"
           type="email"
@@ -69,7 +69,7 @@
         ></ErrorMessage>
       </div>
       <div class="mb-2">
-        <label for="address" class="px-4 py-2">收件地址<sup>*</sup>：</label>
+        <label for="address" class="px-4 py-2 required">收件地址</label>
         <VField
           id="address"
           type="text"
@@ -90,7 +90,7 @@
         ></ErrorMessage>
       </div>
       <div class="mb-4">
-        <label for="note" class="px-4 py-2 d-block">備註：</label>
+        <label for="note" class="px-4 py-2 d-block">備註</label>
         <textarea
           class="resize-none border-secondary rounded-2 bg-transparent outline-none py-2 px-4 w-100"
           rows="5"
@@ -108,7 +108,7 @@
           v-model="form.read"
           :rules="isRead"
         />
-        <label for="read" class="fw-normal"
+        <label for="read" class="fw-normal required"
           >我已閱讀並接受二搜書 須知與條款</label
         >
         <ErrorMessage

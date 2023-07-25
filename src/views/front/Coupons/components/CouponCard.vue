@@ -14,7 +14,7 @@
         {{ item }}
       </h4>
       <h6 class="lh-sm">
-        　<span class="text-primary fw-bold">{{ coupon.percent / 10 }}</span> 折
+        <span class="text-primary fw-bold">{{ coupon.percent / 10 }}</span> 折
       </h6>
       <p class="fs-6 mb-2">({{ coupon.notes }})</p>
       <p class="py-5 fs-lg-4 fw-bold cursor-pointer" @click="copyText">

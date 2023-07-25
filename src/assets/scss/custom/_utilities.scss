@@ -351,5 +351,13 @@ $utilities: map-merge(
         0: 0,
       ),
     ),
+    "text-indent": (
+      responsive: true,
+      property: text-indent,
+      values: (
+        base: 2.4rem,
+        small: 2.15rem,
+      ),
+    ),
   )
 );

@@ -7,7 +7,7 @@
       aria-expanded="true"
       :aria-controls="`${faq.question}`"
     >
-      <h4 class="fs-6 fs-md-5 px-2 pe-7">Q：{{ faq.question }}</h4>
+      <h4 class="fs-6 fs-md-5 px-2 pe-7">Q : {{ faq.question }}</h4>
       <FontAwesomeIcon
         class="fs-4 pe-2"
         :icon="[
@@ -18,7 +18,7 @@
     </div>
     <div :id="`${faq.question}`" data-bs-parent="#accordion" class="collapse">
       <hr />
-      <p class="px-2">A：{{ faq.answer }}</p>
+      <p class="px-2">A : {{ faq.answer }}</p>
     </div>
   </div>
 </template>

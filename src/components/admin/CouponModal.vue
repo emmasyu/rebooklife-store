@@ -31,7 +31,7 @@
                 class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
               >
                 <label class="text-primary fw-bold w-10" for="category"
-                  >優惠種類：</label
+                  >優惠種類</label
                 >
                 <input
                   class="form-control rounded-0 p-0"
@@ -67,8 +67,8 @@
               <div
                 class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
               >
-                <label class="text-primary fw-bold w-10" for="title"
-                  >優惠活動<sup>*</sup>：</label
+                <label class="text-primary fw-bold w-10 required" for="title"
+                  >優惠活動</label
                 >
                 <input
                   class="form-control rounded-0 p-0"
@@ -84,8 +84,8 @@
               <div
                 class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
               >
-                <label class="text-primary fw-bold w-10" for="due_date"
-                  >優惠期限<sup>*</sup>：</label
+                <label class="text-primary fw-bold w-10 required" for="due_date"
+                  >優惠期限</label
                 >
                 <input
                   class="form-control rounded-0 p-0"
@@ -100,8 +100,8 @@
               <div
                 class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
               >
-                <label class="text-primary fw-bold w-10" for="percent"
-                  >折扣%<sup>*</sup>：</label
+                <label class="text-primary fw-bold w-10 required" for="percent"
+                  >折扣%</label
                 >
                 <input
                   class="form-control rounded-0 p-0"
@@ -116,8 +116,8 @@
               <div
                 class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
               >
-                <label class="text-primary fw-bold w-10" for="code"
-                  >優惠碼<sup>*</sup>：</label
+                <label class="text-primary fw-bold w-10 required" for="code"
+                  >優惠碼</label
                 >
                 <input
                   class="form-control rounded-0 p-0"
@@ -134,7 +134,7 @@
                 class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
               >
                 <label class="text-primary fw-bold w-10" for="notes"
-                  >備註：</label
+                  >備註</label
                 >
                 <input
                   class="form-control rounded-0 p-0"
@@ -158,8 +158,8 @@
               />
               <label
                 for="is_enabled"
-                class="text-primary fw-bold ms-4 cursor-pointer"
-                >是否啟用<sup>*</sup></label
+                class="text-primary fw-bold ms-4 cursor-pointer required"
+                >是否啟用</label
               >
             </div>
           </div>

@@ -1,6 +1,6 @@
 <template>
   <p class="d-none d-lg-block text-primary fw-bold text-center mb-4 fs-xxl-3">
-    /　書籍分類　/
+    / 書籍分類 /
   </p>
   <ul
     class="ps-4 text-nowrap d-flex gap-2 overflow-x-auto text-primary fw-bold pb-7 flex-lg-column gap-lg-0 text-center ps-lg-0"

@@ -81,7 +81,7 @@
         <p class="mb-2 mb-xl-4">作者：{{ product.author }}</p>
         <p class="mb-2 mb-xl-4">出版年：{{ product.publication_year }}</p>
         <p class="mb-2 mb-xl-4">出版社：{{ product.publishing }}</p>
-        <p class="mb-5 mb-xxl-11">ISBN：{{ product.ISBN }}</p>
+        <p class="mb-5 mb-xxl-11">ISBN : {{ product.ISBN }}</p>
       </div>
       <header
         class="bg-primary fs-5 fw-bold py-2 ps-7 text-white fs-lg-4 py-lg-4 fs-xl-3"

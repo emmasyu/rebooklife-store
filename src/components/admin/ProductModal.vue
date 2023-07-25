@@ -81,8 +81,10 @@
                   <div
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4 me-4"
                   >
-                    <label class="text-primary fw-bold w-10" for="category"
-                      >分類<sup>*</sup>：</label
+                    <label
+                      class="text-primary fw-bold w-10 required"
+                      for="category"
+                      >分類</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -117,8 +119,10 @@
                   <div
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
                   >
-                    <label class="text-primary fw-bold w-10" for="subcategory"
-                      >子分類<sup></sup>：</label
+                    <label
+                      class="text-primary fw-bold w-10 required"
+                      for="subcategory"
+                      >子分類</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -160,8 +164,8 @@
                 <div
                   class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
                 >
-                  <label class="text-primary fw-bold w-8" for="title"
-                    >書名<sup>*</sup>：</label
+                  <label class="text-primary fw-bold w-8 required" for="title"
+                    >書名</label
                   >
                   <input
                     class="form-control rounded-0 p-0"
@@ -177,7 +181,7 @@
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4 me-4"
                   >
                     <label class="text-primary fw-bold w-10" for="author"
-                      >作者：</label
+                      >作者</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -193,7 +197,7 @@
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
                   >
                     <label class="text-primary fw-bold w-10" for="ISBN"
-                      >ISBN：</label
+                      >ISBN</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -210,7 +214,7 @@
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4 me-4"
                   >
                     <label class="text-primary fw-bold w-10" for="publishing"
-                      >出版社：</label
+                      >出版社</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -227,7 +231,7 @@
                     <label
                       class="text-primary fw-bold w-10"
                       for="publication_year"
-                      >出版年份：</label
+                      >出版年份</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -244,7 +248,7 @@
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4 me-4"
                   >
                     <label class="text-primary fw-bold w-10" for="qty"
-                      >庫存：</label
+                      >庫存</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -259,7 +263,7 @@
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
                   >
                     <label class="text-primary fw-bold w-10" for="unit"
-                      >單位：</label
+                      >單位</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -275,8 +279,10 @@
                   <div
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4 me-4"
                   >
-                    <label class="text-primary fw-bold w-10" for="origin_price"
-                      >原價<sup>*</sup>：</label
+                    <label
+                      class="text-primary fw-bold w-10 required"
+                      for="origin_price"
+                      >原價</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -290,8 +296,10 @@
                   <div
                     class="d-flex align-items-center border-bottom border-secondary px-5 py-4"
                   >
-                    <label class="text-primary fw-bold w-10" for="price"
-                      >售價<sup>*</sup>：</label
+                    <label
+                      class="text-primary fw-bold w-10 required"
+                      for="price"
+                      >售價</label
                     >
                     <input
                       class="form-control rounded-0 p-0"
@@ -321,7 +329,7 @@
             <div v-show="editContent === 'detail'">
               <div class="mb-7">
                 <label class="text-primary fw-bold mb-4" for="book_intro"
-                  >書籍簡介：</label
+                  >書籍簡介</label
                 >
                 <textarea
                   class="form-control border border-secondary rounded-0 px-5 py-3 h-11"
@@ -334,7 +342,7 @@
               </div>
               <div class="mb-7">
                 <label class="text-primary fw-bold mb-4" for="book_chapter"
-                  >書籍簡介：</label
+                  >書籍簡介</label
                 >
                 <textarea
                   class="form-control border border-secondary rounded-0 px-5 py-3 h-11"

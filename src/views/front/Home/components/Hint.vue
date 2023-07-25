@@ -1,19 +1,20 @@
 <template>
   <div
-    class="transition position-fixed ps-3 py-3 mt-10 pe-4 top-0 w-5 text-gray fs-6 bg-black bg-opacity-75 rounded-start-3 start-100"
+    class="transition position-fixed ps-3 py-3 mt-10 pe-4 top-0 w-5 text-gray fs-6 bg-black bg-opacity-75 rounded-start-3 start-100 d-flex align-items-center"
     :class="{ 'show-hint': showHint }"
+    style="writing-mode: vertical-rl"
   >
     <button
       type="button"
-      class="text-white bg-transparent border-0 d-block p-0 text-secondary-hover"
+      class="text-white bg-transparent border-0 d-flex p-0 text-secondary-hover p-2"
       @click="showHint = false"
     >
-      ×
+      <FontAwesomeIcon :icon="['fas', 'xmark']" />
     </button>
-    <span class="d-lg-none">≡</span>提示｜<RouterLink
+    <span class="d-lg-none">≡</span>提示－<RouterLink
       to="/bookstore"
       class="text-white text-secondary-hover"
-      >找書 ↓ 前往商城購物</RouterLink
+      >找書 → 前往商城購物</RouterLink
     >
   </div>
 </template>

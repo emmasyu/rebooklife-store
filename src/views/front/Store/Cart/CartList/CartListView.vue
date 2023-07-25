@@ -59,7 +59,7 @@
                     :disabled="cart.qty === 1"
                     @click.prevent="minusOneQty(cart)"
                   >
-                    －
+                    <FontAwesomeIcon :icon="['fas', 'minus']" />
                   </button>
                   <p>{{ cart.qty }}</p>
                   <button
@@ -68,7 +68,7 @@
                     :disabled="cart.qty === cart.product.qty"
                     @click.prevent="addOneQty(cart)"
                   >
-                    ＋
+                    <FontAwesomeIcon :icon="['fas', 'plus']" />
                   </button>
                 </div>
                 <p class="fs-6 text-secondary">庫存：{{ cart.product.qty }}</p>
