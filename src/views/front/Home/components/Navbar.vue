@@ -68,15 +68,12 @@ import useScrollStateStore from "@/stores/scrollState.js";
 import { useWindowSize, useWindowScroll } from "@vueuse/core";
 
 export default {
-  setup() {
-    const { width } = useWindowSize();
-    const { y } = useWindowScroll();
-    return { width, y };
-  },
   data() {
     return {
       isExpanded: "false",
       navigationData: navigationData.navigation,
+      width: useWindowSize().width,
+      y: useWindowScroll().y,
     };
   },
   computed: {

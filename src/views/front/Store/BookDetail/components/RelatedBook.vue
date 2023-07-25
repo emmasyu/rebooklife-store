@@ -31,9 +31,10 @@ import { useWindowSize } from "@vueuse/core";
 
 export default {
   props: ["category", "currentId"],
-  setup() {
-    const { width } = useWindowSize();
-    return { width };
+  data() {
+    return {
+      width: useWindowSize().width,
+    };
   },
   computed: {
     ...mapState(useProductsStore, ["relatedProducts"]),

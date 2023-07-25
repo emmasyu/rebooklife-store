@@ -157,13 +157,10 @@ import { mapActions } from "pinia";
 import useScrollStateStore from "@/stores/scrollState.js";
 
 export default {
-  setup() {
-    const { y } = useWindowScroll();
-    return { y };
-  },
   components: { FAQ },
   data() {
     return {
+      y: useWindowScroll().y,
       totalContentHight: 0,
       faqs: [
         {

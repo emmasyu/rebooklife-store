@@ -56,12 +56,13 @@ import NewMark from "@/components/front/NewMark.vue";
 import { useWindowSize } from "@vueuse/core";
 
 export default {
-  setup() {
-    const { width } = useWindowSize();
-    return { width };
-  },
   props: ["book"],
   components: { BookMark, NewMark },
+  data() {
+    return {
+      width: useWindowSize().width,
+    };
+  },
   computed: {
     bookPhoto() {
       return new URL(this.book.imageUrl, import.meta.url).href;

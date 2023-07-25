@@ -12,9 +12,10 @@
 <script>
 import { useWindowScroll } from "@vueuse/core";
 export default {
-  setup() {
-    const { y } = useWindowScroll();
-    return { y };
+  data() {
+    return {
+      y: useWindowScroll().y,
+    };
   },
   methods: {
     scrollTop() {

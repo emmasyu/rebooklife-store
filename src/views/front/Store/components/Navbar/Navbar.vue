@@ -81,14 +81,11 @@ import { useWindowScroll } from "@vueuse/core";
 
 export default {
   components: { StoreNavLink, Tooltip, SearchBookForm },
-  setup() {
-    const { y } = useWindowScroll();
-    return { y };
-  },
   data() {
     return {
       isExpanded: "false",
       navLinks: navLinksData,
+      y: useWindowScroll().y,
     };
   },
   computed: {

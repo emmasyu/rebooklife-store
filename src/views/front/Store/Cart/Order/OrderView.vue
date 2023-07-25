@@ -89,14 +89,11 @@ import { useWindowSize } from "@vueuse/core";
 
 export default {
   components: { OrderList, OrderForm },
-  setup() {
-    const { width } = useWindowSize();
-    return { width };
-  },
   data() {
     return {
       isOpenList: false,
       couponCode: "",
+      width: useWindowSize().width,
     };
   },
   computed: {

@@ -28,9 +28,10 @@ import { useWindowSize } from "@vueuse/core";
 export default {
   components: { BookMark, Stars },
   props: ["item", "isVisibleMark"],
-  setup() {
-    const { width } = useWindowSize();
-    return { width };
+  data() {
+    return {
+      width: useWindowSize().width,
+    };
   },
   computed: {
     ...mapState(useFavoritesStore, ["isFavorite"]),

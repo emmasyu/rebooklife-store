@@ -78,9 +78,10 @@ export default {
   components: { Stars, BookMark },
   props: ["tempProduct"],
   mixins: [modalMixin],
-  setup() {
-    const { width } = useWindowSize();
-    return { width };
+  data() {
+    return {
+      width: useWindowSize().width,
+    };
   },
   methods: {
     ...mapActions(useCartsStore, ["addCart"]),
