@@ -93,7 +93,11 @@
               下單產品
             </p>
             <div style="height: 385px" class="overflow-auto mb-7">
-              <div v-for="item in tempOrder.products" class="d-flex gap-4 mb-4">
+              <div
+                v-for="item in tempOrder.products"
+                :key="item.product.id"
+                class="d-flex gap-4 mb-4"
+              >
                 <img
                   :src="item.product.imageUrl"
                   :alt="item.product.title"

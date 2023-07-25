@@ -4,6 +4,7 @@
   >
     <li
       v-for="item in cartProgress"
+      :key="item.name"
       class="progress-item position-relative px-6 px-sm-8 px-lg-10"
       :class="{ active: $route.name === item.name }"
     >

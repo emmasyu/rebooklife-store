@@ -26,7 +26,11 @@
       ></button>
     </div>
     <div class="toast-body" v-if="msg.content">
-      <p v-if="typeof msg.content === 'object'" v-for="content in msg.content">
+      <p
+        v-if="typeof msg.content === 'object'"
+        v-for="(content, i) in msg.content"
+        :key="i"
+      >
         {{ "‧ " + content }}
       </p>
       <p v-else>

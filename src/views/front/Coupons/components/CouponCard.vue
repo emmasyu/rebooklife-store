@@ -10,7 +10,11 @@
     <div
       class="position-absolute top-0 pt-8 pt-lg-9 w-100 text-black text-center"
     >
-      <h4 class="fs-5 fs-lg-4 fw-bold" v-for="item in splitTitles">
+      <h4
+        class="fs-5 fs-lg-4 fw-bold"
+        v-for="(item, i) in splitTitles"
+        :key="i"
+      >
         {{ item }}
       </h4>
       <h6 class="lh-sm">

@@ -54,6 +54,7 @@
                   >
                     <a
                       v-for="item in couponsCategory"
+                      :key="item"
                       href="#"
                       class="list-group-item list-group-item-action text-center"
                       :class="{ active: couponForm.category === item }"

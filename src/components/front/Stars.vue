@@ -2,6 +2,7 @@
   <div class="d-flex flex-row-reverse justify-content-center">
     <input
       v-for="i in 5"
+      :key="i"
       type="radio"
       :name="`${product?.id}${tempName ?? ''}`"
       :value="6 - i"

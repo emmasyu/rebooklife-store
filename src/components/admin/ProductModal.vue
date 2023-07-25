@@ -106,6 +106,7 @@
                       >
                         <a
                           v-for="item in Object.keys(category)"
+                          :key="item"
                           href="#"
                           class="list-group-item list-group-item-action text-center"
                           :class="{ active: productForm.category === item }"
@@ -145,6 +146,7 @@
                         <a
                           v-if="productForm.category"
                           v-for="item in category[productForm.category]"
+                          :key="item"
                           href="#"
                           class="list-group-item list-group-item-action text-center"
                           :class="{ active: productForm.subcategory === item }"

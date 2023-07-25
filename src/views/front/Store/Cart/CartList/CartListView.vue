@@ -27,6 +27,7 @@
         <tbody class="text-content fs-6 fs-lg-5 vstack d-lg-table-row-group">
           <tr
             v-for="cart in carts.carts"
+            :key="cart.id"
             class="d-block border-bottom border-gray d-lg-table-row"
           >
             <td

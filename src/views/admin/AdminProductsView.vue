@@ -7,7 +7,11 @@
         v-model="category"
       >
         <option selected :value="null">全部分類</option>
-        <option v-for="item in Object.keys(productsCategory)" :value="item">
+        <option
+          v-for="item in Object.keys(productsCategory)"
+          :key="item"
+          :value="item"
+        >
           {{ item }}
         </option>
       </select>

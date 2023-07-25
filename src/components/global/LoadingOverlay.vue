@@ -8,6 +8,7 @@
       <div class="bounce">
         <span
           v-for="(letter, index) in bounceLetterArray"
+          :key="index"
           class="bounce-letter"
           :style="`animation-delay: ${index * 0.1}s`"
           >{{ letter }}</span

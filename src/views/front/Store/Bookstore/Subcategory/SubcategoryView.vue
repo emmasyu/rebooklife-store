@@ -1,6 +1,10 @@
 <template>
   <div class="py-8 pb-lg-10 d-flex flex-wrap gap-9">
-    <div class="text-primary" v-for="book in productsOfSubcategory">
+    <div
+      class="text-primary"
+      v-for="book in productsOfSubcategory"
+      :key="book.id"
+    >
       <BookCard :book="book" />
     </div>
   </div>

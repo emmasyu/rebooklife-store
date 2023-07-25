@@ -35,6 +35,7 @@
             <ul class="fw-normal">
               <li
                 v-for="order in localOrders"
+                :key="order"
                 @click="getOrderPage(order)"
                 class="border border-primary py-2 px-5 my-2 bg-primary-hover text-white-hover cursor-pointer text-break text-center"
               >
