@@ -143,17 +143,20 @@
                         v-show="isOpenSubcategory"
                         class="list-group position-absolute end-0 w-10"
                       >
-                        <a
-                          v-if="productForm.category"
-                          v-for="item in category[productForm.category]"
-                          :key="item"
-                          href="#"
-                          class="list-group-item list-group-item-action text-center"
-                          :class="{ active: productForm.subcategory === item }"
-                          @click.prevent="selectSubcategory(item)"
-                        >
-                          {{ item }}
-                        </a>
+                        <template v-if="productForm.category">
+                          <a
+                            v-for="item in category[productForm.category]"
+                            :key="item"
+                            href="#"
+                            class="list-group-item list-group-item-action text-center"
+                            :class="{
+                              active: productForm.subcategory === item,
+                            }"
+                            @click.prevent="selectSubcategory(item)"
+                          >
+                            {{ item }}
+                          </a>
+                        </template>
                         <a
                           v-else
                           class="list-group-item list-group-item-action text-center disabled"
