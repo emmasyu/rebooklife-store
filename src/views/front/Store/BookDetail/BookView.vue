@@ -17,7 +17,7 @@
         </ol>
       </nav>
 
-      <div class="d-flex mb-7 mb-xl-8">
+      <div class="d-flex mb-7 mb-lg-12">
         <div class="w-9 w-lg-12 w-xl-13 w-xxl-14">
           <img
             :src="product.imageUrl"
@@ -26,10 +26,19 @@
           />
         </div>
         <div class="align-self-end ps-4 ps-lg-8 text-primary">
+          <div class="d-none d-lg-block">
+            <h3 class="fs-5 fw-bold mb-4 fs-lg-4 fs-xl-3 mb-xl-5">
+              {{ product.title }}
+            </h3>
+            <p class="mb-2 mb-xl-4">作者：{{ product.author }}</p>
+            <p class="mb-2 mb-xl-4">出版年：{{ product.publication_year }}</p>
+            <p class="mb-2 mb-xl-4">出版社：{{ product.publishing }}</p>
+            <p class="mb-5 mb-xxl-11">ISBN：{{ product.ISBN }}</p>
+          </div>
           <p class="d-none d-lg-block text-decoration-line-through text-gray">
             NT$ {{ $filters.thousandSeparator(product.origin_price) }}元
           </p>
-          <p>
+          <p class="text-secondary">
             NT$
             <span class="fs-5 fw-bold fs-lg-3">{{
               $filters.thousandSeparator(product.price)
@@ -39,17 +48,9 @@
               {{ product.unit }}</span
             >
           </p>
-
           <div
             class="fixed-bottom d-flex gap-0 position-lg-static gap-lg-4 text-center my-lg-4"
           >
-            <button
-              type="button"
-              class="btn btn-primary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-100 py-3 w-lg-auto px-lg-10 px-xl-11 py-lg-4 rounded-lg-2"
-              @click.prevent="addBookToCart(product.id)"
-            >
-              加入購物車
-            </button>
             <button
               type="button"
               class="btn btn-secondary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-6 py-3 w-lg-auto px-lg-11 py-lg-4 rounded-lg-2"
@@ -61,25 +62,35 @@
               <font-awesome-icon
                 class="fs-4"
                 :icon="[isFavorite(product.id) ? 'fas' : 'far', 'bookmark']"
-              />
+              /></button
+            ><button
+              type="button"
+              class="btn btn-primary p-0 rounded-0 fs-6 fs-lg-5 fs-xl-4 w-100 py-3 w-lg-auto px-lg-10 px-xl-11 py-lg-4 rounded-lg-2"
+              @click.prevent="addBookToCart(product.id)"
+            >
+              加入購物車
             </button>
           </div>
           <p class="d-none d-lg-block">付款方式： Web ATM、信用卡一次付清</p>
         </div>
       </div>
-      <h3 class="fs-5 fw-bold mb-4 fs-lg-4 fs-xl-3 mb-xl-5">
-        {{ product.title }}
-      </h3>
-      <p class="mb-2 mb-xl-4">作者：{{ product.author }}</p>
-      <p class="mb-2 mb-xl-4">出版年：{{ product.publication_year }}</p>
-      <p class="mb-2 mb-xl-4">出版社：{{ product.publishing }}</p>
-      <p class="mb-11">ISBN：{{ product.ISBN }}</p>
+      <div class="d-lg-none">
+        <h3 class="fs-5 fw-bold mb-4 fs-lg-4 fs-xl-3 mb-xl-5">
+          {{ product.title }}
+        </h3>
+        <p class="mb-2 mb-xl-4">作者：{{ product.author }}</p>
+        <p class="mb-2 mb-xl-4">出版年：{{ product.publication_year }}</p>
+        <p class="mb-2 mb-xl-4">出版社：{{ product.publishing }}</p>
+        <p class="mb-5 mb-xxl-11">ISBN：{{ product.ISBN }}</p>
+      </div>
       <header
         class="bg-primary fs-5 fw-bold py-2 ps-7 text-white fs-lg-4 py-lg-4 fs-xl-3"
       >
         簡介
       </header>
-      <p class="d-block pt-7 pt-xl-8 px-xl-7 text-pre-line">
+      <p
+        class="d-block pt-7 pt-xl-8 px-xl-7 text-pre-line max-inline-lg-700 max-inline-xl-900"
+      >
         {{ isExpandIntro ? product?.book_intro : trimIntro }}
       </p>
       <div class="text-end mb-11 mt-4">
