@@ -5,7 +5,7 @@
     <span
       class="text-primary-light text-primary-hover"
       @click="toggleFavorite(id)"
-      ><font-awesome-icon
+      ><FontAwesomeIcon
         class="align-center fs-lg-3 fs-3"
         :icon="[isFavorite(id) ? 'fas' : 'far', 'bookmark']"
     /></span>

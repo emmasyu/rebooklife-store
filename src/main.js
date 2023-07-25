@@ -36,7 +36,7 @@ app.config.globalProperties.$filters = filters;
 app.use(VueAxios, axios);
 app.use(pinia);
 app.use(router);
-app.component("font-awesome-icon", FontAwesomeIcon);
+app.component("FontAwesomeIcon", FontAwesomeIcon);
 app.component("VForm", Form);
 app.component("VField", Field);
 app.component("ErrorMessage", ErrorMessage);

@@ -96,7 +96,7 @@
                 class="btn p-2 text-primary-light-hover"
                 @click.prevent="deleteBook(cart.id)"
               >
-                <font-awesome-icon class="fs-5" :icon="['fas', 'trash']" />
+                <FontAwesomeIcon class="fs-5" :icon="['fas', 'trash']" />
               </button>
             </td>
           </tr>

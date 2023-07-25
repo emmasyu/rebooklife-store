@@ -41,12 +41,12 @@
             <td class="text-center">{{ item.percent }}%</td>
             <td class="text-center">{{ item.code }}</td>
             <td class="text-center">
-              <font-awesome-icon
+              <FontAwesomeIcon
                 icon="fa-solid fa-pen-to-square cursor-pointer"
                 class="me-3"
                 @click.prevent="openCouponModal(false, item)"
               />
-              <font-awesome-icon
+              <FontAwesomeIcon
                 icon="fa-solid fa-trash"
                 class="cursor-pointer"
                 @click.prevent="openDeleteCouponModal(item)"

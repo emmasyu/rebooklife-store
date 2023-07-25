@@ -38,7 +38,7 @@
           href="#"
           class="animation-shake p-1 text-primary-light-hover"
           @click.prevent="addBookToCart(book.id)"
-          ><font-awesome-icon :icon="['fas', 'cart-shopping']"
+          ><FontAwesomeIcon :icon="['fas', 'cart-shopping']"
         /></a>
       </div>
       <p class="text-gray text-decoration-line-through fs-lg-5">

@@ -57,12 +57,12 @@
               ${{ $filters.thousandSeparator(item.price) }}
             </td>
             <td class="text-center">
-              <font-awesome-icon
+              <FontAwesomeIcon
                 icon="fa-solid fa-pen-to-square cursor-pointer"
                 class="me-3"
                 @click="openProductModal(false, item)"
               />
-              <font-awesome-icon
+              <FontAwesomeIcon
                 icon="fa-solid fa-trash"
                 class="cursor-pointer"
                 @click="openDeleteProductModal(item)"

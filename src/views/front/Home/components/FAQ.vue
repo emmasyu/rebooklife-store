@@ -8,7 +8,7 @@
       :aria-controls="`${faq.question}`"
     >
       <h4 class="fs-6 fs-md-5 px-2 pe-7">Q：{{ faq.question }}</h4>
-      <font-awesome-icon
+      <FontAwesomeIcon
         class="fs-4 pe-2"
         :icon="[
           'fas',

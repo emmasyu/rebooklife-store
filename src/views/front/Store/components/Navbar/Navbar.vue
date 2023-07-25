@@ -46,7 +46,7 @@
         ref="collapse"
         @click.prevent="getCollapseBtn"
       >
-        <font-awesome-icon
+        <FontAwesomeIcon
           :icon="['fas', isExpanded === 'true' ? 'xmark' : 'bars']"
           class="w-1"
         />

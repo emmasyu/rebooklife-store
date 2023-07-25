@@ -72,7 +72,7 @@
         <p class="fw-normal">
           NT${{ $filters.thousandSeparator(order.total) }}
           <span @click="toggleList"
-            ><font-awesome-icon
+            ><FontAwesomeIcon
               :icon="['fas', isOpenList ? 'caret-down' : 'caret-right']"
               class="cursor-pointer px-4"
           /></span>

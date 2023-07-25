@@ -35,7 +35,7 @@
             v-model.trim="user.password"
           />
           <div class="w-2">
-            <font-awesome-icon
+            <FontAwesomeIcon
               :icon="
                 ('fa-solid', isPasswordVisible ? 'fa-eye-slash' : 'fa-eye')
               "

@@ -42,7 +42,7 @@
             <td>
               <p>
                 共計 {{ item.totalQty }} 本
-                <font-awesome-icon
+                <FontAwesomeIcon
                   class="text-primary position-relative cursor-pointer"
                   :icon="[
                     'fas',
@@ -70,12 +70,12 @@
             </td>
             <td class="text-center">{{ item.ship }}</td>
             <td class="text-center">
-              <font-awesome-icon
+              <FontAwesomeIcon
                 icon="fa-solid fa-eye"
                 class="me-3 cursor-pointer"
                 @click="openOrderModal(item)"
               />
-              <font-awesome-icon
+              <FontAwesomeIcon
                 icon="fa-solid fa-trash"
                 class="cursor-pointer"
                 @click="openDeleteOrderModal(item)"

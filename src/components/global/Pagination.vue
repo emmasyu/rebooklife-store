@@ -8,7 +8,7 @@
           aria-label="FirstPage"
           @click.prevent="updatePage(1)"
         >
-          <font-awesome-icon :icon="['fas', 'backward-fast']" />
+          <FontAwesomeIcon :icon="['fas', 'backward-fast']" />
         </a>
       </li>
       <li class="page-item" :class="{ disabled: !pages.has_pre }">
@@ -18,7 +18,7 @@
           aria-label="Previous"
           @click.prevent="updatePage(pages.current_page - 1)"
         >
-          <font-awesome-icon :icon="['fas', 'caret-left']" />
+          <FontAwesomeIcon :icon="['fas', 'caret-left']" />
         </a>
       </li>
       <li
@@ -38,7 +38,7 @@
           aria-label="Next"
           @click.prevent="updatePage(pages.current_page + 1)"
         >
-          <font-awesome-icon :icon="['fas', 'caret-right']" />
+          <FontAwesomeIcon :icon="['fas', 'caret-right']" />
         </a>
       </li>
       <li class="page-item" :class="{ disabled: !pages.has_next }">
@@ -48,7 +48,7 @@
           aria-label="FirstPage"
           @click.prevent="updatePage(pages.total_pages)"
         >
-          <font-awesome-icon :icon="['fas', 'forward-fast']" />
+          <FontAwesomeIcon :icon="['fas', 'forward-fast']" />
         </a>
       </li>
     </ul>

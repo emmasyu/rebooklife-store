@@ -43,7 +43,7 @@
                   v-model="couponForm.category"
                 />
                 <div class="position-relative">
-                  <font-awesome-icon
+                  <FontAwesomeIcon
                     class="text-primary position-relative cursor-pointer"
                     :icon="['fas', 'caret-down']"
                     @click.stop="toggleCategory"

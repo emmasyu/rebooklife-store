@@ -59,7 +59,7 @@
               <span class="d-none d-lg-inline me-2">{{
                 isFavorite(product.id) ? "取消收藏" : "加入收藏"
               }}</span>
-              <font-awesome-icon
+              <FontAwesomeIcon
                 class="fs-4"
                 :icon="[isFavorite(product.id) ? 'fas' : 'far', 'bookmark']"
               /></button

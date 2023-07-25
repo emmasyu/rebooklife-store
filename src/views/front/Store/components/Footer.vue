@@ -41,7 +41,7 @@
                 type="submit"
                 class="w-3 px-2 w-lg-6 px-lg-4 h-3 h-lg-6 d-flex justify-content-center align-items-center bg-secondary bg-secondary-light-hover text-light fs-5 fs-lg-3 border-0"
               >
-                <font-awesome-icon :icon="['fas', 'envelope']" />
+                <FontAwesomeIcon :icon="['fas', 'envelope']" />
               </button>
             </div>
           </VForm>
@@ -74,25 +74,25 @@
               href="https://github.com/EmmaSyu"
               class="col text-secondary text-secondary-light-hover"
               target="_blank"
-              ><font-awesome-icon :icon="['fab', 'square-github']"
+              ><FontAwesomeIcon :icon="['fab', 'square-github']"
             /></a>
             <a
               href="#"
               class="col text-secondary text-secondary-light-hover"
               @click.prevent
-              ><font-awesome-icon :icon="['fab', 'linkedin']"
+              ><FontAwesomeIcon :icon="['fab', 'linkedin']"
             /></a>
             <a
               href="#"
               class="col text-secondary text-secondary-light-hover"
               @click.prevent
-              ><font-awesome-icon :icon="['fab', 'square-instagram']"
+              ><FontAwesomeIcon :icon="['fab', 'square-instagram']"
             /></a>
             <a
               href="#"
               class="col text-secondary text-secondary-light-hover"
               @click.prevent
-              ><font-awesome-icon :icon="['fab', 'line']"
+              ><FontAwesomeIcon :icon="['fab', 'line']"
             /></a>
           </div>
         </div>

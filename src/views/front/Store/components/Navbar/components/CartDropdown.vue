@@ -46,7 +46,7 @@
                 :disabled="item.qty === 1"
                 @click.prevent="minusOneQty(item)"
               >
-                <font-awesome-icon
+                <FontAwesomeIcon
                   :icon="['fas', 'caret-down']"
                   class="align-baseline"
                 />
@@ -58,7 +58,7 @@
                 :disabled="item.qty === item.product.qty"
                 @click.prevent="addOneQty(item)"
               >
-                <font-awesome-icon :icon="['fas', 'caret-up']" />
+                <FontAwesomeIcon :icon="['fas', 'caret-up']" />
               </button>
             </div>
             <button
@@ -66,7 +66,7 @@
               class="bg-transparent border-0 text-content text-primary-light-hover"
               @click.prevent="deleteBook(item.id)"
             >
-              <font-awesome-icon :icon="['fas', 'trash']" />
+              <FontAwesomeIcon :icon="['fas', 'trash']" />
             </button>
           </div>
         </li>

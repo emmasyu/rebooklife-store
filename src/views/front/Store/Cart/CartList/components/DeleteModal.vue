@@ -24,7 +24,7 @@
           ></button>
         </div>
         <div class="modal-body px-9 py-7 fs-6 fs-lg-5 text-center">
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['far', 'face-sad-cry']"
             class="text-primary fs-2 mb-4"
           />
