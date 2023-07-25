@@ -4,7 +4,7 @@
   >
     <p v-if="sliceRelatedProducts(currentId)?.length === 0">...敬請期待...</p>
     <ul
-      class="d-flex align-items-end gap-4 ms-xl-7 pt-5 overflow-x-auto gap-lg-8 justify-content-xl-center overflow-x-xl-hidden ms-xl-7 pt-xl-10 pb-xl-9"
+      class="d-flex gap-4 ms-xl-7 pt-5 overflow-x-auto gap-lg-8 justify-content-xl-center overflow-x-xl-hidden ms-xl-7 pt-xl-10 pb-xl-9"
     >
       <li
         class="w-7 w-lg-9 w-xl-10 w-xxl-11 flex-shrink-0 cursor-pointer"
@@ -15,7 +15,8 @@
         <img
           :src="book.imageUrl"
           :alt="book.title"
-          class="w-100 rounded-1 rounded-xl-4 mb-2 shadow-small shadow-hover"
+          class="w-100 rounded-1 rounded-xl-4 mb-2 shadow-small shadow-hover object-fit-cover"
+          style="aspect-ratio: 8 / 11"
         />
         <p>{{ trimTitle(book.title) }}</p>
       </li>

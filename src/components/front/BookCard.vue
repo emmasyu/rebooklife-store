@@ -11,7 +11,8 @@
       <img
         :src="bookPhoto"
         :alt="book.title"
-        class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow"
+        class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow object-fit-cover"
+        style="aspect-ratio: 8 / 11"
       />
       <NewMark :id="book.id" />
       <BookMark :id="book.id" />
@@ -27,20 +28,20 @@
     </div>
     <div>
       <div class="d-flex align-items-center justify-content-between">
-        <a
-          href="#"
-          class="animation-shake p-1 text-primary-light-hover"
-          @click.prevent="addBookToCart(book.id)"
-          ><font-awesome-icon :icon="['fas', 'cart-shopping']"
-        /></a>
         <p>
           NT$<span class="text-secondary p-lg-1 fs-lg-4">{{
             $filters.thousandSeparator(book.price)
           }}</span
           >元
         </p>
+        <a
+          href="#"
+          class="animation-shake p-1 text-primary-light-hover"
+          @click.prevent="addBookToCart(book.id)"
+          ><font-awesome-icon :icon="['fas', 'cart-shopping']"
+        /></a>
       </div>
-      <p class="text-gray text-end text-decoration-line-through fs-lg-5">
+      <p class="text-gray text-decoration-line-through fs-lg-5">
         NT${{ $filters.thousandSeparator(book.origin_price) }}元
       </p>
     </div>
