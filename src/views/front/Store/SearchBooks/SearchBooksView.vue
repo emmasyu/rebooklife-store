@@ -4,7 +4,7 @@
       <div class="pt-11 ps-7 pt-lg-13">
         <div class="ps-4 border-start border-secondary border-2 border-lg-4">
           <p class="mb-2">
-            搜尋結果：「 <b>{{ $route.query.searchText }}</b> 」共查得
+            搜尋結果：「 <strong>{{ $route.query.searchText }}</strong> 」共查得
             {{ searchBookResult.length }} 件
           </p>
         </div>
