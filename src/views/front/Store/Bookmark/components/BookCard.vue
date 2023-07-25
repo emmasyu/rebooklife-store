@@ -6,10 +6,11 @@
       <img
         :src="product?.imageUrl"
         :alt="product?.title"
-        class="w-100 rounded-1 rounded-xl-4 shadow cursor-pointer shadow-small-hover"
+        class="w-100 rounded-1 rounded-xl-4 shadow cursor-pointer shadow-small-hover object-fit-cover"
+        style="aspect-ratio: 8 / 11"
         @click="$emit('open-bookmark-modal', product)"
       />
-      <BookMark :id="product?.id" />
+      <BookMark :id="product?.id" v-if="isVisibleMark" />
     </div>
     <h4 class="fs-6 fs-lg-5 fs-xl-4 fw-bold">{{ trimTitle() }}</h4>
     <Stars :product="product" />
@@ -26,7 +27,7 @@ import { useWindowSize } from "@vueuse/core";
 
 export default {
   components: { BookMark, Stars },
-  props: ["item"],
+  props: ["item", "isVisibleMark"],
   setup() {
     const { width } = useWindowSize();
     return { width };

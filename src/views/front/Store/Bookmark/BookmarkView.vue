@@ -31,12 +31,13 @@
             class="min-vh-75 min-vh-lg-60 py-5 py-lg-8 px-5 px-sm-8 px-md-10 px-lg-9 px-xl-8 px-xxl-12"
           >
             <div
-              class="d-flex gap-7 gap-lg-8 flex-wrap align-items-end justify-content-center justify-content-sm-start"
+              class="d-flex gap-7 gap-lg-8 flex-wrap align-items-end justify-content-start"
             >
               <template v-for="item in favorites" :key="item.id">
                 <BookmarkCard
                   @open-bookmark-modal="openBookmarkModal"
                   :item="item"
+                  :isVisibleMark="false"
                 />
               </template>
             </div>

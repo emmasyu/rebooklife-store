@@ -35,7 +35,7 @@
                 class="w-100 mb-2 rounded-1 mb-lg-4 rounded-xl-4 shadow shadow-small-hover cursor-pointer mb-4 mb-xl-5"
                 @click.self="getProductPage(tempProduct?.id)"
               />
-              <BookMark :id="tempProduct?.id" />
+              <BookMark :id="tempProduct?.id" :isVisibleMark="true" />
               <h4 class="fs-6 fs-lg-5 fs-xl-4 fw-bold">
                 {{ trimTitle() }}
               </h4>
