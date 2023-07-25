@@ -28,7 +28,9 @@
             :alt="item.product.title"
             class="w-8 rounded-2 shadow"
           />
-          <div class="d-flex flex-column justify-content-center gap-3 w-11">
+          <div
+            class="d-flex flex-column justify-content-between py-2 gap-3 w-11"
+          >
             <h4 class="fs-5 fw-bold">
               {{ $filters.trim(item.product.title, 30) }}
             </h4>
@@ -36,7 +38,7 @@
               NT ${{ $filters.thousandSeparator(item.total) }}
             </p>
           </div>
-          <div class="d-flex flex-column justify-content-center gap-7">
+          <div class="d-flex flex-column justify-content-between py-2">
             <div class="d-flex gap-1">
               <button
                 type="button"

@@ -35,7 +35,7 @@
       </div>
       <div class="d-flex mb-4 mb-lg-7 gap-4">
         <p class="min-w-content">電子郵件</p>
-        <p class="fw-normal">{{ order.user?.email }}</p>
+        <p class="fw-normal text-break">{{ order.user?.email }}</p>
       </div>
       <div class="d-flex mb-4 mb-lg-7 gap-4">
         <p class="min-w-content">收件地址</p>

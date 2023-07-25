@@ -1,6 +1,8 @@
 .store-bg {
   background: #f4f4f4 no-repeat url("../images/background-img-store.jpg");
   background-size: contain;
+  background-attachment: fixed;
+  background-position: top right;
 }
 
 .cart-bg {

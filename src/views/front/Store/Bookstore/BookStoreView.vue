@@ -5,7 +5,7 @@
         class="vh-100 vstack justify-content-center align-items-center position-relative"
       >
         <div
-          class="text-secondary fs-3-first-letter fs-lg-1-first-letter fw-bold pt-12"
+          class="text-secondary fs-3-first-letter fs-lg-1-first-letter fw-bold"
         >
           <p
             class="mb-3"
@@ -36,9 +36,9 @@
           </p>
         </div>
         <div
-          class="position-absolute position-lg-static bottom-0 pb-11 pb-lg-0 ps-lg-5 pt-lg-10 float-vertical"
+          class="position-absolute bottom-0 pb-11 ps-lg-5 pt-lg-10 float-vertical"
         >
-          <p class="text-primary d-lg-none">看書去</p>
+          <p class="text-primary fs-6">看書去</p>
           <img src="@/assets/images/guide-line.png" alt="go to read" />
         </div>
       </div>
