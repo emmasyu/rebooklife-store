@@ -5,7 +5,7 @@
         <a
           @click.prevent="openCouponModal(true)"
           class="btn btn-outline-primary"
-          href="/coupons"
+          href="#"
           >+ 新增優惠券</a
         >
       </p>

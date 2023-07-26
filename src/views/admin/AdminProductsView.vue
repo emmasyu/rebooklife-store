@@ -19,7 +19,7 @@
         <a
           @click.prevent="openProductModal(true)"
           class="btn btn-outline-primary"
-          href="/products"
+          href="#"
           >+ 新增產品</a
         >
       </p>

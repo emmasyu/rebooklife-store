@@ -17,7 +17,7 @@
         class="order-first order-lg-0 ms-lg-auto d-flex align-items-center position-lg-relative flex-lg-row-reverse w-lg-50"
       >
         <a
-          :href="navLinks.searchLink.path"
+          href="#"
           class="position-relative px-3 py-2 p-lg-3"
           @click.prevent="searchBook"
         >

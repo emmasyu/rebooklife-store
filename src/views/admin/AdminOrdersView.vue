@@ -5,7 +5,7 @@
         <a
           @click.prevent="openDeleteOrderModal({})"
           class="btn btn-outline-primary"
-          href="/orders"
+          href="#"
           >刪除所有訂單</a
         >
       </p>
