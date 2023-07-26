@@ -11,6 +11,7 @@
 
 <script>
 import { useWindowScroll } from "@vueuse/core";
+
 export default {
   data() {
     return {
