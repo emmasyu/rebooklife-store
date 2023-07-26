@@ -13,7 +13,7 @@
       <BookMark :id="product?.id" v-if="isVisibleMark" />
     </div>
     <h4 class="fs-6 fs-lg-5 fs-xl-4 fw-bold">{{ trimTitle() }}</h4>
-    <Stars :product="product" />
+    <StarRate :product="product" />
   </div>
 </template>
 
@@ -22,11 +22,11 @@ import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
 import useProductsStore from "@/stores/products.js";
 import BookMark from "@/components/front/BookMark.vue";
-import Stars from "@/components/front/Stars.vue";
+import StarRate from "@/components/front/StarRate.vue";
 import { useWindowSize } from "@vueuse/core";
 
 export default {
-  components: { BookMark, Stars },
+  components: { BookMark, StarRate },
   props: ["item", "isVisibleMark"],
   data() {
     return {

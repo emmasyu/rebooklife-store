@@ -56,7 +56,7 @@
         </tbody>
       </table>
     </div>
-    <Pagination :pages="pagination" @emit-pages="switchPage" />
+    <PaginationNav :pages="pagination" @emit-pages="switchPage" />
   </div>
 
   <CouponModal
@@ -78,13 +78,13 @@ import { mapState, mapActions } from "pinia";
 import useAdminCouponsStore from "@/stores/adminCoupons.js";
 import CouponModal from "@/components/admin/CouponModal.vue";
 import DeleteModal from "@/components/admin/DeleteModal.vue";
-import Pagination from "@/components/global/Pagination.vue";
+import PaginationNav from "@/components/global/PaginationNav.vue";
 
 export default {
   components: {
     CouponModal,
     DeleteModal,
-    Pagination,
+    PaginationNav,
   },
   data() {
     return {

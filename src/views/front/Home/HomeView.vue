@@ -1,24 +1,24 @@
 <template>
-  <Background />
+  <HomeBackground />
   <AdCouponCol />
-  <Navbar />
-  <Content />
-  <Hint />
+  <HomeNavbar />
+  <HomeContent />
+  <HomeHint />
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-import Content from "./components/Content.vue";
-import Background from "./components/Background.vue";
-import Hint from "./components/Hint.vue";
+import HomeNavbar from "./components/HomeNavbar.vue";
+import HomeContent from "./components/HomeContent.vue";
+import HomeBackground from "./components/HomeBackground.vue";
+import HomeHint from "./components/HomeHint.vue";
 import AdCouponCol from "@/components/front/AdCouponCol.vue";
 
 export default {
   components: {
-    Navbar,
-    Content,
-    Background,
-    Hint,
+    HomeNavbar,
+    HomeContent,
+    HomeBackground,
+    HomeHint,
     AdCouponCol,
   },
 };

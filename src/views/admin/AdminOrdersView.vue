@@ -85,7 +85,7 @@
         </tbody>
       </table>
     </div>
-    <Pagination :pages="pagination" @emit-pages="switchPage" />
+    <PaginationNav :pages="pagination" @emit-pages="switchPage" />
   </div>
 
   <OrderModal
@@ -105,13 +105,13 @@ import { mapState, mapActions } from "pinia";
 import useAdminOrdersStore from "@/stores/adminOrders.js";
 import OrderModal from "@/components/admin/OrderModal.vue";
 import DeleteModal from "@/components/admin/DeleteModal.vue";
-import Pagination from "@/components/global/Pagination.vue";
+import PaginationNav from "@/components/global/PaginationNav.vue";
 
 export default {
   components: {
     OrderModal,
     DeleteModal,
-    Pagination,
+    PaginationNav,
   },
   data() {
     return {

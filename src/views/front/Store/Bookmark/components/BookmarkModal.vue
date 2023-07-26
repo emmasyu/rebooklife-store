@@ -26,7 +26,7 @@
         <div class="modal-body px-9 py-7 fs-6 fs-lg-5 fs-xl-4">
           <div class="d-flex flex-column align-items-center text-center">
             <div class="mb-3">
-              <Stars :product="tempProduct" :tempName="'temp'" />
+              <StarRate :product="tempProduct" :tempName="'temp'" />
             </div>
             <div class="w-9 w-lg-11 w-xl-12 text-primary position-relative">
               <img
@@ -71,11 +71,11 @@ import { mapActions } from "pinia";
 import useCartsStore from "@/stores/carts.js";
 import modalMixin from "@/components/mixins/modalMixin";
 import BookMark from "@/components/front/BookMark.vue";
-import Stars from "@/components/front/Stars.vue";
+import StarRate from "@/components/front/StarRate.vue";
 import { useWindowSize } from "@vueuse/core";
 
 export default {
-  components: { Stars, BookMark },
+  components: { StarRate, BookMark },
   props: ["tempProduct"],
   mixins: [modalMixin],
   data() {

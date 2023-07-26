@@ -52,7 +52,7 @@
 <script>
 import { mapState } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
-import BookmarkModal from "./components/BookModal.vue";
+import BookmarkModal from "./components/BookmarkModal.vue";
 import BookmarkCard from "./components/BookCard.vue";
 
 export default {

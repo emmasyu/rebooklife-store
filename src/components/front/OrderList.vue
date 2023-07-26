@@ -11,7 +11,7 @@
           :alt="cart.product.title"
           class="w-7 w-lg-8 rounded-1"
         />
-        <Badge :num="cart.qty" />
+        <BadgeLabel :num="cart.qty" />
       </div>
       <div>
         <h4 class="fs-6 fs-xl-5 text-content fw-bold">
@@ -38,10 +38,10 @@
 </template>
 
 <script>
-import Badge from "@/components/front/Badge.vue";
+import BadgeLabel from "@/components/front/BadgeLabel.vue";
 
 export default {
   props: ["carts"],
-  components: { Badge },
+  components: { BadgeLabel },
 };
 </script>

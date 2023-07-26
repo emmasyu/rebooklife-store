@@ -1,19 +1,19 @@
 <template>
   <LoadingOverlay />
-  <Toasts />
+  <ToastsBox />
   <RouterView />
 </template>
 
 <script>
 import LoadingOverlay from "@/components/global/LoadingOverlay.vue";
-import Toasts from "@/components/global/Toasts.vue";
+import ToastsBox from "@/components/global/ToastsBox.vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default {
   components: {
     LoadingOverlay,
-    Toasts,
+    ToastsBox,
   },
   mounted() {
     AOS.init();

@@ -80,7 +80,7 @@
           />
         </div>
         <div class="px-4 fs-6 fs-md-5 col-xl-7" id="accordion" ref="collapse">
-          <FAQ
+          <HomeFAQ
             v-for="(faq, i) in faqs"
             :key="i"
             :faq="faq"
@@ -151,13 +151,13 @@
 
 <script>
 import collapseMixin from "@/components/mixins/collapseMixin.js";
-import FAQ from "./FAQ.vue";
+import HomeFAQ from "./HomeFAQ.vue";
 import { useWindowScroll } from "@vueuse/core";
 import { mapActions } from "pinia";
 import useScrollStateStore from "@/stores/scrollState.js";
 
 export default {
-  components: { FAQ },
+  components: { HomeFAQ },
   data() {
     return {
       y: useWindowScroll().y,

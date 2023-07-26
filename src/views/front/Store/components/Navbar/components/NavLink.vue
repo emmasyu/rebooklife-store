@@ -15,8 +15,8 @@
         isScrollTop ? 'w-lg-5' : 'w-lg-3',
       ]"
     />
-    <Budge v-if="navLink.name === 'shopping cart'" :num="cartsTotalQty" />
-    <Tooltip :title="navLink.title" />
+    <BadgeLabel v-if="navLink.name === 'shopping cart'" :num="cartsTotalQty" />
+    <TooltipLabel :title="navLink.title" />
   </RouterLink>
   <CartDropdown @closeDropdown="closeDropdown" />
 </template>
@@ -26,12 +26,12 @@ import { mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";
 import dropdownMixin from "@/components/mixins/dropdownMixin";
 import CartDropdown from "./CartDropdown.vue";
-import Budge from "@/components/front/Badge.vue";
-import Tooltip from "@/components/front/Tootip.vue";
+import BadgeLabel from "@/components/front/BadgeLabel.vue";
+import TooltipLabel from "@/components/front/TooltipLabel.vue";
 
 export default {
   props: ["navLink", "isScrollTop"],
-  components: { CartDropdown, Budge, Tooltip },
+  components: { CartDropdown, BadgeLabel, TooltipLabel },
   computed: {
     ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
     navLinkPhoto() {

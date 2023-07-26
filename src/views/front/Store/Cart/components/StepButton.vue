@@ -3,7 +3,7 @@
     class="sticky-bottom d-flex gap-0 gap-lg-4 pb-lg-5 justify-content-center"
   >
     <ButtonOutline :text="buttonText?.last" @click.prevent="clickLastButton" />
-    <Button :text="buttonText?.next" @click.prevent="clickNextButton" />
+    <ButtonSolid :text="buttonText?.next" @click.prevent="clickNextButton" />
   </div>
 </template>
 
@@ -11,11 +11,11 @@
 import { mapActions, mapState } from "pinia";
 import useCartsStore from "@/stores/carts.js";
 import useOrdersStore from "@/stores/orders.js";
-import Button from "@/components/front/Button.vue";
+import ButtonSolid from "@/components/front/ButtonSolid.vue";
 import ButtonOutline from "@/components/front/ButtonOutline.vue";
 
 export default {
-  components: { Button, ButtonOutline },
+  components: { ButtonSolid, ButtonOutline },
   computed: {
     ...mapState(useCartsStore, ["cartsTotalQty"]),
     buttonText() {

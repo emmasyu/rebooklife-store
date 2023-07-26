@@ -73,7 +73,7 @@ const router = createRouter({
           path: "book/:bookId",
           name: "book",
           component: () =>
-            import("@/views/front/Store/BookDetail/BookView.vue"),
+            import("@/views/front/Store/BookDetail/BookDetailView.vue"),
           meta: { title: `書籍內容簡介` },
         },
         {

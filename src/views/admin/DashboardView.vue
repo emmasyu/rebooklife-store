@@ -1,19 +1,19 @@
 <template>
   <div class="d-flex">
-    <Sidebar />
+    <DashboardSidebar />
     <RouterView />
   </div>
 </template>
 
 <script>
-import Sidebar from "@/components/admin/Sidebar.vue";
+import DashboardSidebar from "@/components/admin/DashboardSidebar.vue";
 import { postUserCheck } from "@/api";
 import { mapActions } from "pinia";
 import useStateStore from "@/stores/states.js";
 
 export default {
   components: {
-    Sidebar,
+    DashboardSidebar,
   },
   methods: {
     ...mapActions(useStateStore, ["pushToastMessage"]),

@@ -76,7 +76,7 @@
         </tbody>
       </table>
     </div>
-    <Pagination :pages="pagination" @emit-pages="switchPage" />
+    <PaginationNav :pages="pagination" @emit-pages="switchPage" />
   </div>
 
   <ProductModal
@@ -98,13 +98,13 @@ import { mapState, mapActions } from "pinia";
 import useAdminProductsStore from "@/stores/adminProducts.js";
 import ProductModal from "@/components/admin/ProductModal.vue";
 import DeleteModal from "@/components/admin/DeleteModal.vue";
-import Pagination from "@/components/global/Pagination.vue";
+import PaginationNav from "@/components/global/PaginationNav.vue";
 
 export default {
   components: {
     ProductModal,
     DeleteModal,
-    Pagination,
+    PaginationNav,
   },
   data() {
     return {

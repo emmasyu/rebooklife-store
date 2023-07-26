@@ -27,7 +27,7 @@
             class="w-2"
             :class="[isScrollTop ? 'w-lg-5 filter-black' : 'w-lg-3']"
           />
-          <Tooltip :title="navLinks.searchLink.title" />
+          <TooltipLabel :title="navLinks.searchLink.title" />
         </a>
         <div
           class="search position-absolute bg-primary bg-lg-transparent py-2"
@@ -73,14 +73,14 @@
 import { mapState, mapActions } from "pinia";
 import useStatesStore from "@/stores/states.js";
 import StoreNavLink from "./components/NavLink.vue";
-import Tooltip from "@/components/front/Tootip.vue";
+import TooltipLabel from "@/components/front/TooltipLabel.vue";
 import SearchBookForm from "./components/SearchBookForm.vue";
 import collapseMixin from "@/components/mixins/collapseMixin";
 import navLinksData from "@/data/storeNavLinks.json";
 import { useWindowScroll } from "@vueuse/core";
 
 export default {
-  components: { StoreNavLink, Tooltip, SearchBookForm },
+  components: { StoreNavLink, TooltipLabel, SearchBookForm },
   data() {
     return {
       isExpanded: "false",

@@ -117,7 +117,7 @@
         ></ErrorMessage>
       </div>
       <div class="btn-submit mt-8 text-center sticky-bottom pb-lg-5">
-        <Button :text="'送出訂單'" :type="'submit'" />
+        <ButtonSolid :text="'送出訂單'" :type="'submit'" />
       </div>
     </VForm>
   </div>
@@ -126,10 +126,10 @@
 <script>
 import { mapState, mapActions } from "pinia";
 import useOrdersStore from "@/stores/orders.js";
-import Button from "@/components/front/Button.vue";
+import ButtonSolid from "@/components/front/ButtonSolid.vue";
 
 export default {
-  components: { Button },
+  components: { ButtonSolid },
   data() {
     return {
       form: {
