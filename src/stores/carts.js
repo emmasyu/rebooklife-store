@@ -25,9 +25,15 @@ export default defineStore("cart", {
           this.carts = response.data.data;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "購物車資料獲取失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async addCart(data) {
       useStateStore.changeLoadingState(true);
@@ -40,9 +46,15 @@ export default defineStore("cart", {
           useStateStore.pushToastMessage("錯誤：新增產品失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "新增產品到購物車失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async updateCart(id, data) {
       useStateStore.changeLoadingState(true);
@@ -57,9 +69,15 @@ export default defineStore("cart", {
           useStateStore.pushToastMessage("錯誤：更新產品失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "產品數量更改失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async deleteCart(id) {
       useStateStore.changeLoadingState(true);
@@ -72,9 +90,15 @@ export default defineStore("cart", {
           useStateStore.pushToastMessage("錯誤：刪除產品失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "產品刪除失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async deleteAllCarts() {
       useStateStore.changeLoadingState(true);
@@ -87,9 +111,15 @@ export default defineStore("cart", {
           useStateStore.pushToastMessage("錯誤：清空購物車失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "清空購物車失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async postUseCoupon(data) {
       useStateStore.changeLoadingState(true);
@@ -102,9 +132,15 @@ export default defineStore("cart", {
           useStateStore.pushToastMessage("錯誤：套用優惠券失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "優惠卷套用失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
   },
 });

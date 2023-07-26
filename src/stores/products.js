@@ -87,9 +87,15 @@ export default defineStore("product", {
           this.pagination = response.data.pagination;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "書籍資料獲取失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async getProductsAll() {
       useStateStore.changeLoadingState(true);
@@ -99,9 +105,15 @@ export default defineStore("product", {
           this.productsAll = response.data.products;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "書籍資料獲取失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async getProduct(id) {
       useStateStore.changeLoadingState(true);
@@ -111,9 +123,15 @@ export default defineStore("product", {
           this.product = response.data.product;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "書籍資料獲取失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
   },
 });

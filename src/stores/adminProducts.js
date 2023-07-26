@@ -42,9 +42,15 @@ export default defineStore("admin product", {
           this.pagination = response.data.pagination;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料獲取失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async getProductsAll() {
       useStateStore.changeLoadingState(true);
@@ -54,9 +60,15 @@ export default defineStore("admin product", {
           this.productsAll = Object.values(response.data.products);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料獲取失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async postNewProduct(item) {
       useStateStore.changeLoadingState(true);
@@ -70,9 +82,15 @@ export default defineStore("admin product", {
           useStateStore.pushToastMessage("錯誤：新增產品失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async putUpdateProduct(item) {
       useStateStore.changeLoadingState(true);
@@ -87,9 +105,15 @@ export default defineStore("admin product", {
           useStateStore.pushToastMessage("錯誤：更新產品失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async deleteOneProduct(item) {
       useStateStore.changeLoadingState(true);
@@ -103,9 +127,15 @@ export default defineStore("admin product", {
           useStateStore.pushToastMessage("錯誤：刪除產品失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料刪除失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
   },
 });

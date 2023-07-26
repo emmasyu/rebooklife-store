@@ -94,7 +94,12 @@ export default {
           this.pushToastMessage("錯誤：帳號或密碼錯誤");
         }
       } catch (error) {
-        console.log(error);
+        this.pushToastMessage(
+          `登入後台功能異常, 請重新整理後再進行操作，或連繫網站維護人員處理`,
+          {
+            success: false,
+          }
+        );
       }
       this.changeLoadingState(false);
     },

@@ -113,7 +113,9 @@ export default {
         await navigator.clipboard.writeText(this.$route.params.orderId);
         this.pushToastMessage(`已成功複製 訂單編號 到剪貼簿`);
       } catch (err) {
-        console.log(err);
+        this.pushToastMessage(`很抱歉！複製功能失效, 暫時先自己選取複製吧`, {
+          success: false,
+        });
       }
     },
   },

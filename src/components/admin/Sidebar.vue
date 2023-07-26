@@ -77,7 +77,12 @@ export default {
           this.$router.push("/login");
         }
       } catch (error) {
-        console.log(error);
+        this.pushToastMessage(
+          `登出功能失效，請重新整理或聯繫網站維護人員協助處理`,
+          {
+            success: false,
+          }
+        );
       }
       this.changeLoadingState(false);
     },

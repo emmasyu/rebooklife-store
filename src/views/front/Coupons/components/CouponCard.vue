@@ -46,7 +46,9 @@ export default {
         await navigator.clipboard.writeText(event.target.innerText);
         this.pushToastMessage(`已成功複製 ${event.target.innerText} 到剪貼簿`);
       } catch (err) {
-        console.log(err);
+        this.pushToastMessage(`很抱歉！複製功能異常，需麻煩您自行輸入優惠碼`, {
+          success: false,
+        });
       }
     },
   },

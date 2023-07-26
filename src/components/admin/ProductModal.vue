@@ -411,6 +411,8 @@
 import { admin } from "@/api";
 import modalMixin from "../mixins/modalMixin";
 const { postUpload } = admin;
+import { mapActions } from "pinia";
+import useStateStore from "@/stores/states.js";
 
 export default {
   props: ["tempProduct", "category", "isNewProduct"],
@@ -435,17 +437,19 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useStateStore, ["pushToastMessage"]),
     async uploadFile() {
       const uploadedFile = this.$refs.fileInput.files[0];
       const formData = new FormData();
       formData.append("file-to-upload", uploadedFile);
-      console.log(formData);
       try {
         const response = await postUpload(formData);
-        console.log("uploadFile", response);
         this.tempProduct.imageUrl = response.data.imageUrl;
       } catch (error) {
-        console.log(error);
+        this.pushToastMessage(`檔案上傳發生錯誤, 建議以網址方式新增圖片`, {
+          success: false,
+        });
+        this.uploadMethod = "imageUrl";
       }
     },
     updateProduct() {

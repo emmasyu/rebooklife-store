@@ -32,9 +32,15 @@ export default defineStore("admin coupon", {
           this.pagination = response.data.pagination;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料獲取失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async postNewCoupon(item) {
       useStateStore.changeLoadingState(true);
@@ -48,9 +54,15 @@ export default defineStore("admin coupon", {
           useStateStore.pushToastMessage("錯誤：新增優惠券失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async putUpdateCoupon(item) {
       useStateStore.changeLoadingState(true);
@@ -65,9 +77,15 @@ export default defineStore("admin coupon", {
           useStateStore.pushToastMessage("錯誤：更新優惠券失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async deleteOneCoupon(item) {
       useStateStore.changeLoadingState(true);
@@ -80,9 +98,15 @@ export default defineStore("admin coupon", {
           useStateStore.pushToastMessage("錯誤：刪除優惠券失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料刪除失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
   },
 });

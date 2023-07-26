@@ -18,11 +18,11 @@
       <strong class="me-auto">{{ msg.title }}</strong>
       <button
         type="button"
-        class="btn-close"
+        class="btn-close me-2"
         data-bs-theme="dark"
         data-bs-dismiss="toast"
         aria-label="Close"
-        style="filter: invert(1) grayscale(1) brightness(2)"
+        style="filter: invert(1) grayscale(1) brightness(0.5)"
       ></button>
     </div>
     <div class="toast-body" v-if="msg.content">

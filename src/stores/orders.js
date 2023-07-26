@@ -25,9 +25,15 @@ export default defineStore("order", {
           this.pagination = response.data.pagination;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "獲取訂單失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async getOrder(id) {
       useStateStore.changeLoadingState(true);
@@ -37,9 +43,15 @@ export default defineStore("order", {
           this.order = response.data.order;
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "獲取訂單失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async postOrderInfo(data) {
       useStateStore.changeLoadingState(true);
@@ -55,9 +67,15 @@ export default defineStore("order", {
           useStateStore.pushToastMessage("錯誤：訂單建立失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "建立訂單失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async postPayOrder(id) {
       useStateStore.changeLoadingState(true);
@@ -73,9 +91,15 @@ export default defineStore("order", {
           useStateStore.pushToastMessage("錯誤：付款失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "訂單付款失敗，請重新整理再操作或聯絡我們",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     setLocalOrders() {
       localStorage.setItem("orders", JSON.stringify(this.localOrders));

@@ -28,9 +28,15 @@ export default defineStore("admin order", {
           });
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料獲取失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async putUpdateOrder(item) {
       useStateStore.changeLoadingState(true);
@@ -48,9 +54,15 @@ export default defineStore("admin order", {
           );
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async deleteOneOrder(item) {
       useStateStore.changeLoadingState(true);
@@ -63,9 +75,15 @@ export default defineStore("admin order", {
           useStateStore.pushToastMessage("錯誤：刪除訂單失敗", response.data);
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料刪除失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
     async deleteAllPayOrders() {
       useStateStore.changeLoadingState(true);
@@ -81,9 +99,15 @@ export default defineStore("admin order", {
           );
         }
       } catch (error) {
-        console.log(error);
+        useStateStore.pushToastMessage(
+          "資料刪除失敗，請重新整理再操作或通知系統維護人員",
+          {
+            success: false,
+          }
+        );
+      } finally {
+        useStateStore.changeLoadingState(false);
       }
-      useStateStore.changeLoadingState(false);
     },
   },
 });
