@@ -56,7 +56,12 @@ import NewMark from "@/components/front/NewMark.vue";
 import { useWindowSize } from "@vueuse/core";
 
 export default {
-  props: ["book"],
+  props: {
+    book: {
+      type: Object,
+      required: true,
+    },
+  },
   components: { BookMark, NewMark },
   data() {
     return {

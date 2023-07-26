@@ -92,7 +92,12 @@ import useStateStore from "@/stores/states.js";
 
 export default {
   components: { OrderList },
-  props: ["order"],
+  props: {
+    order: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       isOpenList: false,

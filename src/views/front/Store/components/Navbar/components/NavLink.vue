@@ -30,7 +30,16 @@ import BadgeLabel from "@/components/front/BadgeLabel.vue";
 import TooltipLabel from "@/components/front/TooltipLabel.vue";
 
 export default {
-  props: ["navLink", "isScrollTop"],
+  props: {
+    navLink: {
+      type: Object,
+      required: true,
+    },
+    isScrollTop: {
+      type: Boolean,
+      default: true,
+    },
+  },
   components: { CartDropdown, BadgeLabel, TooltipLabel },
   computed: {
     ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),

@@ -15,7 +15,12 @@ import { mapState, mapActions } from "pinia";
 import useStatesStore from "@/stores/states.js";
 
 export default {
-  props: ["isScrollTop"],
+  props: {
+    isScrollTop: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       inputText: "",

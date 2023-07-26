@@ -43,7 +43,12 @@ import Toast from "bootstrap/js/dist/toast";
 
 export default {
   name: "ToastCard",
-  props: ["msg"],
+  props: {
+    msg: {
+      type: Object,
+      required: true,
+    },
+  },
   mounted() {
     const toastEl = this.$refs.toast;
     const toast = new Toast(toastEl, {

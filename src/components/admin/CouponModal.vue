@@ -183,7 +183,17 @@
 import modalMixin from "../mixins/modalMixin";
 
 export default {
-  props: ["tempCoupon", "couponsCategory", "isNewCoupon"],
+  props: {
+    tempCoupon: {
+      type: Object,
+      required: true,
+    },
+    couponsCategory: Array,
+    isNewCoupon: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       couponForm: {},

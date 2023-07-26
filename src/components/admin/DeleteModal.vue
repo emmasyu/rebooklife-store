@@ -63,7 +63,11 @@
 import modalMixin from "../mixins/modalMixin";
 
 export default {
-  props: ["tempProduct", "tempCoupon", "tempOrder"],
+  props: {
+    tempProduct: Object,
+    tempCoupon: Object,
+    tempOrder: Object,
+  },
   mixins: [modalMixin],
   computed: {
     tempItem() {

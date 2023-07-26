@@ -12,7 +12,12 @@ import { mapState } from "pinia";
 import useProductsStore from "@/stores/products.js";
 
 export default {
-  props: ["id"],
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
   computed: {
     ...mapState(useProductsStore, ["isNewerProduct"]),
   },

@@ -41,7 +41,12 @@
 import BadgeLabel from "@/components/front/BadgeLabel.vue";
 
 export default {
-  props: ["carts"],
+  props: {
+    carts: {
+      type: Object,
+      required: true,
+    },
+  },
   components: { BadgeLabel },
 };
 </script>

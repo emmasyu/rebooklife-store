@@ -144,7 +144,12 @@
 import modalMixin from "../mixins/modalMixin";
 
 export default {
-  props: ["tempOrder"],
+  props: {
+    tempOrder: {
+      type: Object,
+      required: true,
+    },
+  },
 
   data() {
     return {

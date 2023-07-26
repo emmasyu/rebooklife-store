@@ -4,7 +4,7 @@
       v-for="i in 5"
       :key="i"
       type="radio"
-      :name="`${product?.id}${tempName ?? ''}`"
+      :name="`${product?.id}${tempName}`"
       :value="6 - i"
       v-model="stars"
       class="cursor-pointer text-gray"
@@ -18,7 +18,15 @@ import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
 
 export default {
-  props: ["product", "tempName"],
+  props: {
+    product: {
+      type: Object,
+    },
+    tempName: {
+      type: String,
+      default: "",
+    },
+  },
   computed: {
     ...mapState(useFavoritesStore, ["favorites"]),
     stars() {

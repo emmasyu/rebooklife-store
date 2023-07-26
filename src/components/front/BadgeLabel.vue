@@ -9,6 +9,8 @@
 
 <script>
 export default {
-  props: ["num"],
+  props: {
+    num: [String, Number],
+  },
 };
 </script>

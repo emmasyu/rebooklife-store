@@ -17,7 +17,11 @@ import { mapState, mapActions } from "pinia";
 import useFavoritesStore from "@/stores/favorites.js";
 
 export default {
-  props: ["id"],
+  props: {
+    id: {
+      type: String,
+    },
+  },
   computed: {
     ...mapState(useFavoritesStore, ["isFavorite"]),
   },

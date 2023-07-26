@@ -57,7 +57,12 @@
 
 <script>
 export default {
-  props: ["pages"],
+  props: {
+    pages: {
+      type: Object,
+      required: true,
+    },
+  },
   methods: {
     updatePage(page) {
       this.$emit("emit-pages", page);

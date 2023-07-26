@@ -25,7 +25,12 @@
 
 <script>
 export default {
-  props: ["faq"],
+  props: {
+    faq: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 

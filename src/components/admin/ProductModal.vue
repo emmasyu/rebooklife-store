@@ -415,8 +415,19 @@ import { mapActions } from "pinia";
 import useStateStore from "@/stores/states.js";
 
 export default {
-  props: ["tempProduct", "category", "isNewProduct"],
-
+  props: {
+    tempProduct: {
+      type: Object,
+      required: true,
+    },
+    category: {
+      type: Object,
+    },
+    isNewProduct: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       uploadMethod: "upload",

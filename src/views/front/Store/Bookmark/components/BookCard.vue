@@ -27,7 +27,16 @@ import { useWindowSize } from "@vueuse/core";
 
 export default {
   components: { BookMark, StarRate },
-  props: ["item", "isVisibleMark"],
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+    isVisibleMark: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       width: useWindowSize().width,

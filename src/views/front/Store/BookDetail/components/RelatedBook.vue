@@ -30,7 +30,14 @@ import useProductsStore from "@/stores/products.js";
 import { useWindowSize } from "@vueuse/core";
 
 export default {
-  props: ["category", "currentId"],
+  props: {
+    category: {
+      type: String,
+    },
+    currentId: {
+      type: String,
+    },
+  },
   data() {
     return {
       width: useWindowSize().width,

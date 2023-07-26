@@ -76,7 +76,12 @@ import { useWindowSize } from "@vueuse/core";
 
 export default {
   components: { StarRate, BookMark },
-  props: ["tempProduct"],
+  props: {
+    tempProduct: {
+      type: Object,
+      required: true,
+    },
+  },
   mixins: [modalMixin],
   data() {
     return {
