@@ -5,7 +5,7 @@
     class="float-vertical position-fixed bg-primary bg-primary-light-hover bottom-0 end-0 w-6 h-6 rounded-5 border border-3 border-light d-flex justify-content-center align-items-center mb-9 mb-lg-8 me-4 me-lg-8 fs-6 cursor-pointer z-2"
     @click.prevent="scrollTop"
   >
-    <span class="text-light d-block w-100">Top</span>
+    <FontAwesomeIcon :icon="['fas', 'circle-up']" class="text-white fs-3" />
   </button>
 </template>
 

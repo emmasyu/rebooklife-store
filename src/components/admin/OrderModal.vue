@@ -101,7 +101,7 @@
                 <img
                   :src="item.product.imageUrl"
                   :alt="item.product.title"
-                  class="w-6"
+                  class="w-6 shadow-small"
                 />
                 <p class="w-11">
                   {{ $filters.trim(item.product.title, 30) }}
