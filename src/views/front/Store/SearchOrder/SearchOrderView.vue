@@ -24,22 +24,21 @@
       >
         <div
           v-if="!$route.params.orderId"
-          class="vstack justify-content-center align-items-center min-vh-75 min-vh-lg-60"
+          class="vstack justify-content-center align-items-center min-vh-75 min-vh-lg-60 text-center"
         >
+          <p>輸入訂單邊號進行查詢</p>
           <div v-if="localOrders.length > 0">
-            <p class="mb-2 text-center">
-              輸入訂單邊號進行查詢
-              <br />
-              或是點選下列歷史訂單紀錄查看內容
-            </p>
+            <p>或是點選下列歷史訂單紀錄查看內容</p>
             <ul class="fw-normal">
               <li
                 v-for="order in localOrders"
                 :key="order"
-                @click="getOrderPage(order)"
-                class="border border-primary py-2 px-5 my-2 bg-primary-hover text-white-hover cursor-pointer text-break text-center"
+                @click="getOrderPage(order.orderId)"
+                class="border border-primary py-2 px-5 my-2 bg-primary-hover text-white-hover cursor-pointer text-break"
               >
-                {{ order }}
+                訂單日期
+                {{ $filters.convertTimeToISO(order.create_at) }} <br />
+                總計$ {{ $filters.thousandSeparator(order.total) }}
               </li>
             </ul>
           </div>
