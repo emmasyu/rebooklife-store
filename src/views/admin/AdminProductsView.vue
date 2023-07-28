@@ -94,11 +94,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useAdminProductsStore from "@/stores/adminProducts.js";
-import ProductModal from "@/components/admin/ProductModal.vue";
-import DeleteModal from "@/components/admin/DeleteModal.vue";
-import PaginationNav from "@/components/global/PaginationNav.vue";
+import { mapState, mapActions } from 'pinia';
+import useAdminProductsStore from '@/stores/adminProducts';
+import ProductModal from '@/components/admin/ProductModal.vue';
+import DeleteModal from '@/components/admin/DeleteModal.vue';
+import PaginationNav from '@/components/global/PaginationNav.vue';
 
 export default {
   components: {
@@ -112,31 +112,24 @@ export default {
       tempProduct: {},
       isNewProduct: false,
       filterCurrentPage: 1,
-      filterAllProducts: [],
     };
   },
   computed: {
-    ...mapState(useAdminProductsStore, ["productsAll", "productsCategory"]),
+    ...mapState(useAdminProductsStore, ['productsAll', 'productsCategory']),
     filterProductsOnPage() {
-      this.filterAllProducts = (
-        this.category === null
-          ? [...this.productsAll]
-          : this.productsAll.filter((item) => item.category === this.category)
-      ).reverse();
-      return this.filterAllProducts.filter(
-        (item, index) =>
-          index >= 10 * this.filterCurrentPage - 10 &&
-          index < 10 * this.filterCurrentPage
+      return this.filterCategoryProducts().filter(
+        (item, index) => index >= 10 * this.filterCurrentPage - 10
+          && index < 10 * this.filterCurrentPage,
       );
     },
     pagination() {
       return {
-        total_pages: Math.ceil(this.filterAllProducts.length / 10),
+        total_pages: Math.ceil(this.filterCategoryProducts().length / 10),
         current_page: this.filterCurrentPage,
         has_pre: this.filterCurrentPage > 1,
         has_next:
-          this.filterCurrentPage <
-          Math.ceil(this.filterAllProducts.length / 10),
+          this.filterCurrentPage
+          < Math.ceil(this.filterCategoryProducts().length / 10),
       };
     },
   },
@@ -147,14 +140,19 @@ export default {
   },
   methods: {
     ...mapActions(useAdminProductsStore, [
-      "getProductsAll",
-      "postNewProduct",
-      "putUpdateProduct",
-      "deleteOneProduct",
+      'getProductsAll',
+      'postNewProduct',
+      'putUpdateProduct',
+      'deleteOneProduct',
     ]),
+    filterCategoryProducts() {
+      return this.category === null
+        ? [...this.productsAll]
+        : this.productsAll.filter((item) => item.category === this.category).reverse();
+    },
     openProductModal(isNewProduct, item) {
       if (isNewProduct) {
-        this.tempProduct = { unit: "本" };
+        this.tempProduct = { unit: '本' };
       } else {
         this.tempProduct = { ...item };
       }
