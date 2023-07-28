@@ -1,3 +1,3 @@
-export * from "./date";
-export * from "./currency";
-export * from "./trimString";
+export * from './date';
+export { default as thousandSeparator } from './currency';
+export { default as trim } from './trimString';
