@@ -408,11 +408,12 @@
 </template>
 
 <script>
-import { admin } from "@/api";
-import modalMixin from "../mixins/modalMixin";
+import { mapActions } from 'pinia';
+import { admin } from '@/api';
+import useStateStore from '@/stores/states';
+import modalMixin from '../mixins/modalMixin';
+
 const { postUpload } = admin;
-import { mapActions } from "pinia";
-import useStateStore from "@/stores/states.js";
 
 export default {
   props: {
@@ -430,8 +431,8 @@ export default {
   },
   data() {
     return {
-      uploadMethod: "upload",
-      editContent: "baseIntro",
+      uploadMethod: 'upload',
+      editContent: 'baseIntro',
       productForm: {},
       isOpenCategory: false,
       isOpenSubcategory: false,
@@ -441,35 +442,41 @@ export default {
     tempProduct() {
       this.productForm = { ...this.tempProduct };
     },
-    "productForm.category": function (newCategory, oldCategory) {
+    // eslint-disable-next-line func-names
+    'productForm.category': function (newCategory, oldCategory) {
       if (oldCategory && newCategory !== oldCategory) {
-        this.productForm.subcategory = "";
+        this.productForm.subcategory = '';
       }
     },
   },
   methods: {
-    ...mapActions(useStateStore, ["pushToastMessage"]),
+    ...mapActions(useStateStore, ['pushToastMessage']),
     async uploadFile() {
       const uploadedFile = this.$refs.fileInput.files[0];
       const formData = new FormData();
-      formData.append("file-to-upload", uploadedFile);
+      formData.append('file-to-upload', uploadedFile);
       try {
         const response = await postUpload(formData);
-        this.tempProduct.imageUrl = response.data.imageUrl;
+        if (response.data.success) {
+          this.productForm.imageUrl = response.data.imageUrl;
+          this.pushToastMessage('成功：已上傳圖片');
+        } else {
+          this.pushToastMessage('錯誤：上傳圖片失敗', response.data);
+        }
       } catch (error) {
-        this.pushToastMessage(`檔案上傳發生錯誤, 建議以網址方式新增圖片`, {
+        this.pushToastMessage('檔案上傳發生錯誤, 建議以網址方式新增圖片', {
           success: false,
         });
-        this.uploadMethod = "imageUrl";
+        this.uploadMethod = 'imageUrl';
       }
     },
     updateProduct() {
-      this.$emit("update-product", this.productForm);
+      this.$emit('update-product', this.productForm);
       this.defaultModal();
     },
     defaultModal() {
-      this.uploadMethod = "upload";
-      this.editContent = "baseIntro";
+      this.uploadMethod = 'upload';
+      this.editContent = 'baseIntro';
       this.productForm = {};
     },
     toggleCategory() {
