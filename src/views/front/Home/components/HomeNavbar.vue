@@ -61,113 +61,113 @@
 </template>
 
 <script>
-import collapseMixin from "@/components/mixins/collapseMixin";
-import navigationData from "@/data/navgation.json";
-import { mapState } from "pinia";
-import useScrollStateStore from "@/stores/scrollState.js";
-import { useWindowSize, useWindowScroll } from "@vueuse/core";
+import { mapState } from 'pinia';
+import { useWindowSize, useWindowScroll } from '@vueuse/core';
+import collapseMixin from '@/components/mixins/collapseMixin';
+import navigationData from '@/data/navgation.json';
+import useScrollStateStore from '@/stores/scrollState';
 
 export default {
   data() {
     return {
-      isExpanded: "false",
+      isExpanded: 'false',
       navigationData: navigationData.navigation,
       width: useWindowSize().width,
       y: useWindowScroll().y,
     };
   },
   computed: {
-    ...mapState(useScrollStateStore, ["blockTopY"]),
+    ...mapState(useScrollStateStore, ['blockTopY']),
     logoPhoto() {
       if (this.width < 992) {
         return new URL(
-          `@/assets/images/rebooklife-logo-white.png`,
-          import.meta.url
-        ).href;
-      } else {
-        return new URL(
-          `@/assets/images/rebooklife-index-logo-white.png`,
-          import.meta.url
+          '@/assets/images/rebooklife-logo-white.png',
+          import.meta.url,
         ).href;
       }
+      return new URL(
+        '@/assets/images/rebooklife-index-logo-white.png',
+        import.meta.url,
+      ).href;
     },
     newUrl() {
+      // eslint-disable-next-line consistent-return
       return (name) => {
         switch (name) {
-          case "about":
+          case 'about':
             return {
               image: new URL(
-                `@/assets/images/openbook-white.png`,
-                import.meta.url
+                '@/assets/images/openbook-white.png',
+                import.meta.url,
               ).href,
               decoration: new URL(
-                `@/assets/images/about-decoration-line.png`,
-                import.meta.url
+                '@/assets/images/about-decoration-line.png',
+                import.meta.url,
               ).href,
             };
-          case "faq":
+          case 'faq':
             return {
-              image: new URL(`@/assets/images/FAQ-white.png`, import.meta.url)
+              image: new URL('@/assets/images/FAQ-white.png', import.meta.url)
                 .href,
               decoration: new URL(
-                `@/assets/images/FAQ-decoration-line.png`,
-                import.meta.url
+                '@/assets/images/FAQ-decoration-line.png',
+                import.meta.url,
               ).href,
             };
-          case "contact":
+          case 'contact':
             return {
               image: new URL(
-                `@/assets/images/location-white.png`,
-                import.meta.url
+                '@/assets/images/location-white.png',
+                import.meta.url,
               ).href,
               decoration: new URL(
-                `@/assets/images/contact-decoration-line.png`,
-                import.meta.url
+                '@/assets/images/contact-decoration-line.png',
+                import.meta.url,
               ).href,
             };
-          case "bookstore":
+          case 'bookstore':
             return {
-              image: new URL(`@/assets/images/book-white.png`, import.meta.url)
+              image: new URL('@/assets/images/book-white.png', import.meta.url)
                 .href,
               decoration: new URL(
-                `@/assets/images/bookstore-decoration-line.png`,
-                import.meta.url
+                '@/assets/images/bookstore-decoration-line.png',
+                import.meta.url,
               ).href,
             };
-          case "bookmark":
+          case 'bookmark':
             return {
               image: new URL(
-                `@/assets/images/bookmark-white.png`,
-                import.meta.url
+                '@/assets/images/bookmark-white.png',
+                import.meta.url,
               ).href,
               decoration: new URL(
-                `@/assets/images/bookmark-decoration-line.png`,
-                import.meta.url
+                '@/assets/images/bookmark-decoration-line.png',
+                import.meta.url,
               ).href,
             };
-          case "shopping cart":
+          case 'shopping cart':
             return {
               image: new URL(
-                `@/assets/images/shopping-cart-white.png`,
-                import.meta.url
+                '@/assets/images/shopping-cart-white.png',
+                import.meta.url,
               ).href,
               decoration: new URL(
-                `@/assets/images/shopping-cart-decoration-line.png`,
-                import.meta.url
+                '@/assets/images/shopping-cart-decoration-line.png',
+                import.meta.url,
               ).href,
             };
+          // no default
         }
       };
     },
     isActive() {
       return (item, i) => {
-        return (
-          this.y <
-            (this.blockTopY?.[this.navigationData[i + 1]?.name] -
-              this.blockTopY?.about * 0.7 ||
-              this.blockTopY?.[item.name] + this.blockTopY?.about) &&
-          this.y > this.blockTopY?.[item.name] - this.blockTopY?.about * 0.7
-        );
+        const nextBlockTopY = this.blockTopY?.[this.navigationData[i + 1]?.name];
+        const currentBlockTopY = this.blockTopY?.[item.name];
+        const blockRange = this.blockTopY?.about;
+        return this.y < (nextBlockTopY - blockRange * 0.7
+          || currentBlockTopY + blockRange)
+        && this.y > currentBlockTopY - blockRange * 0.7;
       };
     },
   },
