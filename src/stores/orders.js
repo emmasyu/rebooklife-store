@@ -1,35 +1,38 @@
-import { guest } from "../api";
-import { defineStore } from "pinia";
-import stateStore from "./states";
+/* eslint-disable camelcase */
+import { defineStore } from 'pinia';
+import { guest } from '../api';
+import stateStore from './states';
 
 const useStateStore = stateStore();
 
-const { getOrders, getOrder, postOrder, postPay } = guest;
+const {
+  getOrders, getOrder, postOrder, postPay,
+} = guest;
 
-export default defineStore("order", {
+export default defineStore('order', {
   state: () => ({
     orders: [],
     pagination: {},
     order: {},
-    orderId: "",
+    orderId: '',
     localOrders: [],
   }),
 
   actions: {
-    async getOrders() {
+    async getOrders(page) {
       useStateStore.changeLoadingState(true);
       try {
-        const response = await getOrders((page = 1));
+        const response = await getOrders(page);
         if (response.data.success) {
           this.orders = response.data.orders;
           this.pagination = response.data.pagination;
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "獲取訂單失敗，請重新整理再操作或聯絡我們",
+          '獲取訂單失敗，請重新整理再操作或聯絡我們',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
@@ -44,10 +47,10 @@ export default defineStore("order", {
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "獲取訂單失敗，請重新整理再操作或聯絡我們",
+          '獲取訂單失敗，請重新整理再操作或聯絡我們',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
@@ -57,21 +60,22 @@ export default defineStore("order", {
       useStateStore.changeLoadingState(true);
       try {
         const response = await postOrder({
-          data: data,
+          data,
         });
         if (response.data.success) {
-          useStateStore.pushToastMessage("成功：已建立訂單");
+          useStateStore.pushToastMessage('成功：已建立訂單');
           const { orderId, create_at, total } = await response.data;
+          this.orderId = orderId;
           this.addLocalOrders(orderId, create_at, total);
         } else {
-          useStateStore.pushToastMessage("錯誤：訂單建立失敗", response.data);
+          useStateStore.pushToastMessage('錯誤：訂單建立失敗', response.data);
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "建立訂單失敗，請重新整理再操作或聯絡我們",
+          '建立訂單失敗，請重新整理再操作或聯絡我們',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
@@ -82,30 +86,30 @@ export default defineStore("order", {
       try {
         const response = await postPay(id);
         if (this.order.is_paid) {
-          useStateStore.pushToastMessage("錯誤：此筆訂單已付過款", {
+          useStateStore.pushToastMessage('錯誤：此筆訂單已付過款', {
             success: false,
           });
         } else if (response.data.success) {
-          useStateStore.pushToastMessage("成功：已成功付款");
+          useStateStore.pushToastMessage('成功：已成功付款');
         } else {
-          useStateStore.pushToastMessage("錯誤：付款失敗", response.data);
+          useStateStore.pushToastMessage('錯誤：付款失敗', response.data);
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "訂單付款失敗，請重新整理再操作或聯絡我們",
+          '訂單付款失敗，請重新整理再操作或聯絡我們',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
       }
     },
     setLocalOrders() {
-      localStorage.setItem("orders", JSON.stringify(this.localOrders));
+      localStorage.setItem('orders', JSON.stringify(this.localOrders));
     },
     getLocalOrders() {
-      const ordersJson = localStorage.getItem("orders");
+      const ordersJson = localStorage.getItem('orders');
       if (ordersJson) {
         this.localOrders = JSON.parse(ordersJson);
       }
@@ -114,6 +118,15 @@ export default defineStore("order", {
       this.getLocalOrders();
       this.localOrders.push({ orderId, create_at, total });
       this.setLocalOrders();
+    },
+    deleteLocalOrders(orderId) {
+      this.getLocalOrders();
+      if (orderId) {
+        this.localOrders = this.localOrders.filter((order) => order.orderId !== orderId);
+        this.setLocalOrders();
+      } else if (orderId === 'all') {
+        localStorage.removeItem('orders');
+      }
     },
   },
 });
