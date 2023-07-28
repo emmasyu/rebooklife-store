@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-import BookMark from "@/components/front/BookMark.vue";
-import NewMark from "@/components/front/NewMark.vue";
-import { useWindowSize } from "@vueuse/core";
+import { mapActions } from 'pinia';
+import { useWindowSize } from '@vueuse/core';
+import useCartsStore from '@/stores/carts';
+import BookMark from '@/components/front/BookMark.vue';
+import NewMark from '@/components/front/NewMark.vue';
 
 export default {
   props: {
@@ -89,7 +89,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions(useCartsStore, ["addCart"]),
+    ...mapActions(useCartsStore, ['addCart']),
     async addBookToCart(id) {
       const data = { product_id: id, qty: 1 };
       await this.addCart(data);

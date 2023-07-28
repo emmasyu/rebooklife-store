@@ -180,7 +180,7 @@
 </template>
 
 <script>
-import modalMixin from "../mixins/modalMixin";
+import modalMixin from '../mixins/modalMixin';
 
 export default {
   props: {
@@ -197,7 +197,7 @@ export default {
   data() {
     return {
       couponForm: {},
-      due_date: "",
+      due_date: '',
       isOpenCategory: false,
     };
   },
@@ -208,7 +208,7 @@ export default {
     },
     due_date() {
       this.couponForm.due_date = this.$filters.convertTimeToValue(
-        this.due_date
+        this.due_date,
       );
     },
   },
@@ -224,7 +224,7 @@ export default {
       this.isOpenCategory = false;
     },
     updateCoupon() {
-      this.$emit("update-coupon", this.couponForm);
+      this.$emit('update-coupon', this.couponForm);
     },
   },
   mixins: [modalMixin],

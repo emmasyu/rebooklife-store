@@ -141,7 +141,7 @@
 </template>
 
 <script>
-import modalMixin from "../mixins/modalMixin";
+import modalMixin from '../mixins/modalMixin';
 
 export default {
   props: {
@@ -163,7 +163,7 @@ export default {
   },
   methods: {
     updateOrder() {
-      this.$emit("update-order", this.orderInfo);
+      this.$emit('update-order', this.orderInfo);
     },
   },
   mixins: [modalMixin],

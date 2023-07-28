@@ -40,18 +40,16 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useProductsStore from "@/stores/products.js";
-import BookCard from "@/components/front/BookCard.vue";
+import { mapState } from 'pinia';
+import useProductsStore from '@/stores/products';
+import BookCard from '@/components/front/BookCard.vue';
 
 export default {
   components: { BookCard },
   computed: {
-    ...mapState(useProductsStore, ["productsAll"]),
+    ...mapState(useProductsStore, ['productsAll']),
     searchBookResult() {
-      return this.productsAll.filter((book) =>
-        book.title.match(this.$route.query.searchText)
-      );
+      return this.productsAll.filter((book) => book.title.match(this.$route.query.searchText));
     },
   },
 };

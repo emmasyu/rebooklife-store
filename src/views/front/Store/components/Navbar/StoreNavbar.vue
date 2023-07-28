@@ -70,39 +70,39 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useStatesStore from "@/stores/states.js";
-import StoreNavLink from "./components/NavLink.vue";
-import TooltipLabel from "@/components/front/TooltipLabel.vue";
-import SearchBookForm from "./components/SearchBookForm.vue";
-import collapseMixin from "@/components/mixins/collapseMixin";
-import navLinksData from "@/data/storeNavLinks.json";
-import { useWindowScroll } from "@vueuse/core";
+import { mapState, mapActions } from 'pinia';
+import { useWindowScroll } from '@vueuse/core';
+import useStatesStore from '@/stores/states';
+import TooltipLabel from '@/components/front/TooltipLabel.vue';
+import collapseMixin from '@/components/mixins/collapseMixin';
+import navLinksData from '@/data/storeNavLinks.json';
+import SearchBookForm from './components/SearchBookForm.vue';
+import StoreNavLink from './components/NavLink.vue';
 
 export default {
   components: { StoreNavLink, TooltipLabel, SearchBookForm },
   data() {
     return {
-      isExpanded: "false",
+      isExpanded: 'false',
       navLinks: navLinksData,
       y: useWindowScroll().y,
     };
   },
   computed: {
-    ...mapState(useStatesStore, ["isSearch", "searchText"]),
+    ...mapState(useStatesStore, ['isSearch', 'searchText']),
     isScrollTop() {
       return this.y === 0;
     },
   },
   methods: {
-    ...mapActions(useStatesStore, ["toggleSearchInput", "inputSearchText"]),
+    ...mapActions(useStatesStore, ['toggleSearchInput', 'inputSearchText']),
     getCollapseBtn() {
       this.isExpanded = this.$refs.collapse?.ariaExpanded;
     },
     searchBook() {
       if (this.isSearch && this.searchText) {
         this.$router.push({
-          path: "/bookstore/search",
+          path: '/bookstore/search',
           query: { searchText: this.searchText.trim() },
         });
         this.toggleSearchInput();
@@ -112,7 +112,7 @@ export default {
     },
   },
   created() {
-    window.addEventListener("click", () => this.hideCollapse());
+    window.addEventListener('click', () => this.hideCollapse());
   },
   mixins: [collapseMixin],
 };

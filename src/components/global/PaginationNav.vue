@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     updatePage(page) {
-      this.$emit("emit-pages", page);
+      this.$emit('emit-pages', page);
     },
   },
 };

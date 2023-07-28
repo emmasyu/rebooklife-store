@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import ToastCard from "./ToastCard.vue";
-import { mapState } from "pinia";
-import useStateStore from "@/stores/states.js";
+import { mapState } from 'pinia';
+import useStateStore from '@/stores/states';
+import ToastCard from './ToastCard.vue';
 
 export default {
   components: { ToastCard },
   computed: {
-    ...mapState(useStateStore, ["toastMessage"]),
+    ...mapState(useStateStore, ['toastMessage']),
   },
 };
 </script>

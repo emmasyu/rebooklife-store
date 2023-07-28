@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useProductsStore from "@/stores/products.js";
-import { useWindowSize } from "@vueuse/core";
+import { mapState } from 'pinia';
+import { useWindowSize } from '@vueuse/core';
+import useProductsStore from '@/stores/products';
 
 export default {
   props: {
@@ -44,7 +44,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(useProductsStore, ["relatedProducts"]),
+    ...mapState(useProductsStore, ['relatedProducts']),
     trimTitle() {
       return (title) => {
         if (this.width >= 1400) {
@@ -59,7 +59,7 @@ export default {
     sliceRelatedProducts() {
       return (id) => {
         const exceptRelatedProducts = this.relatedProducts(
-          this.category
+          this.category,
         ).filter((book) => book.id !== id);
         if (this.width >= 1200) {
           return exceptRelatedProducts.slice(0, 4);

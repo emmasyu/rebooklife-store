@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { useWindowScroll } from "@vueuse/core";
+import { useWindowScroll } from '@vueuse/core';
 
 export default {
   data() {

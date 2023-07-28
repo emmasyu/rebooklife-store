@@ -81,36 +81,36 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-import OrderList from "@/components/front/OrderList.vue";
-import OrderForm from "./components/OrderForm.vue";
-import { useWindowSize } from "@vueuse/core";
+import { mapState, mapActions } from 'pinia';
+import { useWindowSize } from '@vueuse/core';
+import useCartsStore from '@/stores/carts';
+import OrderList from '@/components/front/OrderList.vue';
+import OrderForm from './components/OrderForm.vue';
 
 export default {
   components: { OrderList, OrderForm },
   data() {
     return {
       isOpenList: false,
-      couponCode: "",
+      couponCode: '',
       width: useWindowSize().width,
     };
   },
   computed: {
-    ...mapState(useCartsStore, ["carts"]),
+    ...mapState(useCartsStore, ['carts']),
     isAllUseCoupon() {
       return Object.values(this.carts.carts ?? {}).every((cart) => cart.coupon);
     },
   },
   methods: {
-    ...mapActions(useCartsStore, ["postUseCoupon"]),
+    ...mapActions(useCartsStore, ['postUseCoupon']),
     toggleList() {
       this.isOpenList = !this.isOpenList;
     },
     async applyCoupon() {
       const data = { code: this.couponCode };
       await this.postUseCoupon(data);
-      this.couponCode = "";
+      this.couponCode = '';
     },
   },
 };

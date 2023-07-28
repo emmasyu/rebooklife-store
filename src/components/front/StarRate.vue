@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useFavoritesStore from "@/stores/favorites.js";
+import { mapState, mapActions } from 'pinia';
+import useFavoritesStore from '@/stores/favorites';
 
 export default {
   props: {
@@ -24,18 +24,18 @@ export default {
     },
     tempName: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
-    ...mapState(useFavoritesStore, ["favorites"]),
+    ...mapState(useFavoritesStore, ['favorites']),
     stars() {
       return this.favorites?.find((item) => item.id === this.product?.id)
         ?.stars;
     },
   },
   methods: {
-    ...mapActions(useFavoritesStore, ["giveStars"]),
+    ...mapActions(useFavoritesStore, ['giveStars']),
   },
 };
 </script>

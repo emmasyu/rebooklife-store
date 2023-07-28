@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import swiperMixin from "@/components/mixins/swiperMixin.js";
-import CouponCard from "./components/CouponCard.vue";
-import couponsData from "@/data/coupons.json";
+import swiperMixin from '@/components/mixins/swiperMixin';
+import couponsData from '@/data/coupons.json';
+import CouponCard from './components/CouponCard.vue';
 
 export default {
   components: { CouponCard },
@@ -55,10 +55,10 @@ export default {
   },
   beforeMount() {
     this.assignOptions({
-      effect: "coverflow",
+      effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: "auto",
+      slidesPerView: 'auto',
       spaceBetween: 48,
       coverflowEffect: {
         rotate: 35,

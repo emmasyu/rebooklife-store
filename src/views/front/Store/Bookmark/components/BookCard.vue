@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useFavoritesStore from "@/stores/favorites.js";
-import useProductsStore from "@/stores/products.js";
-import BookMark from "@/components/front/BookMark.vue";
-import StarRate from "@/components/front/StarRate.vue";
-import { useWindowSize } from "@vueuse/core";
+import { mapState, mapActions } from 'pinia';
+import { useWindowSize } from '@vueuse/core';
+import useFavoritesStore from '@/stores/favorites';
+import useProductsStore from '@/stores/products';
+import BookMark from '@/components/front/BookMark.vue';
+import StarRate from '@/components/front/StarRate.vue';
 
 export default {
   components: { BookMark, StarRate },
@@ -43,14 +43,14 @@ export default {
     };
   },
   computed: {
-    ...mapState(useFavoritesStore, ["isFavorite"]),
-    ...mapState(useProductsStore, ["productsAll"]),
+    ...mapState(useFavoritesStore, ['isFavorite']),
+    ...mapState(useProductsStore, ['productsAll']),
     product() {
       return this.productsAll?.find((book) => book.id === this.item.id);
     },
   },
   methods: {
-    ...mapActions(useFavoritesStore, ["toggleFavorite"]),
+    ...mapActions(useFavoritesStore, ['toggleFavorite']),
     trimTitle() {
       if (this.width >= 1200) {
         return this.$filters.trim(this.product?.title, 16);

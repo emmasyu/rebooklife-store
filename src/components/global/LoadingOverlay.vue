@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useStateStore from "@/stores/states";
+import { mapState } from 'pinia';
+import useStateStore from '@/stores/states';
 
 export default {
   computed: {
-    ...mapState(useStateStore, ["isLoading", "loadingBounceLetter"]),
+    ...mapState(useStateStore, ['isLoading', 'loadingBounceLetter']),
     bounceLetterArray() {
-      return this.loadingBounceLetter.split("");
+      return this.loadingBounceLetter.split('');
     },
   },
 };

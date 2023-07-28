@@ -1,12 +1,14 @@
-import { admin } from "../api";
-import { defineStore } from "pinia";
-import stateStore from "./states";
+import { defineStore } from 'pinia';
+import { admin } from '../api';
+import stateStore from './states';
 
 const useStateStore = stateStore();
 
-const { getCouponsOnPage, postCoupon, putCoupon, deleteCoupon } = admin;
+const {
+  getCouponsOnPage, postCoupon, putCoupon, deleteCoupon,
+} = admin;
 
-export default defineStore("admin coupon", {
+export default defineStore('admin coupon', {
   state: () => ({
     coupons: [],
     pagination: {},
@@ -15,9 +17,8 @@ export default defineStore("admin coupon", {
   getters: {
     couponsCategory() {
       return this.coupons.reduce(
-        (all, curr) =>
-          !all.includes(curr.category) ? [...all, curr.category] : all,
-        []
+        (all, curr) => (!all.includes(curr.category) ? [...all, curr.category] : all),
+        [],
       );
     },
   },
@@ -33,10 +34,10 @@ export default defineStore("admin coupon", {
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "資料獲取失敗，請重新整理再操作或通知系統維護人員",
+          '資料獲取失敗，請重新整理再操作或通知系統維護人員',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
@@ -44,21 +45,22 @@ export default defineStore("admin coupon", {
     },
     async postNewCoupon(item) {
       useStateStore.changeLoadingState(true);
-      item.createTime = new Date().getTime();
+      const newCoupon = { ...item };
+      newCoupon.createTime = new Date().getTime();
       try {
-        const response = await postCoupon({ data: item });
+        const response = await postCoupon({ data: newCoupon });
         if (response.data.success) {
-          useStateStore.pushToastMessage("成功：已新增優惠券");
+          useStateStore.pushToastMessage('成功：已新增優惠券');
           await this.getCoupons();
         } else {
-          useStateStore.pushToastMessage("錯誤：新增優惠券失敗", response.data);
+          useStateStore.pushToastMessage('錯誤：新增優惠券失敗', response.data);
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          '資料更新失敗，請重新整理再操作或通知系統維護人員',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
@@ -71,17 +73,17 @@ export default defineStore("admin coupon", {
           data: item,
         });
         if (response.data.success) {
-          useStateStore.pushToastMessage("成功：已更新優惠券");
+          useStateStore.pushToastMessage('成功：已更新優惠券');
           await this.getCoupons();
         } else {
-          useStateStore.pushToastMessage("錯誤：更新優惠券失敗", response.data);
+          useStateStore.pushToastMessage('錯誤：更新優惠券失敗', response.data);
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "資料更新失敗，請重新整理再操作或通知系統維護人員",
+          '資料更新失敗，請重新整理再操作或通知系統維護人員',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);
@@ -92,17 +94,17 @@ export default defineStore("admin coupon", {
       try {
         const response = await deleteCoupon(item.id);
         if (response.data.success) {
-          useStateStore.pushToastMessage("成功：已刪除優惠券");
+          useStateStore.pushToastMessage('成功：已刪除優惠券');
           await this.getCoupons();
         } else {
-          useStateStore.pushToastMessage("錯誤：刪除優惠券失敗", response.data);
+          useStateStore.pushToastMessage('錯誤：刪除優惠券失敗', response.data);
         }
       } catch (error) {
         useStateStore.pushToastMessage(
-          "資料刪除失敗，請重新整理再操作或通知系統維護人員",
+          '資料刪除失敗，請重新整理再操作或通知系統維護人員',
           {
             success: false,
-          }
+          },
         );
       } finally {
         useStateStore.changeLoadingState(false);

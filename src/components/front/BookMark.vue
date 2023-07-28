@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useFavoritesStore from "@/stores/favorites.js";
+import { mapState, mapActions } from 'pinia';
+import useFavoritesStore from '@/stores/favorites';
 
 export default {
   props: {
@@ -23,10 +23,10 @@ export default {
     },
   },
   computed: {
-    ...mapState(useFavoritesStore, ["isFavorite"]),
+    ...mapState(useFavoritesStore, ['isFavorite']),
   },
   methods: {
-    ...mapActions(useFavoritesStore, ["toggleFavorite"]),
+    ...mapActions(useFavoritesStore, ['toggleFavorite']),
   },
 };
 </script>

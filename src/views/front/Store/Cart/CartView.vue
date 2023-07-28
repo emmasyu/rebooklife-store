@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import CartProgressBar from "./components/ProgressBar.vue";
-import CartStepButton from "./components/StepButton.vue";
+import CartProgressBar from './components/ProgressBar.vue';
+import CartStepButton from './components/StepButton.vue';
 
 export default {
   components: { CartProgressBar, CartStepButton },

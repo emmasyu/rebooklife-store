@@ -60,24 +60,24 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useOrdersStore from "@/stores/orders.js";
-import OrderInfo from "@/components/front/OrderInfo.vue";
+import { mapState, mapActions } from 'pinia';
+import useOrdersStore from '@/stores/orders';
+import OrderInfo from '@/components/front/OrderInfo.vue';
 
 export default {
   components: { OrderInfo },
   data() {
     return {
-      searchInput: "",
+      searchInput: '',
     };
   },
   computed: {
-    ...mapState(useOrdersStore, ["order", "localOrders"]),
+    ...mapState(useOrdersStore, ['order', 'localOrders']),
   },
   methods: {
-    ...mapActions(useOrdersStore, ["getOrder", "getLocalOrders"]),
+    ...mapActions(useOrdersStore, ['getOrder', 'getLocalOrders']),
     getOrderPage(id) {
-      if (typeof id === "string") {
+      if (typeof id === 'string') {
         this.$router.push(`/bookstore/search_order/${id}`);
         this.getOrder(id);
       }

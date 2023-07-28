@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import BadgeLabel from "@/components/front/BadgeLabel.vue";
+import BadgeLabel from '@/components/front/BadgeLabel.vue';
 
 export default {
   props: {

@@ -101,11 +101,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useAdminOrdersStore from "@/stores/adminOrders.js";
-import OrderModal from "@/components/admin/OrderModal.vue";
-import DeleteModal from "@/components/admin/DeleteModal.vue";
-import PaginationNav from "@/components/global/PaginationNav.vue";
+import { mapState, mapActions } from 'pinia';
+import useAdminOrdersStore from '@/stores/adminOrders';
+import OrderModal from '@/components/admin/OrderModal.vue';
+import DeleteModal from '@/components/admin/DeleteModal.vue';
+import PaginationNav from '@/components/global/PaginationNav.vue';
 
 export default {
   components: {
@@ -120,19 +120,19 @@ export default {
     };
   },
   computed: {
-    ...mapState(useAdminOrdersStore, ["orders", "pagination"]),
+    ...mapState(useAdminOrdersStore, ['orders', 'pagination']),
   },
   watch: {
     orders() {
-      this.orders.map((i) => this.isOpenOrderProducts.push(false));
+      this.orders.forEach(() => this.isOpenOrderProducts.push(false));
     },
   },
   methods: {
     ...mapActions(useAdminOrdersStore, [
-      "getOrders",
-      "putUpdateOrder",
-      "deleteOneOrder",
-      "deleteAllPayOrders",
+      'getOrders',
+      'putUpdateOrder',
+      'deleteOneOrder',
+      'deleteAllPayOrders',
     ]),
     openOrderModal(item) {
       this.tempOrder = { ...item };

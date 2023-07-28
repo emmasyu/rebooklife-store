@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     enterStore() {
-      this.$router.push("/bookstore");
+      this.$router.push('/bookstore');
     },
   },
   mounted() {

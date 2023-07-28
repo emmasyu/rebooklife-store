@@ -46,14 +46,14 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-import modalMixin from "@/components/mixins/modalMixin.js";
+import { mapActions } from 'pinia';
+import useCartsStore from '@/stores/carts';
+import modalMixin from '@/components/mixins/modalMixin';
 
 export default {
   mixins: [modalMixin],
   methods: {
-    ...mapActions(useCartsStore, ["deleteAllCarts"]),
+    ...mapActions(useCartsStore, ['deleteAllCarts']),
     async deleteAllBooks() {
       await this.deleteAllCarts();
       this.hideModal();

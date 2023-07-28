@@ -58,30 +58,30 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useStatedStore from "@/stores/states.js";
-import { postUserLogout } from "@/api";
+import { mapState, mapActions } from 'pinia';
+import useStatedStore from '@/stores/states';
+import { postUserLogout } from '@/api';
 
 export default {
   computed: {
-    ...mapState(useStatedStore, ["isLoading"]),
+    ...mapState(useStatedStore, ['isLoading']),
   },
   methods: {
-    ...mapActions(useStatedStore, ["changeLoadingState", "pushToastMessage"]),
+    ...mapActions(useStatedStore, ['changeLoadingState', 'pushToastMessage']),
     async logout() {
-      this.changeLoadingState(true, "登出系統中");
+      this.changeLoadingState(true, '登出系統中');
       try {
         const response = await postUserLogout();
         if (response.data.success) {
-          this.pushToastMessage("成功：已登出系統");
-          this.$router.push("/login");
+          this.pushToastMessage('成功：已登出系統');
+          this.$router.push('/login');
         }
       } catch (error) {
         this.pushToastMessage(
-          `登出功能失效，請重新整理或聯繫網站維護人員協助處理`,
+          '登出功能失效，請重新整理或聯繫網站維護人員協助處理',
           {
             success: false,
-          }
+          },
         );
       }
       this.changeLoadingState(false);

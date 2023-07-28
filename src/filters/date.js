@@ -8,7 +8,7 @@ function convertTimeToValue(time) {
   return new Date(time) / 1000;
 }
 function convertTimeToISO(time) {
-  return new Date(time * 1000).toISOString().split("T")[0];
+  return new Date(time * 1000).toISOString().split('T')[0];
 }
 
 export {

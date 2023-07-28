@@ -1,39 +1,37 @@
-import { defineStore } from "pinia";
-import stateStore from "./states";
+import { defineStore } from 'pinia';
+import stateStore from './states';
 
 const useStateStore = stateStore();
 
-export default defineStore("favorites", {
+export default defineStore('favorites', {
   state: () => ({ favorites: [] }),
 
   getters: {
     isFavorite() {
-      return (id) => {
-        return this.favorites?.some((item) => item.id === id);
-      };
+      return (id) => this.favorites?.some((item) => item.id === id);
     },
   },
 
   actions: {
     getFavorites() {
-      const favoritesJson = localStorage.getItem("favorites");
+      const favoritesJson = localStorage.getItem('favorites');
       if (favoritesJson) {
         this.favorites = JSON.parse(favoritesJson);
       }
     },
     setFavorite() {
-      localStorage.setItem("favorites", JSON.stringify(this.favorites));
+      localStorage.setItem('favorites', JSON.stringify(this.favorites));
     },
     addFavorite(id) {
       this.favorites?.push({ id, stars: null });
       this.setFavorite();
-      useStateStore.pushToastMessage("成功：已加入最愛");
+      useStateStore.pushToastMessage('成功：已加入最愛');
     },
     removeFavorite(id) {
       const index = this.favorites?.findIndex((item) => item.id === id);
       this.favorites?.splice(index, 1);
       this.setFavorite();
-      useStateStore.pushToastMessage("成功：從最愛移除");
+      useStateStore.pushToastMessage('成功：從最愛移除');
     },
     checkIsFavorite(id) {
       return this.favorites?.some((item) => item.id === id);

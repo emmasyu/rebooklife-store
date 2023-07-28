@@ -74,11 +74,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useAdminCouponsStore from "@/stores/adminCoupons.js";
-import CouponModal from "@/components/admin/CouponModal.vue";
-import DeleteModal from "@/components/admin/DeleteModal.vue";
-import PaginationNav from "@/components/global/PaginationNav.vue";
+import { mapState, mapActions } from 'pinia';
+import useAdminCouponsStore from '@/stores/adminCoupons';
+import CouponModal from '@/components/admin/CouponModal.vue';
+import DeleteModal from '@/components/admin/DeleteModal.vue';
+import PaginationNav from '@/components/global/PaginationNav.vue';
 
 export default {
   components: {
@@ -94,18 +94,18 @@ export default {
   },
   computed: {
     ...mapState(useAdminCouponsStore, [
-      "coupons",
-      "pagination",
-      "couponsCategory",
+      'coupons',
+      'pagination',
+      'couponsCategory',
     ]),
   },
   watch: {},
   methods: {
     ...mapActions(useAdminCouponsStore, [
-      "getCoupons",
-      "postNewCoupon",
-      "putUpdateCoupon",
-      "deleteOneCoupon",
+      'getCoupons',
+      'postNewCoupon',
+      'putUpdateCoupon',
+      'deleteOneCoupon',
     ]),
     openCouponModal(isNewCoupon, item) {
       if (isNewCoupon) {

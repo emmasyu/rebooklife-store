@@ -61,11 +61,11 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useProductsStore from "@/stores/products.js";
-import useFavoritesStore from "@/stores/favorites.js";
-import useRecentStore from "@/stores/recent.js";
-import BookCard from "@/components/front/BookCard.vue";
+import { mapState } from 'pinia';
+import useProductsStore from '@/stores/products';
+import useFavoritesStore from '@/stores/favorites';
+import useRecentStore from '@/stores/recent';
+import BookCard from '@/components/front/BookCard.vue';
 
 export default {
   components: { BookCard },
@@ -76,26 +76,22 @@ export default {
   },
   computed: {
     ...mapState(useProductsStore, [
-      "productsAll",
-      "productsCategory",
-      "productsOfFeatured",
+      'productsAll',
+      'productsCategory',
+      'productsOfFeatured',
     ]),
-    ...mapState(useFavoritesStore, ["favorites"]),
-    ...mapState(useRecentStore, ["recent"]),
+    ...mapState(useFavoritesStore, ['favorites']),
+    ...mapState(useRecentStore, ['recent']),
     category() {
       return this.productsCategory[this.currentCategory];
     },
     productsOfSubcategory() {
-      return (subcategory) => {
-        return this.productsAll?.filter(
-          (book) => book.subcategory === subcategory
-        );
-      };
+      return (subcategory) => this.productsAll?.filter((book) => book.subcategory === subcategory);
     },
   },
   mounted() {
     if (!this.category) {
-      this.$router.push("/bookstore");
+      this.$router.push('/bookstore');
     }
   },
 };

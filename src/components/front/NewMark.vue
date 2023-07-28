@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useProductsStore from "@/stores/products.js";
+import { mapState } from 'pinia';
+import useProductsStore from '@/stores/products';
 
 export default {
   props: {
@@ -19,7 +19,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(useProductsStore, ["isNewerProduct"]),
+    ...mapState(useProductsStore, ['isNewerProduct']),
   },
 };
 </script>

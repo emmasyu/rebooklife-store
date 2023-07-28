@@ -88,20 +88,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useCartsStore from "@/stores/carts.js";
+import { mapState, mapActions } from 'pinia';
+import useCartsStore from '@/stores/carts';
 
 export default {
   computed: {
-    ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
+    ...mapState(useCartsStore, ['carts', 'cartsTotalQty']),
     btnData() {
       return this.cartsTotalQty === 0
-        ? { text: "繼續選購", url: "/bookstore" }
-        : { text: "前往結帳", url: "/bookstore/cart" };
+        ? { text: '繼續選購', url: '/bookstore' }
+        : { text: '前往結帳', url: '/bookstore/cart' };
     },
   },
   methods: {
-    ...mapActions(useCartsStore, ["updateCart", "deleteCart"]),
+    ...mapActions(useCartsStore, ['updateCart', 'deleteCart']),
     async addOneQty(item) {
       const data = { product_id: item.id, qty: item.qty + 1 };
       await this.updateCart(item.id, data);

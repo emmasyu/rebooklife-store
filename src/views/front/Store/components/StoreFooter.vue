@@ -106,26 +106,26 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useStatesStore from "@/stores/states.js";
+import { mapState, mapActions } from 'pinia';
+import useStatesStore from '@/stores/states';
 
 export default {
   data() {
     return {
-      email: "",
+      email: '',
     };
   },
   computed: {
-    ...mapState(useStatesStore, ["toastMessage"]),
+    ...mapState(useStatesStore, ['toastMessage']),
   },
   methods: {
-    ...mapActions(useStatesStore, ["pushToastMessage"]),
+    ...mapActions(useStatesStore, ['pushToastMessage']),
     sendEmail() {
-      if (this.email === "") {
-        this.pushToastMessage("欄位不可為空", { success: false });
+      if (this.email === '') {
+        this.pushToastMessage('欄位不可為空', { success: false });
       } else {
-        this.pushToastMessage("郵件訂閱傳送成功");
-        this.email = "";
+        this.pushToastMessage('郵件訂閱傳送成功');
+        this.email = '';
       }
     },
   },

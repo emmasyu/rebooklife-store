@@ -1,4 +1,4 @@
-import Collapse from "bootstrap/js/dist/collapse";
+import Collapse from 'bootstrap/js/dist/collapse';
 
 export default {
   data() {
@@ -9,11 +9,11 @@ export default {
   methods: {
     hideCollapse() {
       this.collapse.hide();
-      this.isExpanded = "false";
+      this.isExpanded = 'false';
     },
   },
   mounted() {
-    this.collapse = new Collapse(".collapse", {
+    this.collapse = new Collapse('.collapse', {
       toggle: false,
     });
   },

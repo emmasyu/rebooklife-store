@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import useStateStore from "@/stores/states.js";
+import { mapActions } from 'pinia';
+import useStateStore from '@/stores/states';
 
 export default {
   props: {
@@ -41,17 +41,17 @@ export default {
   },
   computed: {
     splitTitles() {
-      return this.coupon.title.split(" ");
+      return this.coupon.title.split(' ');
     },
   },
   methods: {
-    ...mapActions(useStateStore, ["pushToastMessage"]),
+    ...mapActions(useStateStore, ['pushToastMessage']),
     async copyText(event) {
       try {
         await navigator.clipboard.writeText(event.target.innerText);
         this.pushToastMessage(`已成功複製 ${event.target.innerText} 到剪貼簿`);
       } catch (err) {
-        this.pushToastMessage(`很抱歉！複製功能異常，需麻煩您自行輸入優惠碼`, {
+        this.pushToastMessage('很抱歉！複製功能異常，需麻煩您自行輸入優惠碼', {
           success: false,
         });
       }

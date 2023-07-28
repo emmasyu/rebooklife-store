@@ -140,25 +140,26 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-import DeleteModal from "./components/DeleteModal.vue";
+import { mapState, mapActions } from 'pinia';
+import useCartsStore from '@/stores/carts';
+import DeleteModal from './components/DeleteModal.vue';
 
 export default {
   components: { DeleteModal },
   computed: {
-    ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
+    ...mapState(useCartsStore, ['carts', 'cartsTotalQty']),
     originTotal() {
-      return this.carts.carts?.reduce((all, curr) => {
-        return all + curr.product.origin_price * curr.qty;
-      }, 0);
+      return this.carts.carts?.reduce(
+        (all, curr) => all + curr.product.origin_price * curr.qty,
+        0,
+      );
     },
   },
   methods: {
     ...mapActions(useCartsStore, [
-      "updateCart",
-      "deleteCart",
-      "deleteAllCarts",
+      'updateCart',
+      'deleteCart',
+      'deleteAllCarts',
     ]),
     async addOneQty(item) {
       const data = { product_id: item.id, qty: item.qty + 1 };

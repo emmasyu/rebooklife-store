@@ -124,9 +124,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useOrdersStore from "@/stores/orders.js";
-import ButtonSolid from "@/components/front/ButtonSolid.vue";
+import { mapState, mapActions } from 'pinia';
+import useOrdersStore from '@/stores/orders';
+import ButtonSolid from '@/components/front/ButtonSolid.vue';
 
 export default {
   components: { ButtonSolid },
@@ -134,17 +134,17 @@ export default {
     return {
       form: {
         user: {},
-        message: "",
+        message: '',
       },
     };
   },
   computed: {
-    ...mapState(useOrdersStore, ["orderId"]),
+    ...mapState(useOrdersStore, ['orderId']),
   },
   methods: {
-    ...mapActions(useOrdersStore, ["postOrderInfo"]),
+    ...mapActions(useOrdersStore, ['postOrderInfo']),
     isRead(value) {
-      if (!value || !value?.length) return "請閱讀須知與條款";
+      if (!value || !value?.length) return '請閱讀須知與條款';
       return true;
     },
     async sendOrder() {

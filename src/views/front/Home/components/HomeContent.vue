@@ -150,11 +150,11 @@
 </template>
 
 <script>
-import collapseMixin from "@/components/mixins/collapseMixin.js";
-import HomeFAQ from "./HomeFAQ.vue";
-import { useWindowScroll } from "@vueuse/core";
-import { mapActions } from "pinia";
-import useScrollStateStore from "@/stores/scrollState.js";
+import { useWindowScroll } from '@vueuse/core';
+import { mapActions } from 'pinia';
+import collapseMixin from '@/components/mixins/collapseMixin';
+import useScrollStateStore from '@/stores/scrollState';
+import HomeFAQ from './HomeFAQ.vue';
 
 export default {
   components: { HomeFAQ },
@@ -164,34 +164,34 @@ export default {
       totalContentHight: 0,
       faqs: [
         {
-          question: "如果買到有瑕疵不滿意，該如何處理？",
+          question: '如果買到有瑕疵不滿意，該如何處理？',
           answer:
-            "如遇商品有瑕疵，請將書本包裝一起寄回，並附上瑕疵與問題說明，即可安排退款。退款流程需等待幾天的時間，請買家耐心等候，非常感謝您的支持！",
-          isExpanded: "false",
+            '如遇商品有瑕疵，請將書本包裝一起寄回，並附上瑕疵與問題說明，即可安排退款。退款流程需等待幾天的時間，請買家耐心等候，非常感謝您的支持！',
+          isExpanded: 'false',
         },
         {
-          question: "請問出貨與到貨時間為多少工作天？",
+          question: '請問出貨與到貨時間為多少工作天？',
           answer:
-            "下單付款後下一個工作日出貨，出貨後宅配約 1 ~ 2 工作天到貨。超商取貨付款約出貨後 2 ~ 3 工作天到貨。",
-          isExpanded: "false",
+            '下單付款後下一個工作日出貨，出貨後宅配約 1 ~ 2 工作天到貨。超商取貨付款約出貨後 2 ~ 3 工作天到貨。',
+          isExpanded: 'false',
         },
         {
-          question: "我想賣我的二手書籍，該如何操作？",
+          question: '我想賣我的二手書籍，該如何操作？',
           answer:
-            "可以透過郵寄貨運寄送至二搜書服務地址，並在箱內附上您的聯絡資訊，二搜書收到並完成估價後主動聯繫您並轉帳給您。或是至二搜書服務地址，現場為您估價，感謝您的分享！",
-          isExpanded: "false",
+            '可以透過郵寄貨運寄送至二搜書服務地址，並在箱內附上您的聯絡資訊，二搜書收到並完成估價後主動聯繫您並轉帳給您。或是至二搜書服務地址，現場為您估價，感謝您的分享！',
+          isExpanded: 'false',
         },
         {
-          question: "我有其他問題？",
+          question: '我有其他問題？',
           answer:
-            "如有其他二搜書相關問題，歡迎 mail 或是來電詢問。謝謝您的支持！",
-          isExpanded: "false",
+            '如有其他二搜書相關問題，歡迎 mail 或是來電詢問。謝謝您的支持！',
+          isExpanded: 'false',
         },
       ],
     };
   },
   methods: {
-    ...mapActions(useScrollStateStore, ["getContentTop"]),
+    ...mapActions(useScrollStateStore, ['getContentTop']),
     toggleCollapse() {
       Array.from(this.$refs.collapse.children).forEach((e, i) => {
         this.faqs[i].isExpanded = e.children[0].ariaExpanded;
@@ -200,8 +200,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.totalContentHight =
-        this.$refs.content?.getBoundingClientRect().height;
+      this.totalContentHight = this.$refs.content?.getBoundingClientRect().height;
       this.getContentTop(this.$refs.content);
     });
   },

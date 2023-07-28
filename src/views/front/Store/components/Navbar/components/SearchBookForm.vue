@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useStatesStore from "@/stores/states.js";
+import { mapState, mapActions } from 'pinia';
+import useStatesStore from '@/stores/states';
 
 export default {
   props: {
@@ -23,26 +23,26 @@ export default {
   },
   data() {
     return {
-      inputText: "",
+      inputText: '',
     };
   },
   computed: {
-    ...mapState(useStatesStore, ["isSearch"]),
+    ...mapState(useStatesStore, ['isSearch']),
   },
   watch: {
     isSearch() {
       if (!this.isSearch) {
-        this.inputText = "";
-        this.inputSearchText("");
+        this.inputText = '';
+        this.inputSearchText('');
       }
     },
   },
   methods: {
-    ...mapActions(useStatesStore, ["toggleSearchInput", "inputSearchText"]),
+    ...mapActions(useStatesStore, ['toggleSearchInput', 'inputSearchText']),
     searchBook() {
       if (!this.inputText) return;
       this.$router.push({
-        path: "/bookstore/search",
+        path: '/bookstore/search',
         query: { searchText: this.inputText.trim() },
       });
       this.toggleSearchInput();

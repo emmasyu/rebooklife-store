@@ -86,9 +86,9 @@
 </template>
 
 <script>
-import OrderList from "@/components/front/OrderList.vue";
-import { mapActions } from "pinia";
-import useStateStore from "@/stores/states.js";
+import { mapActions } from 'pinia';
+import OrderList from '@/components/front/OrderList.vue';
+import useStateStore from '@/stores/states';
 
 export default {
   components: { OrderList },
@@ -104,21 +104,21 @@ export default {
     };
   },
   methods: {
-    ...mapActions(useStateStore, ["pushToastMessage"]),
+    ...mapActions(useStateStore, ['pushToastMessage']),
     toggleList() {
       this.isOpenList = !this.isOpenList;
     },
     pushToPay() {
       this.$router.push(
-        `/bookstore/cart/order_pay/${this.$route.params.orderId}`
+        `/bookstore/cart/order_pay/${this.$route.params.orderId}`,
       );
     },
     async copyId() {
       try {
         await navigator.clipboard.writeText(this.$route.params.orderId);
-        this.pushToastMessage(`已成功複製 訂單編號 到剪貼簿`);
+        this.pushToastMessage('已成功複製 訂單編號 到剪貼簿');
       } catch (err) {
-        this.pushToastMessage(`很抱歉！複製功能失效, 暫時先自己選取複製吧`, {
+        this.pushToastMessage('很抱歉！複製功能失效, 暫時先自己選取複製吧', {
           success: false,
         });
       }

@@ -67,12 +67,12 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-import modalMixin from "@/components/mixins/modalMixin";
-import BookMark from "@/components/front/BookMark.vue";
-import StarRate from "@/components/front/StarRate.vue";
-import { useWindowSize } from "@vueuse/core";
+import { mapActions } from 'pinia';
+import { useWindowSize } from '@vueuse/core';
+import useCartsStore from '@/stores/carts';
+import modalMixin from '@/components/mixins/modalMixin';
+import BookMark from '@/components/front/BookMark.vue';
+import StarRate from '@/components/front/StarRate.vue';
 
 export default {
   components: { StarRate, BookMark },
@@ -89,7 +89,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(useCartsStore, ["addCart"]),
+    ...mapActions(useCartsStore, ['addCart']),
     trimTitle() {
       if (this.width >= 992) {
         return this.$filters.trim(this.tempProduct?.title, 20);

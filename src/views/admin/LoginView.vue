@@ -60,45 +60,45 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useStatedStore from "@/stores/states.js";
-import { postUserLogin } from "@/api";
+import { mapState, mapActions } from 'pinia';
+import useStatedStore from '@/stores/states';
+import { postUserLogin } from '@/api';
 
 export default {
   data() {
     return {
       user: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
       },
       isPasswordVisible: false,
     };
   },
   computed: {
-    ...mapState(useStatedStore, ["isLoading"]),
+    ...mapState(useStatedStore, ['isLoading']),
   },
   methods: {
-    ...mapActions(useStatedStore, ["changeLoadingState", "pushToastMessage"]),
+    ...mapActions(useStatedStore, ['changeLoadingState', 'pushToastMessage']),
     async login(user) {
-      this.changeLoadingState(true, "登錄中");
+      this.changeLoadingState(true, '登錄中');
       try {
         const response = await postUserLogin(user);
         if (response.data.success) {
           const { token, expired } = response.data;
           document.cookie = `reBookToken=${token}; expires=${new Date(
-            expired
+            expired,
           )}`;
-          this.pushToastMessage("成功：登入成功");
-          this.$router.push("/dashboard/products");
+          this.pushToastMessage('成功：登入成功');
+          this.$router.push('/dashboard/products');
         } else {
-          this.pushToastMessage("錯誤：帳號或密碼錯誤");
+          this.pushToastMessage('錯誤：帳號或密碼錯誤');
         }
       } catch (error) {
         this.pushToastMessage(
-          `登入後台功能異常, 請重新整理後再進行操作，或連繫網站維護人員處理`,
+          '登入後台功能異常, 請重新整理後再進行操作，或連繫網站維護人員處理',
           {
             success: false,
-          }
+          },
         );
       }
       this.changeLoadingState(false);

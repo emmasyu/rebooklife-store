@@ -43,7 +43,7 @@
             <span class="fs-5 fw-bold fs-lg-3">{{
               $filters.thousandSeparator(product.price)
             }}</span
-            >元　<span
+            >元  <span
               ><br class="d-lg-none" />| 庫存：{{ product.qty }}
               {{ product.unit }}</span
             >
@@ -128,12 +128,12 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useProductsStore from "@/stores/products.js";
-import useFavoritesStore from "@/stores/favorites.js";
-import useCartsStore from "@/stores/carts.js";
-import useRecentStore from "@/stores/recent.js";
-import RelatedBook from "./components/RelatedBook.vue";
+import { mapState, mapActions } from 'pinia';
+import useProductsStore from '@/stores/products';
+import useFavoritesStore from '@/stores/favorites';
+import useCartsStore from '@/stores/carts';
+import useRecentStore from '@/stores/recent';
+import RelatedBook from './components/RelatedBook.vue';
 
 export default {
   components: { RelatedBook },
@@ -144,20 +144,20 @@ export default {
     };
   },
   computed: {
-    ...mapState(useProductsStore, ["product"]),
-    ...mapState(useFavoritesStore, ["isFavorite"]),
+    ...mapState(useProductsStore, ['product']),
+    ...mapState(useFavoritesStore, ['isFavorite']),
     trimIntro() {
-      return this.$filters.trim(this.product?.book_intro ?? "", 130);
+      return this.$filters.trim(this.product?.book_intro ?? '', 130);
     },
     trimChapter() {
-      return this.$filters.trim(this.product?.book_chapter ?? "", 130);
+      return this.$filters.trim(this.product?.book_chapter ?? '', 130);
     },
   },
   methods: {
-    ...mapActions(useProductsStore, ["getProduct"]),
-    ...mapActions(useCartsStore, ["addCart"]),
-    ...mapActions(useFavoritesStore, ["toggleFavorite"]),
-    ...mapActions(useRecentStore, ["addRecent"]),
+    ...mapActions(useProductsStore, ['getProduct']),
+    ...mapActions(useCartsStore, ['addCart']),
+    ...mapActions(useFavoritesStore, ['toggleFavorite']),
+    ...mapActions(useRecentStore, ['addRecent']),
     async addBookToCart(id) {
       const data = { product_id: id, qty: 1 };
       await this.addCart(data);
@@ -169,7 +169,7 @@ export default {
       this.isExpandChapter = !this.isExpandChapter;
     },
     setPageTitle() {
-      const defaultTitle = "二搜書 | 二手書籍電商平台，書本的傳承與知識的傳遞";
+      const defaultTitle = '二搜書 | 二手書籍電商平台，書本的傳承與知識的傳遞';
       document.title = `${this.product.title} - ${defaultTitle}`;
     },
   },

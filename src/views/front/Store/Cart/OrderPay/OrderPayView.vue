@@ -9,19 +9,19 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
-import useOrdersStore from "@/stores/orders.js";
-import useCartsStore from "@/stores/carts.js";
-import OrderInfo from "@/components/front/OrderInfo.vue";
+import { mapState, mapActions } from 'pinia';
+import useOrdersStore from '@/stores/orders';
+import useCartsStore from '@/stores/carts';
+import OrderInfo from '@/components/front/OrderInfo.vue';
 
 export default {
   components: { OrderInfo },
   computed: {
-    ...mapState(useOrdersStore, ["order"]),
+    ...mapState(useOrdersStore, ['order']),
   },
   methods: {
-    ...mapActions(useOrdersStore, ["getOrder"]),
-    ...mapActions(useCartsStore, ["getCarts"]),
+    ...mapActions(useOrdersStore, ['getOrder']),
+    ...mapActions(useCartsStore, ['getCarts']),
   },
   created() {
     this.getOrder(this.$route.params.orderId);

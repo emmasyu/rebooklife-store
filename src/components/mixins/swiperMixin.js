@@ -1,6 +1,6 @@
-import Swiper, { EffectCoverflow } from "swiper";
-import "swiper/css/effect-coverflow";
-import "swiper/css";
+import Swiper, { EffectCoverflow } from 'swiper';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css';
 
 export default {
   data() {
@@ -16,6 +16,6 @@ export default {
   },
 
   mounted() {
-    this.swiper = new Swiper(".swiper", this.options);
+    this.swiper = new Swiper('.swiper', this.options);
   },
 };

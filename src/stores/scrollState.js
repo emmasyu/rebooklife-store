@@ -1,8 +1,13 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-export default defineStore("scroll state", {
+export default defineStore('scroll state', {
   state: () => ({
-    blockTopY: { home: 0, about: 0, faq: 0, contact: 0 },
+    blockTopY: {
+      home: 0,
+      about: 0,
+      faq: 0,
+      contact: 0,
+    },
   }),
 
   actions: {

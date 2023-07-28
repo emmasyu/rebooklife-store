@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Toast from "bootstrap/js/dist/toast";
+import Toast from 'bootstrap/js/dist/toast';
 
 export default {
-  name: "ToastCard",
+  name: 'ToastCard',
   props: {
     msg: {
       type: Object,

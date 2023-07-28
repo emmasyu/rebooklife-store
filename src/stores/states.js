@@ -1,18 +1,18 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-export default defineStore("states", {
+export default defineStore('states', {
   state: () => ({
     isLoading: false,
-    loadingBounceLetter: "",
+    loadingBounceLetter: '',
     toastMessage: [],
     isSearch: false,
-    searchText: "",
+    searchText: '',
   }),
 
   actions: {
-    changeLoadingState(state, letter = "資料讀取中") {
+    changeLoadingState(state, letter = '資料讀取中') {
       if (state === true) {
-        this.loadingBounceLetter = letter + "，請稍後...";
+        this.loadingBounceLetter = `${letter}，請稍後...`;
         this.isLoading = true;
       } else {
         this.isLoading = false;
@@ -21,7 +21,7 @@ export default defineStore("states", {
     pushToastMessage(title, data = { success: true }) {
       this.toastMessage.push({
         title,
-        style: data.success ? "success" : "danger",
+        style: data.success ? 'success' : 'danger',
         content: data.message,
       });
     },

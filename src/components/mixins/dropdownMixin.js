@@ -1,4 +1,4 @@
-import Dropdown from "bootstrap/js/dist/dropdown";
+import Dropdown from 'bootstrap/js/dist/dropdown';
 
 export default {
   data() {

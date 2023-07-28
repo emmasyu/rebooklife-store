@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useCartsStore from "@/stores/carts.js";
-import dropdownMixin from "@/components/mixins/dropdownMixin";
-import CartDropdown from "./CartDropdown.vue";
-import BadgeLabel from "@/components/front/BadgeLabel.vue";
-import TooltipLabel from "@/components/front/TooltipLabel.vue";
+import { mapState } from 'pinia';
+import useCartsStore from '@/stores/carts';
+import dropdownMixin from '@/components/mixins/dropdownMixin';
+import BadgeLabel from '@/components/front/BadgeLabel.vue';
+import TooltipLabel from '@/components/front/TooltipLabel.vue';
+import CartDropdown from './CartDropdown.vue';
 
 export default {
   props: {
@@ -42,28 +42,30 @@ export default {
   },
   components: { CartDropdown, BadgeLabel, TooltipLabel },
   computed: {
-    ...mapState(useCartsStore, ["carts", "cartsTotalQty"]),
+    ...mapState(useCartsStore, ['carts', 'cartsTotalQty']),
     navLinkPhoto() {
+      // eslint-disable-next-line consistent-return
       return (name) => {
         switch (name) {
-          case "bookstore":
+          case 'bookstore':
             return new URL(
-              `@/assets/images/openbook-white.png`,
-              import.meta.url
+              '@/assets/images/openbook-white.png',
+              import.meta.url,
             ).href;
-          case "bookmark":
+          case 'bookmark':
             return new URL(
-              `@/assets/images/bookmark-white.png`,
-              import.meta.url
+              '@/assets/images/bookmark-white.png',
+              import.meta.url,
             ).href;
-          case "shopping cart":
+          case 'shopping cart':
             return new URL(
-              `@/assets/images/shopping-cart-white.png`,
-              import.meta.url
+              '@/assets/images/shopping-cart-white.png',
+              import.meta.url,
             ).href;
-          case "order":
-            return new URL(`@/assets/images/order-white.png`, import.meta.url)
+          case 'order':
+            return new URL('@/assets/images/order-white.png', import.meta.url)
               .href;
+          // no default
         }
       };
     },

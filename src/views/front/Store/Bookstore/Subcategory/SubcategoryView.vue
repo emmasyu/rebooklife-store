@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useProductsStore from "@/stores/products.js";
-import BookCard from "@/components/front/BookCard.vue";
+import { mapState } from 'pinia';
+import useProductsStore from '@/stores/products';
+import BookCard from '@/components/front/BookCard.vue';
 
 export default {
   components: { BookCard },
@@ -24,21 +24,21 @@ export default {
     };
   },
   computed: {
-    ...mapState(useProductsStore, ["productsAll", "productsOfFeatured"]),
+    ...mapState(useProductsStore, ['productsAll', 'productsOfFeatured']),
     productsOfSubcategory() {
-      if (this.currentCategory === "all") {
+      if (this.currentCategory === 'all') {
         return Object.values(this.productsOfFeatured).find(
-          (item) => item.name === this.currentSubcategory
+          (item) => item.name === this.currentSubcategory,
         )?.books;
       }
       return this.productsAll?.filter(
-        (book) => book.subcategory === this.currentSubcategory
+        (book) => book.subcategory === this.currentSubcategory,
       );
     },
   },
   mounted() {
     if (!this.productsOfSubcategory) {
-      this.$router.push("/bookstore");
+      this.$router.push('/bookstore');
     }
   },
 };

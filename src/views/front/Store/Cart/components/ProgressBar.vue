@@ -24,20 +24,20 @@ export default {
     return {
       cartProgress: [
         {
-          name: "cart",
-          text: "購物車",
+          name: 'cart',
+          text: '購物車',
         },
         {
-          name: "order",
-          text: "訂單資訊",
+          name: 'order',
+          text: '訂單資訊',
         },
         {
-          name: "orderPay",
-          text: "確認訂單",
+          name: 'orderPay',
+          text: '確認訂單',
         },
         {
-          name: "orderFinish",
-          text: "訂單完成",
+          name: 'orderFinish',
+          text: '訂單完成',
         },
       ],
     };

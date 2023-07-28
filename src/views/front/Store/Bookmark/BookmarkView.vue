@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
-import useFavoritesStore from "@/stores/favorites.js";
-import BookmarkModal from "./components/BookmarkModal.vue";
-import BookmarkCard from "./components/BookCard.vue";
+import { mapState } from 'pinia';
+import useFavoritesStore from '@/stores/favorites';
+import BookmarkModal from './components/BookmarkModal.vue';
+import BookmarkCard from './components/BookCard.vue';
 
 export default {
   components: { BookmarkModal, BookmarkCard },
@@ -63,7 +63,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(useFavoritesStore, ["favorites"]),
+    ...mapState(useFavoritesStore, ['favorites']),
   },
   methods: {
     openBookmarkModal(product) {

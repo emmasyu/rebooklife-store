@@ -1,17 +1,17 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-export default defineStore("recent", {
+export default defineStore('recent', {
   state: () => ({ recent: [] }),
 
   actions: {
     getRecent() {
-      const recentJson = localStorage.getItem("recent");
+      const recentJson = localStorage.getItem('recent');
       if (recentJson) {
         this.recent = JSON.parse(recentJson);
       }
     },
     setRecent() {
-      localStorage.setItem("recent", JSON.stringify(this.recent));
+      localStorage.setItem('recent', JSON.stringify(this.recent));
     },
     addRecent(id) {
       if (this.recent?.includes(id)) {
