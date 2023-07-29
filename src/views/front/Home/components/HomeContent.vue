@@ -33,14 +33,20 @@
       <div
         class="d-xl-flex flex-row-reverse justify-content-around align-items-center"
       >
-        <div class="image pe-3 mb-8 col-xl-4">
+        <div class="image pe-3 mb-8 col-xl-4"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="1000">
           <img
             src="@/assets/images/book1-img-index.jpg"
             alt="book"
             class="object-fit-cover w-100 h-11 h-xl-100 rounded rounded-xl-diagonal"
           />
         </div>
-        <div class="px-4 mb-8 col-xl-7">
+        <div class="px-4 mb-8 col-xl-7"
+            data-aos="fade-up-right"
+            data-aos-delay="200"
+            data-aos-duration="1000">
           <p class="fs-6 mb-5 fs-md-5 text-indent-small text-indent-lg-base">
             二搜書是關於重新活化舊書的故事。為了讓書本重新流通，讓更多人能夠擁有優質的閱讀體驗，同時也是為了保護環境，減少浪費。我們相信每本書都有其獨特的價值，並且應該被重新發掘和利用。
           </p>
@@ -72,14 +78,20 @@
       <div
         class="d-xl-flex flex-row-reverse justify-content-around align-items-center"
       >
-        <div class="image pe-3 mb-8 col-xl-4">
+        <div class="image pe-3 mb-8 col-xl-4"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="1000">
           <img
             src="@/assets/images/book2-img-index.jpg"
             alt="book"
             class="object-fit-cover w-100 h-11 h-xl-100 rounded rounded-xl-diagonal"
           />
         </div>
-        <div class="px-4 fs-6 fs-md-5 col-xl-7" id="accordion" ref="collapse">
+        <div class="px-4 fs-6 fs-md-5 col-xl-7" id="accordion" ref="collapse"
+            data-aos="fade-up-right"
+            data-aos-delay="200"
+            data-aos-duration="1000">
           <HomeFAQ
             v-for="(faq, i) in faqs"
             :key="i"
@@ -105,7 +117,9 @@
       <div class="d-xl-flex justify-content-around">
         <div
           class="bg-decoration fs-6 fs-md-5 p-4 mb-9 w-xl-50 position-relative"
-        >
+          data-aos="fade-up-right"
+          data-aos-delay="200"
+          data-aos-duration="1000">
           <p class="mb-4">
             電話：<a
               class="text-white text-decoration-underline-hover"
@@ -132,7 +146,10 @@
             </p>
           </div>
         </div>
-        <div class="image pe-3 col-xl-4">
+        <div class="image pe-3 col-xl-4"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="1000">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465742.30048184056!2d120.62622884892619!3d24.220374621118435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917dff97922ef%3A0x87523ee47ea6447f!2z5Y-w5Lit5biC!5e0!3m2!1szh-TW!2stw!4v1682191399186!5m2!1szh-TW!2stw"
             width="480"
