@@ -75,11 +75,14 @@ export default {
     ...mapState(useOrdersStore, ['order', 'localOrders']),
   },
   methods: {
-    ...mapActions(useOrdersStore, ['getOrder', 'getLocalOrders']),
-    getOrderPage(id) {
+    ...mapActions(useOrdersStore, ['getOrder', 'getLocalOrders', 'deleteLocalOrders']),
+    async getOrderPage(id) {
       if (typeof id === 'string') {
         this.$router.push(`/bookstore/search_order/${id}`);
-        this.getOrder(id);
+        await this.getOrder(id);
+        if (this.order === null) {
+          this.deleteLocalOrders(id);
+        }
       }
       if (this.searchInput) {
         this.$router.push(`/bookstore/search_order/${this.searchInput.trim()}`);

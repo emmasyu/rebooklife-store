@@ -73,7 +73,6 @@ export default defineStore('admin order', {
       try {
         const response = await deleteOrder(item.id);
         if (response.data.success) {
-          useOrderStore.deleteLocalOrders(item.id);
           useStateStore.pushToastMessage('成功：已刪除訂單');
           await this.getOrders();
         } else {
